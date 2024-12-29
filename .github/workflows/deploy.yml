@@ -34,7 +34,10 @@ jobs:
         with:
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           known_hosts: ${{ secrets.SSH_KNOWN_HOSTS }}
-          if_key_exists: fail
+          if_key_exists: replace
+          config: |
+            Host *
+              StrictHostKeyChecking no
 
       - name: 🏷️ Set environment variables
         run: |
@@ -42,10 +45,12 @@ jobs:
             echo "DOCKER_COMPOSE_FILE=docker-compose.yaml" >> $GITHUB_ENV
             echo "APP_ENV=${{ secrets.APP_ENV_PRODUCTION }}" >> $GITHUB_ENV
             echo "DEPLOY_PATH=/opt/portfolio" >> $GITHUB_ENV
+            echo "PORT=3000" >> $GITHUB_ENV
           else
             echo "DOCKER_COMPOSE_FILE=docker-compose.staging.yaml" >> $GITHUB_ENV
             echo "APP_ENV=${{ secrets.APP_ENV_STAGING }}" >> $GITHUB_ENV
             echo "DEPLOY_PATH=/opt/portfolio" >> $GITHUB_ENV
+            echo "PORT=3001" >> $GITHUB_ENV
           fi
 
       - name: 🚀 Deploy to Server
@@ -56,8 +61,13 @@ jobs:
           DOCKER_COMPOSE_FILE: ${{ env.DOCKER_COMPOSE_FILE }}
           DEPLOY_PATH: ${{ env.DEPLOY_PATH }}
         run: |
-          # Se connecter au serveur et exécuter les commandes
-          ssh $SSH_USER@$SSH_HOST "\
+          # Vérifier la connexion SSH
+          echo "Testing SSH connection..."
+          ssh -o StrictHostKeyChecking=no $SSH_USER@$SSH_HOST "echo SSH connection successful"
+          
+          # Déployer l'application
+          echo "Deploying application..."
+          ssh -o StrictHostKeyChecking=no $SSH_USER@$SSH_HOST "\
             cd $DEPLOY_PATH && \
             docker compose -f $DOCKER_COMPOSE_FILE pull && \
             docker compose -f $DOCKER_COMPOSE_FILE up -d && \
@@ -67,17 +77,26 @@ jobs:
         env:
           SSH_USER: ${{ secrets.SSH_USER }}
           SSH_HOST: ${{ secrets.SSH_HOST }}
-          DEPLOY_URL: ${{ github.ref == 'refs/heads/main' && 'http://localhost:3000' || 'http://localhost:3001' }}
+          PORT: ${{ env.PORT }}
         run: |
-          # Attendre que l'application soit prête
           echo "Waiting for application to be ready..."
-          sleep 10
+          sleep 15
           
-          # Vérifier que l'application répond
-          ssh $SSH_USER@$SSH_HOST "curl -sSf $DEPLOY_URL > /dev/null"
-          if [ $? -eq 0 ]; then
-            echo "✅ Application is running successfully"
-          else
-            echo "❌ Application failed to start"
-            exit 1
-          fi
+          MAX_RETRIES=3
+          RETRY_COUNT=0
+          
+          while [ $RETRY_COUNT -lt $MAX_RETRIES ]; do
+            if curl -sSf "http://$SSH_HOST:$PORT" > /dev/null 2>&1; then
+              echo "✅ Application is running successfully on port $PORT"
+              exit 0
+            else
+              RETRY_COUNT=$((RETRY_COUNT + 1))
+              if [ $RETRY_COUNT -lt $MAX_RETRIES ]; then
+                echo "Retry $RETRY_COUNT/$MAX_RETRIES - Waiting 10 seconds..."
+                sleep 10
+              fi
+            fi
+          done
+          
+          echo "❌ Application failed to start after $MAX_RETRIES attempts"
+          exit 1

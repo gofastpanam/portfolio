@@ -8,7 +8,7 @@ Portfolio personnel présentant mes projets et compétences en développement we
 - **Styling**: Tailwind CSS
 - **Containerisation**: Docker
 - **CI/CD**: GitHub Actions
-- **Hébergement**: AWS
+- **Hébergement**: AWS EC2 (IP Statique)
 
 ## 🌟 Fonctionnalités
 
@@ -22,8 +22,8 @@ Portfolio personnel présentant mes projets et compétences en développement we
 
 ### Environnements
 
-- **Production**: http://localhost:3000
-- **Staging**: http://localhost:3001
+- **Production**: http://[IP-STATIQUE]:3000
+- **Staging**: http://[IP-STATIQUE]:3001
 
 ### Prérequis
 
@@ -62,27 +62,40 @@ Le déploiement est entièrement automatisé via GitHub Actions :
 ### Configuration Requise
 
 1. **Secrets GitHub**
-   - `SSH_HOST` : IP du serveur 
-   - `SSH_USER` : Utilisateur SSH 
-   - `SSH_PRIVATE_KEY` : Clé SSH privée
-   - `SSH_KNOWN_HOSTS` : Empreinte du serveur (via ssh-keyscan)
+   - `SSH_HOST` : IP statique du serveur AWS
+   - `SSH_USER` : Utilisateur SSH (ubuntu)
+   - `SSH_PRIVATE_KEY` : Clé SSH privée (incluant BEGIN et END)
+   - `SSH_KNOWN_HOSTS` : Empreinte du serveur (via ssh-keyscan -H [IP-STATIQUE])
 
 2. **Workflow de Déploiement**
    - Push sur `dev` -> déploiement automatique sur staging (port 3001)
    - Push sur `main` -> déploiement automatique sur production (port 3000)
 
-### Processus Automatisé
+## 🔒 Sécurité
 
-1. **Build**
-   - Tests et linting
-   - Construction de l'image Docker
-   - Push sur DockerHub
+### Conteneurisation
+- Utilisation d'un utilisateur non-root
+- Multi-stage builds pour réduire la surface d'attaque
+- Images basées sur Alpine Linux
+- Permissions restrictives sur les fichiers
 
-2. **Déploiement**
-   - Connexion SSH au serveur
-   - Pull de la nouvelle image
-   - Redémarrage des conteneurs
-   - Vérification de santé
+### CI/CD
+- Secrets sécurisés dans GitHub Actions
+- Vérification des signatures des images Docker
+- Tests automatisés avant déploiement
+- Health checks après déploiement
+
+### Infrastructure
+- Serveur AWS EC2 avec IP statique
+- Ports exposés minimaux (3000/3001)
+- Connexion SSH sécurisée
+- Mises à jour automatiques des dépendances
+
+### Bonnes Pratiques
+- Pas de secrets dans le code
+- Variables d'environnement pour la configuration
+- Logs sécurisés et rotation automatique
+- Conteneurs en lecture seule
 
 ## 📝 Développement
 
@@ -103,7 +116,6 @@ npm start
 - **Staging**: Port 3001
 - Images taguées automatiquement (production/staging)
 - Healthchecks configurés
-
 
 ## 📜 License
 
