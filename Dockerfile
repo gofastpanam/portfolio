@@ -17,8 +17,7 @@ WORKDIR /app
 
 # Installation des dépendances avec cache optimisé
 COPY package*.json ./
-COPY bun.lockb ./
-RUN npm ci
+RUN npm ci || (rm -rf node_modules && npm install)
 
 # Copie des fichiers source
 COPY . .
