@@ -1,5 +1,5 @@
 # Stage de build
-FROM --platform=amd64 node:20-alpine as builder
+FROM --platform=amd64 node:20-alpine AS builder
 
 WORKDIR /app
 
@@ -14,7 +14,7 @@ COPY . .
 RUN npm run build
 
 # Stage de production
-FROM node:20-alpine as production
+FROM node:20-alpine AS production
 
 WORKDIR /app
 
@@ -22,6 +22,8 @@ WORKDIR /app
 COPY --from=builder /app/build ./build
 COPY --from=builder /app/public ./public
 COPY --from=builder /app/package*.json ./
+COPY --from=builder /app/start.sh /app/start.sh
+
 
 # Installation des dépendances de production uniquement
 RUN npm ci --only=production
@@ -30,4 +32,5 @@ RUN npm ci --only=production
 EXPOSE 3000
 
 # Commande de démarrage
-CMD ["npm", "start"]
+ENTRYPOINT [ "./start.sh" ]
+# CMD ["npm", "start"]

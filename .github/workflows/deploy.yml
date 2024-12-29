@@ -1,0 +1,94 @@
+name: 🚀 Deploy
+
+on:
+  push:
+    branches:
+      - main
+      - dev
+  pull_request:
+    branches:
+      - main
+      - dev
+
+permissions:
+  actions: write
+  contents: read
+  pull-requests: read
+
+jobs:
+  lint:
+    name: ⬣ ESLint
+    runs-on: ubuntu-latest
+    steps:
+      - name: 🛑 Cancel Previous Runs
+        uses: styfle/cancel-workflow-action@0.11.0
+
+      - name: ⬇️ Checkout repo
+        uses: actions/checkout@v4
+
+      - name: 🏗 Setup Bun
+        uses: oven-sh/setup-bun@v1
+        with:
+          bun-version: latest
+
+      - name: 📦 Install dependencies
+        run: bun install
+
+      - name: 🔬 Lint
+        run: bun run lint
+
+  typecheck:
+    name: ʦ TypeScript
+    runs-on: ubuntu-latest
+    steps:
+      - name: 🛑 Cancel Previous Runs
+        uses: styfle/cancel-workflow-action@0.11.0
+
+      - name: ⬇️ Checkout repo
+        uses: actions/checkout@v4
+
+      - name: 🏗 Setup Bun
+        uses: oven-sh/setup-bun@v1
+        with:
+          bun-version: latest
+
+      - name: 📦 Install dependencies
+        run: bun install
+
+      - name: 🔎 Type check
+        run: bun run typecheck
+
+  build:
+    needs: [lint, typecheck]
+    uses: ./.github/workflows/build.yml
+    secrets: inherit
+
+  deploy:
+    needs: [build]
+    runs-on: ubuntu-latest
+    environment: ${{ github.ref == 'refs/heads/main' && 'production' || 'staging' }}
+    
+    steps:
+      - name: 🛑 Cancel Previous Runs
+        uses: styfle/cancel-workflow-action@0.11.0
+
+      - name: ⬇️ Checkout repo
+        uses: actions/checkout@v4
+
+      - name: 🏷️ Set environment variables
+        run: |
+          if [[ "${{ github.ref }}" == "refs/heads/main" ]]; then
+            echo "DOCKER_COMPOSE_FILE=docker-compose.yaml" >> $GITHUB_ENV
+            echo "APP_ENV=${{ secrets.APP_ENV_PRODUCTION }}" >> $GITHUB_ENV
+          else
+            echo "DOCKER_COMPOSE_FILE=docker-compose.staging.yaml" >> $GITHUB_ENV
+            echo "APP_ENV=${{ secrets.APP_ENV_STAGING }}" >> $GITHUB_ENV
+          fi
+
+      - name: 🐳 Deploy with Docker Compose
+        env:
+          APP_ENV: ${{ env.APP_ENV }}
+          DOCKER_COMPOSE_FILE: ${{ env.DOCKER_COMPOSE_FILE }}
+        run: |
+          docker-compose -f ${DOCKER_COMPOSE_FILE} pull
+          docker-compose -f ${DOCKER_COMPOSE_FILE} up -d

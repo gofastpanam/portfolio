@@ -10,9 +10,9 @@ export default function About() {
         <div className="bg-white rounded-lg shadow-md p-8 mb-8">
           <h2 className="text-2xl font-bold text-gray-800 mb-4">Qui suis-je ?</h2>
           <p className="text-gray-600 mb-6">
-            Je suis Benjamin Jacob, un étudiant passionné par le développement web à l'école Holberton.
-            Mon parcours m'a permis de développer une solide base en programmation et une grande curiosité
-            pour les nouvelles technologies.
+          Je suis Benjamin Jacob, un étudiant passionné par le développement web à l&apos;école Holberton.
+          Mon parcours m&apos;a permis de développer une solide base en programmation et une grande curiosité
+          pour les nouvelles technologies.
           </p>
           
           <h2 className="text-2xl font-bold text-gray-800 mb-4">Mon parcours</h2>
@@ -50,7 +50,7 @@ export default function About() {
           </div>
 
           <div className="bg-white rounded-lg shadow-md p-8">
-            <h2 className="text-2xl font-bold text-gray-800 mb-4">Centres d'intérêt</h2>
+            <h2 className="text-2xl font-bold text-gray-800 mb-4">Centres d&apos;intérêt</h2>
             <ul className="space-y-3 text-gray-600">
               <li className="flex items-center">
                 <span className="mr-2">🚀</span>
