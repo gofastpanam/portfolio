@@ -22,8 +22,10 @@ WORKDIR /app
 COPY --from=builder /app/build ./build
 COPY --from=builder /app/public ./public
 COPY --from=builder /app/package*.json ./
-COPY --from=builder /app/start.sh /app/start.sh
+COPY --from=builder /app/start.sh ./start.sh
 
+# Ajout des permissions d'exécution à start.sh
+RUN chmod +x ./start.sh
 
 # Installation des dépendances de production uniquement
 RUN npm ci --only=production
@@ -32,5 +34,4 @@ RUN npm ci --only=production
 EXPOSE 3000
 
 # Commande de démarrage
-ENTRYPOINT [ "./start.sh" ]
-# CMD ["npm", "start"]
+CMD ["./start.sh"]
