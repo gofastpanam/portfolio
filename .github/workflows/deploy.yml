@@ -10,10 +10,7 @@ on:
       - main
       - dev
 
-permissions:
-  actions: write
-  contents: read
-  pull-requests: read
+permissions: read-all
 
 jobs:
   lint:

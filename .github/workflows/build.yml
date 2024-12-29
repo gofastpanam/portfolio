@@ -13,9 +13,7 @@ on:
         required: false
         default: 'latest'
 
-permissions:
-  contents: read
-  packages: write
+permissions: read-all
 
 jobs:
   build:
