@@ -1,40 +1,119 @@
-# Welcome to Remix!
+# Portfolio de Benjamin Jacob
 
-- 📖 [Remix docs](https://remix.run/docs)
+Portfolio personnel présentant mes projets et compétences en développement web.
 
-## Development
+## 🚀 Technologies Utilisées
 
-Run the dev server:
+- **Frontend**: React avec Remix
+- **Styling**: Tailwind CSS
+- **Containerisation**: Docker
+- **CI/CD**: GitHub Actions
+- **Hébergement**: AWS
 
-```shellscript
+## 🌟 Fonctionnalités
+
+- Design responsive moderne avec Tailwind CSS
+- Architecture conteneurisée avec Docker
+- Pipeline CI/CD automatisé
+- Environnements de staging et production séparés
+- Déploiement automatique sur AWS
+
+## 🛠️ Configuration Technique
+
+### Environnements
+
+- **Production**: http://votre-domaine.com (Port 3000)
+- **Staging**: http://staging.votre-domaine.com (Port 3001)
+
+### Prérequis
+
+- Node.js >= 20.0.0
+- npm
+- Docker
+
+### Installation Locale
+
+```bash
+# Cloner le repository
+git clone https://github.com/gofastpanam/portfolio.git
+cd portfolio
+
+# Installer les dépendances
+npm install
+
+# Démarrer en développement
 npm run dev
 ```
 
-## Deployment
+### Docker
 
-First, build your app for production:
+```bash
+# Production
+docker compose up -d
 
-```sh
-npm run build
+# Staging
+docker compose -f docker-compose.staging.yaml up -d
 ```
 
-Then run the app in production mode:
+## 🚀 Déploiement
 
-```sh
+Le déploiement est automatisé via GitHub Actions :
+
+- Push sur `dev` -> déploiement staging
+- Push sur `main` -> déploiement production
+
+### Pipeline CI/CD
+
+1. **Lint & Type Check**
+   - ESLint pour la qualité du code
+   - TypeScript pour la vérification des types
+
+2. **Build & Test**
+   - Construction de l'image Docker
+   - Tests automatisés
+
+3. **Sécurité**
+   - Scan des vulnérabilités
+   - Vérification des dépendances
+
+4. **Déploiement**
+   - Push sur DockerHub
+   - Déploiement automatique sur AWS
+
+## 📝 Développement
+
+```bash
+# Démarrer en mode développement
+npm run dev
+
+# Build pour production
+npm run build
+
+# Démarrer en production
 npm start
 ```
 
-Now you'll need to pick a host to deploy it to.
+## 🔧 Configuration Docker
 
-### DIY
+- **Production**: Port 3000
+- **Staging**: Port 3001
+- Images taguées automatiquement (production/staging)
+- Healthchecks configurés
 
-If you're familiar with deploying Node applications, the built-in Remix app server is production-ready.
+## 🤝 Contribution
 
-Make sure to deploy the output of `npm run build`
+1. Fork le projet
+2. Créer une branche (`git checkout -b feature/AmazingFeature`)
+3. Commit les changements (`git commit -m 'Add some AmazingFeature'`)
+4. Push sur la branche (`git push origin feature/AmazingFeature`)
+5. Ouvrir une Pull Request
 
-- `build/server`
-- `build/client`
+## 📜 License
 
-## Styling
+Distributed under the MIT License. See `LICENSE` for more information.
 
-This template comes with [Tailwind CSS](https://tailwindcss.com/) already configured for a simple default starting experience. You can use whatever css framework you prefer. See the [Vite docs on css](https://vitejs.dev/guide/features.html#css) for more information.
+## 📫 Contact
+
+Nicolas Barbarisi - [LinkedIn](votre-linkedin) - email@example.com
+
+Project Link: [https://github.com/gofastpanam/portfolio](https://github.com/gofastpanam/portfolio)
