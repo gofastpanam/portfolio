@@ -3,7 +3,7 @@ services:
     environment:
       - APP_ENV
 
-    container_name: portfolio
+    container_name: portfolio-prod
     image: benjamin8972/portfolio:production
     restart: always
     ports:

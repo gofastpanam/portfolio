@@ -3,8 +3,8 @@ services:
     environment:
       - APP_ENV
 
-    container_name: portfolio
-    image: benjamin8972/portfolio:latest
+    container_name: portfolio-staging
+    image: benjamin8972/portfolio:staging
     restart: always
     ports:
       - '3001:3000'
