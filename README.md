@@ -22,8 +22,8 @@ Portfolio personnel présentant mes projets et compétences en développement we
 
 ### Environnements
 
-- **Production**: http://votre-domaine.com (Port 3000)
-- **Staging**: http://staging.votre-domaine.com (Port 3001)
+- **Production**: http://localhost:3000
+- **Staging**: http://localhost:3001
 
 ### Prérequis
 
@@ -57,28 +57,32 @@ docker compose -f docker-compose.staging.yaml up -d
 
 ## 🚀 Déploiement
 
-Le déploiement est automatisé via GitHub Actions :
+Le déploiement est entièrement automatisé via GitHub Actions :
 
-- Push sur `dev` -> déploiement staging
-- Push sur `main` -> déploiement production
+### Configuration Requise
 
-### Pipeline CI/CD
+1. **Secrets GitHub**
+   - `SSH_HOST` : IP du serveur 
+   - `SSH_USER` : Utilisateur SSH 
+   - `SSH_PRIVATE_KEY` : Clé SSH privée
+   - `SSH_KNOWN_HOSTS` : Empreinte du serveur (via ssh-keyscan)
 
-1. **Lint & Type Check**
-   - ESLint pour la qualité du code
-   - TypeScript pour la vérification des types
+2. **Workflow de Déploiement**
+   - Push sur `dev` -> déploiement automatique sur staging (port 3001)
+   - Push sur `main` -> déploiement automatique sur production (port 3000)
 
-2. **Build & Test**
+### Processus Automatisé
+
+1. **Build**
+   - Tests et linting
    - Construction de l'image Docker
-   - Tests automatisés
-
-3. **Sécurité**
-   - Scan des vulnérabilités
-   - Vérification des dépendances
-
-4. **Déploiement**
    - Push sur DockerHub
-   - Déploiement automatique sur AWS
+
+2. **Déploiement**
+   - Connexion SSH au serveur
+   - Pull de la nouvelle image
+   - Redémarrage des conteneurs
+   - Vérification de santé
 
 ## 📝 Développement
 
@@ -100,20 +104,7 @@ npm start
 - Images taguées automatiquement (production/staging)
 - Healthchecks configurés
 
-## 🤝 Contribution
-
-1. Fork le projet
-2. Créer une branche (`git checkout -b feature/AmazingFeature`)
-3. Commit les changements (`git commit -m 'Add some AmazingFeature'`)
-4. Push sur la branche (`git push origin feature/AmazingFeature`)
-5. Ouvrir une Pull Request
 
 ## 📜 License
 
 Distributed under the MIT License. See `LICENSE` for more information.
-
-## 📫 Contact
-
-Nicolas Barbarisi - [LinkedIn](votre-linkedin) - email@example.com
-
-Project Link: [https://github.com/gofastpanam/portfolio](https://github.com/gofastpanam/portfolio)
