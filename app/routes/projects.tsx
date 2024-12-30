@@ -1,16 +1,49 @@
+import { useState } from "react";
 import Header from "~/components/Header";
 
 export default function Projects() {
+  const [expandedProject, setExpandedProject] = useState<number | null>(null);
+
   const projects = [
     {
-      title: "Coming Soon",
+      title: "Memory Game - Mini Doges NFT",
+      description: "Un jeu de mémoire unique mettant en vedette la collection Mini Doge Art, la première collection de 10 000 NFTs inscrite sur la blockchain Dogecoin.",
+      shortDescription: "Testez votre mémoire en associant les paires de Mini Doges!",
+      technologies: ["Python", "Tkinter", "PIL", "Git"],
+      image: "/images/memory-game.jpg",
+      github: "https://github.com/gofastpanam/memory_game",
+      technicalDetails: {
+        features: [
+          "Interface graphique intuitive avec Tkinter",
+          "Gestion optimisée de la mémoire (limite 100MB)",
+          "Validation des images (format, taille, intégrité)",
+          "Gestion des erreurs robuste",
+          "Messages d'erreur explicites"
+        ],
+        structure: [
+          "memory_game.py - Code principal du jeu",
+          "card_back.png - Image du dos des cartes",
+          "*.png - Images des Mini Doges",
+          "requirements.txt - Dépendances Python"
+        ],
+        learnings: [
+          "Manipulation d'images avec PIL",
+          "Interface utilisateur avec Tkinter",
+          "Gestion de la mémoire en Python",
+          "Bonnes pratiques de sécurité",
+          "Versionnage avec Git"
+        ]
+      }
+    },
+    {
+      title: "...",
       description: "...",
       technologies: ["React", "Node.js", "MongoDB"],
       image: "/images/project1.jpg",
       github: "https://github.com/yourusername/project1",
       demo: "https://project1-demo.com"
     },
-    // Autres projets
+    // Autres projets à venir
   ];
 
   return (
@@ -21,14 +54,22 @@ export default function Projects() {
         
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {projects.map((project, index) => (
-            <div key={index} className="bg-white rounded-lg shadow-md overflow-hidden">
+            <div key={index} className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300">
               <div className="aspect-w-16 aspect-h-9 bg-gray-200">
-                {/*  image */}
-                <div className="w-full h-48 bg-gray-300"></div>
+                {project.image && (
+                  <img 
+                    src={project.image} 
+                    alt={project.title}
+                    className="w-full h-48 object-cover"
+                  />
+                )}
               </div>
               <div className="p-6">
                 <h2 className="text-xl font-bold text-gray-800 mb-2">{project.title}</h2>
-                <p className="text-gray-600 mb-4">{project.description}</p>
+                <p className="text-gray-600 mb-4">
+                  {expandedProject === index ? project.description : project.shortDescription}
+                </p>
+                
                 <div className="flex flex-wrap gap-2 mb-4">
                   {project.technologies.map((tech, techIndex) => (
                     <span
@@ -39,29 +80,73 @@ export default function Projects() {
                     </span>
                   ))}
                 </div>
-                <div className="flex space-x-4">
-                  <a
-                    href={project.github}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center text-gray-600 hover:text-gray-900"
-                  >
-                    <svg className="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 24 24">
-                      <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z" />
-                    </svg>
-                    GitHub
-                  </a>
-                  <a
-                    href={project.demo}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center text-blue-600 hover:text-blue-800"
-                  >
-                    <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                    </svg>
-                    Démo
-                  </a>
+
+                {expandedProject === index && project.technicalDetails && (
+                  <div className="mt-4 space-y-4">
+                    <div>
+                      <h3 className="font-semibold text-gray-800 mb-2">Fonctionnalités clés</h3>
+                      <ul className="list-disc list-inside space-y-1 text-gray-600">
+                        {project.technicalDetails.features.map((feature, i) => (
+                          <li key={i}>{feature}</li>
+                        ))}
+                      </ul>
+                    </div>
+
+                    <div>
+                      <h3 className="font-semibold text-gray-800 mb-2">Structure du projet</h3>
+                      <ul className="list-disc list-inside space-y-1 text-gray-600">
+                        {project.technicalDetails.structure.map((item, i) => (
+                          <li key={i}>{item}</li>
+                        ))}
+                      </ul>
+                    </div>
+
+                    <div>
+                      <h3 className="font-semibold text-gray-800 mb-2">Apprentissages</h3>
+                      <ul className="list-disc list-inside space-y-1 text-gray-600">
+                        {project.technicalDetails.learnings.map((learning, i) => (
+                          <li key={i}>{learning}</li>
+                        ))}
+                      </ul>
+                    </div>
+                  </div>
+                )}
+
+                <div className="flex space-x-4 mt-4">
+                  {project.github && (
+                    <a
+                      href={project.github}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center text-gray-600 hover:text-gray-900"
+                    >
+                      <svg className="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.92 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z" />
+                      </svg>
+                      Voir sur GitHub
+                    </a>
+                  )}
+                  {project.demo && (
+                    <a
+                      href={project.demo}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center text-blue-600 hover:text-blue-800"
+                    >
+                      <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                      </svg>
+                      Démo
+                    </a>
+                  )}
+                  {project.technicalDetails && (
+                    <button
+                      onClick={() => setExpandedProject(expandedProject === index ? null : index)}
+                      className="text-blue-600 hover:text-blue-800 font-medium"
+                    >
+                      {expandedProject === index ? "Voir moins" : "Voir plus"}
+                    </button>
+                  )}
                 </div>
               </div>
             </div>
