@@ -36,14 +36,55 @@ export default function Projects() {
       }
     },
     {
+      title: "SafeMessage - Chiffrement César",
+      description: "Une application en C qui implémente le chiffrement de César avec des fonctionnalités avancées d'analyse et de cryptanalyse. Développée avec une attention particulière à la sécurité et aux performances.",
+      shortDescription: "Application de chiffrement avec analyse de fréquence et mode bruteforce.",
+      technologies: ["C", "GCC", "Make", "Git"],
+      image: "/images/safemessage.jpg",
+      github: "https://github.com/gofastpanam/SafeMessage",
+      technicalDetails: {
+        features: [
+          "Chiffrement/déchiffrement avec décalages -25 à +25",
+          "Analyse de fréquence des lettres",
+          "Mode bruteforce complet",
+          "Préservation de la casse et caractères spéciaux",
+          "Protection contre les buffer overflow"
+        ],
+        security: [
+          "Protection contre les buffer overflow",
+          "Validation des entrées utilisateur",
+          "Gestion sécurisée des données",
+          "Tests de sécurité systématiques"
+        ],
+        concepts: [
+          "Arithmétique modulaire",
+          "Analyse de fréquence",
+          "Cryptanalyse basique",
+          "Optimisation des performances"
+        ],
+        structure: [
+          "SafeMessage.c - Code source principal",
+          "Makefile - Script de compilation",
+          "README.md - Documentation complète"
+        ],
+        learnings: [
+          "Manipulation avancée des chaînes en C",
+          "Gestion de la mémoire et pointeurs",
+          "Cryptographie de base (César, fréquences)",
+          "Sécurisation des entrées utilisateur",
+          "Modularisation du code en C",
+          "Utilisation de Make et GCC"
+        ]
+      }
+    },
+    {
       title: "...",
       description: "...",
       technologies: ["React", "Node.js", "MongoDB"],
       image: "/images/project1.jpg",
       github: "https://github.com/yourusername/project1",
       demo: "https://project1-demo.com"
-    },
-    // Autres projets à venir
+    }
   ];
 
   return (
@@ -91,6 +132,28 @@ export default function Projects() {
                         ))}
                       </ul>
                     </div>
+
+                    {project.technicalDetails.security && (
+                      <div>
+                        <h3 className="font-semibold text-gray-800 mb-2">Sécurité</h3>
+                        <ul className="list-disc list-inside space-y-1 text-gray-600">
+                          {project.technicalDetails.security.map((item, i) => (
+                            <li key={i}>{item}</li>
+                          ))}
+                        </ul>
+                      </div>
+                    )}
+
+                    {project.technicalDetails.concepts && (
+                      <div>
+                        <h3 className="font-semibold text-gray-800 mb-2">Concepts clés</h3>
+                        <ul className="list-disc list-inside space-y-1 text-gray-600">
+                          {project.technicalDetails.concepts.map((concept, i) => (
+                            <li key={i}>{concept}</li>
+                          ))}
+                        </ul>
+                      </div>
+                    )}
 
                     <div>
                       <h3 className="font-semibold text-gray-800 mb-2">Structure du projet</h3>
