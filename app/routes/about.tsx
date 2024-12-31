@@ -152,66 +152,52 @@ export default function About() {
         </div>
 
         {/* Section IA */}
-        <div className="bg-white rounded-xl shadow-lg p-8 transform hover:scale-105 transition-transform duration-300">
+        <div className="bg-white rounded-xl shadow-lg p-8">
           <h3 className="text-2xl font-bold text-gray-800 mb-8">Outils d&apos;Intelligence Artificielle</h3>
-          
-          {/* Cartes d'outils IA */}
-          <div className="grid grid-cols-2 gap-6">
-            {/* ChatGPT */}
-            <div className="bg-gradient-to-br from-white to-blue-50 p-6 rounded-xl shadow-sm hover:shadow-md transition-shadow">
-              <div className="flex items-center justify-center mb-4">
-                <img
-                  src="/ai-logos/chatgpt-logo.png"
-                  alt="ChatGPT Logo"
-                  className="w-16 h-16 object-contain"
-                />
-              </div>
-              <h4 className="text-lg font-semibold text-gray-800 mb-2">ChatGPT</h4>
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
+            <div className="bg-gradient-to-br from-white to-blue-50 p-6 rounded-xl">
+              <img 
+                src="/ai-logos/chatgpt-logo.png" 
+                alt="ChatGPT" 
+                className="w-24 h-24 mx-auto mb-4 hover:scale-110 transition-transform duration-300"
+              />
+              <h4 className="text-lg font-semibold text-center mb-3">ChatGPT</h4>
               <div className="w-full bg-blue-100 rounded-full h-1.5">
                 <div className="bg-blue-500 h-1.5 rounded-full" style={{ width: '90%' }}></div>
               </div>
             </div>
 
-            {/* Perplexity */}
-            <div className="bg-gradient-to-br from-white to-green-50 p-6 rounded-xl shadow-sm hover:shadow-md transition-shadow">
-              <div className="flex items-center justify-center mb-4">
-                <img
-                  src="/ai-logos/perplexity-logo.png"
-                  alt="Perplexity Logo"
-                  className="w-16 h-16 object-contain"
-                />
-              </div>
-              <h4 className="text-lg font-semibold text-gray-800 mb-2">Perplexity</h4>
+            <div className="bg-gradient-to-br from-white to-green-50 p-6 rounded-xl">
+              <img 
+                src="/ai-logos/perplexity-logo.png" 
+                alt="Perplexity" 
+                className="w-24 h-24 mx-auto mb-4 hover:scale-110 transition-transform duration-300"
+              />
+              <h4 className="text-lg font-semibold text-center mb-3">Perplexity</h4>
               <div className="w-full bg-green-100 rounded-full h-1.5">
                 <div className="bg-green-500 h-1.5 rounded-full" style={{ width: '85%' }}></div>
               </div>
             </div>
 
-            {/* Midjourney */}
-            <div className="bg-gradient-to-br from-white to-purple-50 p-6 rounded-xl shadow-sm hover:shadow-md transition-shadow">
-              <div className="flex items-center justify-center mb-4">
-                <img
-                  src="/ai-logos/midjourney-logo.png"
-                  alt="Midjourney Logo"
-                  className="w-16 h-16 object-contain"
-                />
-              </div>
-              <h4 className="text-lg font-semibold text-gray-800 mb-2">Midjourney</h4>
+            <div className="bg-gradient-to-br from-white to-purple-50 p-6 rounded-xl">
+              <img 
+                src="/ai-logos/midjourney-logo.png" 
+                alt="Midjourney" 
+                className="w-24 h-24 mx-auto mb-4 hover:scale-110 transition-transform duration-300"
+              />
+              <h4 className="text-lg font-semibold text-center mb-3">Midjourney</h4>
               <div className="w-full bg-purple-100 rounded-full h-1.5">
                 <div className="bg-purple-500 h-1.5 rounded-full" style={{ width: '90%' }}></div>
               </div>
             </div>
 
-            {/* Leonardo */}
-            <div className="bg-gradient-to-br from-white to-pink-50 p-6 rounded-xl shadow-sm hover:shadow-md transition-shadow">
-              <div className="flex items-center justify-center mb-4">
-                <img
-                  src="/ai-logos/leonardo-logo.png"
-                  alt="Leonardo Logo"
-                  className="w-16 h-16 object-contain"
-                />
-              </div>
-              <h4 className="text-lg font-semibold text-gray-800 mb-2">Leonardo</h4>
+            <div className="bg-gradient-to-br from-white to-pink-50 p-6 rounded-xl">
+              <img 
+                src="/ai-logos/leonardo-logo.png" 
+                alt="Leonardo" 
+                className="w-24 h-24 mx-auto mb-4 hover:scale-110 transition-transform duration-300"
+              />
+              <h4 className="text-lg font-semibold text-center mb-3">Leonardo</h4>
               <div className="w-full bg-pink-100 rounded-full h-1.5">
                 <div className="bg-pink-500 h-1.5 rounded-full" style={{ width: '85%' }}></div>
               </div>
