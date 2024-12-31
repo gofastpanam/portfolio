@@ -3,24 +3,24 @@ import ProgressBar from "~/components/ProgressBar";
 
 export default function About() {
   const mainSkills = [
-    { name: "WordPress", percentage: 90, color: "green" },
-    { name: "Front-end", percentage: 65, color: "blue" },
+    { name: "Front-end", percentage: 70, color: "blue" },
     { name: "Back-end", percentage: 70, color: "indigo" },
-    { name: "Photoshop", percentage: 65, color: "purple" }
+    { name: "WordPress", percentage: 90, color: "green" },
+    { name: "Photoshop", percentage: 60, color: "purple" }
   ];
 
   const technicalSkills = [
-    { name: "HTML/CSS", percentage: 65 },
+    { name: "HTML/CSS", percentage: 70 },
     { name: "JavaScript", percentage: 50 },
-    { name: "Python", percentage: 75 },
-    { name: "C", percentage: 65 }
+    { name: "Python", percentage: 70 },
+    { name: "C", percentage: 60 }
   ];
 
   const ecommerceSkills = [
-    { name: "Shopify/Wordpress", percentage: 90, color: "emerald" },
-    { name: "Marketing Digital", percentage: 75, color: "cyan" },
-    { name: "SEO/SEA", percentage: 75, color: "teal" },
-    { name: "Gestion Client", percentage: 85, color: "sky" }
+    { name: "WooCommerce/Shopify", percentage: 90, color: "emerald" },
+    { name: "Marketing Digital", percentage: 80, color: "cyan" },
+    { name: "Collecte De Leads", percentage: 70, color: "teal" },
+    { name: "Gestion Client", percentage: 80, color: "sky" }
   ];
 
   const languages = [
@@ -55,7 +55,7 @@ export default function About() {
 
         {/* Section Expérience */}
         <div className="bg-white rounded-lg shadow-md p-8 mb-8">
-          <h2 className="text-2xl font-bold text-gray-800 mb-6">Expérience Professionnelle</h2>
+          <h2 className="text-2xl font-bold text-gray-800 mb-6">Parcours Professionnel Numérique</h2>
           <div className="border-l-4 border-blue-500 pl-6 mb-8">
             <div className="flex justify-between items-start mb-2">
               <h3 className="text-xl font-bold text-gray-800">Gérant d&apos;une activité E-commerce</h3>
@@ -70,16 +70,16 @@ export default function About() {
                 <h4 className="font-bold text-gray-700 mb-2">Développement E-commerce</h4>
                 <ul className="list-disc list-inside text-gray-600 space-y-1">
                   <li>Création de sites web sur Shopify et WordPress</li>
-                  <li>Personnalisation et optimisation des plateformes</li>
+                  <li>Personnalisation, Sécurisation et optimisation des plateformes</li>
                   <li>Intégration de solutions de paiement et logistique</li>
                 </ul>
               </div>
               <div>
                 <h4 className="font-bold text-gray-700 mb-2">Marketing Digital</h4>
                 <ul className="list-disc list-inside text-gray-600 space-y-1">
-                  <li>Gestion de campagnes Facebook et Instagram Ads</li>
+                  <li>Gestion de campagnes d'acquisition et de retargeting sur Facebook et Instagram Ads</li>
                   <li>Stratégies de placement sur Snapchat</li>
-                  <li>Optimisation SEO et campagnes SEA</li>
+                  <li>Optimisation SEO interne, SEO externe et campagnes SEA d'acquisition et de retargeting</li>
                 </ul>
               </div>
             </div>
