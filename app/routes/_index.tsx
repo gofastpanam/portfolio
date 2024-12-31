@@ -4,17 +4,17 @@ import ProgressBar from "~/components/ProgressBar";
 
 export default function Index() {
   const mainSkills = [
-    { name: "WordPress", percentage: 90, color: "green" },
-    { name: "Front-end", percentage: 65, color: "blue" },
+    { name: "Front-end", percentage: 70, color: "blue" },
     { name: "Back-end", percentage: 70, color: "indigo" },
-    { name: "Photoshop", percentage: 65, color: "purple" }
+    { name: "WordPress", percentage: 90, color: "green" },
+    { name: "Photoshop", percentage: 60, color: "purple" }
   ];
 
   const technicalSkills = [
-    { name: "HTML/CSS", percentage: 65 },
+    { name: "HTML/CSS", percentage: 70 },
     { name: "JavaScript", percentage: 50 },
-    { name: "Python", percentage: 75 },
-    { name: "C", percentage: 65 }
+    { name: "Python", percentage: 70 },
+    { name: "C", percentage: 60 }
   ];
 
   const recentProjects = [
