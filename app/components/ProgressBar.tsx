@@ -13,10 +13,13 @@ export default function ProgressBar({ label, percentage, color = "blue" }: Progr
       </div>
       <div className="h-2 bg-gray-200 rounded-full overflow-hidden">
         <div 
-          className={`h-full bg-${color}-600 rounded-full transition-all duration-1000 ease-out`}
+          className={`h-full rounded-full transition-all duration-1000 ease-out`}
           style={{ 
             width: `${percentage}%`,
-            animation: 'progressAnimation 1.5s ease-out'
+            backgroundColor: color === "blue" ? "#3B82F6" :
+                           color === "indigo" ? "#6366F1" :
+                           color === "purple" ? "#9333EA" :
+                           color === "green" ? "#22C55E" : "#3B82F6"
           }}
         />
       </div>

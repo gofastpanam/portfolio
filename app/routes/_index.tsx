@@ -22,12 +22,14 @@ export default function Index() {
       title: "Memory Game",
       description: "Jeu de mémoire en Python avec Tkinter",
       icon: "🎮",
+      image: "/images/memory-game.png",
       tags: ["Python", "Tkinter", "UI Design"]
     },
     {
       title: "SafeMessage",
       description: "Application de chiffrement en C",
       icon: "🔐",
+      image: "/images/safe-message.png",
       tags: ["C", "Cryptographie", "Sécurité"]
     }
   ];
@@ -38,6 +40,13 @@ export default function Index() {
       <main className="container mx-auto px-6 py-12">
         {/* Hero Section */}
         <div className="max-w-4xl mx-auto text-center mb-16">
+          <div className="mb-8">
+            <img
+              src="/images/benjamin-picture.png"
+              alt="Benjamin Jacob"
+              className="w-48 h-48 rounded-full mx-auto shadow-lg border-4 border-white"
+            />
+          </div>
           <h1 className="text-5xl font-bold text-gray-900 mb-4">Benjamin Jacob</h1>
           <p className="text-xl text-gray-600 mb-8">
             Étudiant développeur à Holberton School, passionné par l&apos;apprentissage
@@ -97,21 +106,28 @@ export default function Index() {
           <h2 className="text-3xl font-bold text-gray-800 mb-8 text-center">Projets Récents</h2>
           <div className="grid md:grid-cols-2 gap-8">
             {recentProjects.map((project, index) => (
-              <div key={index} className="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow">
-                <div className="flex items-center mb-4">
-                  <span className="text-2xl mr-3">{project.icon}</span>
-                  <h3 className="text-xl font-bold text-gray-800">{project.title}</h3>
-                </div>
-                <p className="text-gray-600 mb-4">{project.description}</p>
-                <div className="flex flex-wrap gap-2">
-                  {project.tags.map((tag, tagIndex) => (
-                    <span
-                      key={tagIndex}
-                      className="px-3 py-1 bg-blue-100 text-blue-600 rounded-full text-sm"
-                    >
-                      {tag}
-                    </span>
-                  ))}
+              <div key={index} className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow">
+                <img
+                  src={project.image}
+                  alt={project.title}
+                  className="w-full h-48 object-cover"
+                />
+                <div className="p-6">
+                  <div className="flex items-center mb-4">
+                    <span className="text-2xl mr-3">{project.icon}</span>
+                    <h3 className="text-xl font-bold text-gray-800">{project.title}</h3>
+                  </div>
+                  <p className="text-gray-600 mb-4">{project.description}</p>
+                  <div className="flex flex-wrap gap-2">
+                    {project.tags.map((tag, tagIndex) => (
+                      <span
+                        key={tagIndex}
+                        className="px-3 py-1 bg-blue-100 text-blue-600 rounded-full text-sm"
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
                 </div>
               </div>
             ))}
