@@ -78,12 +78,10 @@ export default function Projects() {
       }
     },
     {
-      title: "...",
-      description: "...",
-      technologies: ["React", "Node.js", "MongoDB"],
-      image: "/images/project1.jpg",
-      github: "https://github.com/yourusername/project1",
-      demo: "https://project1-demo.com"
+      title: "StoryNest - (En cours de développement)",
+      description: "Parce que chaque histoire mérite un prénom, StoryNest est une application mobile alimentée par IA, conçue pour générer des contes pour enfants personnalisés captivants.",
+      technologies: ["Typescript", "React Native", "Expo", "Firebase"],
+      image: "/images/storynest.jpg",
     }
   ];
 
@@ -189,19 +187,7 @@ export default function Projects() {
                       Voir sur GitHub
                     </a>
                   )}
-                  {project.demo && (
-                    <a
-                      href={project.demo}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center text-blue-600 hover:text-blue-800"
-                    >
-                      <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                      </svg>
-                      Démo
-                    </a>
-                  )}
+
                   {project.technicalDetails && (
                     <button
                       onClick={() => setExpandedProject(expandedProject === index ? null : index)}
