@@ -43,11 +43,11 @@ export default function About() {
             <div>
               <h1 className="text-3xl font-bold text-gray-800 mb-4">Benjamin Jacob</h1>
               <p className="text-xl text-gray-600 mb-4">
-                Développeur web & mobile
+                Développeur web &amp; mobile
               </p>
               <p className="text-gray-600">
                 Développeur en formation, passionné par les nouvelles technologies et
-                motivé par l'envie de créer des solutions logicielles efficaces et innovantes.
+                motivé par l&apos;envie de créer des solutions logicielles efficaces et innovantes.
               </p>
             </div>
           </div>
@@ -58,7 +58,7 @@ export default function About() {
           <h2 className="text-2xl font-bold text-gray-800 mb-6">Parcours Professionnel Numérique</h2>
           <div className="border-l-4 border-blue-500 pl-6 mb-8">
             <div className="flex justify-between items-start mb-2">
-              <h3 className="text-xl font-bold text-gray-800">Gérant d'une activité E-commerce</h3>
+              <h3 className="text-xl font-bold text-gray-800">Gérant d&apos;une activité E-commerce</h3>
               <span className="text-gray-600">Février 2017 - Janvier 2022</span>
             </div>
             <p className="text-gray-600 mb-4">
@@ -77,9 +77,9 @@ export default function About() {
               <div>
                 <h4 className="font-bold text-gray-700 mb-2">Marketing Digital</h4>
                 <ul className="list-disc list-inside text-gray-600 space-y-1">
-                  <li>Gestion de campagnes d'acquisition et de retargeting sur Facebook et Instagram Ads</li>
+                  <li>Gestion de campagnes d&apos;acquisition et de retargeting sur Facebook et Instagram Ads</li>
                   <li>Stratégies de placement sur Snapchat</li>
-                  <li>Optimisation SEO interne, SEO externe et campagnes SEA d'acquisition et de retargeting</li>
+                  <li>Optimisation SEO interne, SEO externe et campagnes SEA d&apos;acquisition et de retargeting</li>
                 </ul>
               </div>
             </div>
