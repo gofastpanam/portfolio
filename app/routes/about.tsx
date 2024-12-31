@@ -156,16 +156,96 @@ export default function About() {
           </div>
         </div>
 
-        {/* Section Langues */}
-        <div className="bg-white rounded-lg shadow-md p-8">
-          <h2 className="text-2xl font-bold text-gray-800 mb-6">Langues</h2>
-          <div className="grid grid-cols-2 gap-8">
-            {languages.map((language, index) => (
-              <div key={index} className="text-center p-4 bg-gray-50 rounded-lg">
-                <h3 className="font-bold text-gray-800 mb-2">{language.name}</h3>
-                <p className="text-gray-600">{language.level}</p>
+        {/* Section IA */}
+        <div className="bg-white rounded-xl shadow-lg p-8 transform hover:scale-105 transition-transform duration-300">
+          <h3 className="text-2xl font-bold text-gray-800 mb-6">Outils d&apos;Intelligence Artificielle</h3>
+          
+          {/* Cartes d'outils IA */}
+          <div className="grid grid-cols-2 gap-4 mb-8">
+            {/* ChatGPT */}
+            <div className="bg-gradient-to-br from-blue-50 to-blue-100 p-4 rounded-lg text-center">
+              <div className="flex items-center justify-center mb-2">
+                <div className="w-12 h-12 bg-blue-500 rounded-lg flex items-center justify-center">
+                  <img
+                    src="/ai-logos/chatgpt-logo.png"
+                    alt="ChatGPT Logo"
+                    className="w-8 h-8 object-contain"
+                  />
+                </div>
               </div>
-            ))}
+              <h4 className="font-semibold text-gray-800">ChatGPT</h4>
+              <div className="mt-2 h-2 bg-gray-200 rounded-full">
+                <div className="h-full bg-blue-500 rounded-full" style={{ width: '90%' }}></div>
+              </div>
+            </div>
+
+            {/* Perplexity */}
+            <div className="bg-gradient-to-br from-green-50 to-green-100 p-4 rounded-lg text-center">
+              <div className="flex items-center justify-center mb-2">
+                <div className="w-12 h-12 bg-green-500 rounded-lg flex items-center justify-center">
+                  <img
+                    src="/ai-logos/perplexity-logo.png"
+                    alt="Perplexity Logo"
+                    className="w-8 h-8 object-contain"
+                  />
+                </div>
+              </div>
+              <h4 className="font-semibold text-gray-800">Perplexity</h4>
+              <div className="mt-2 h-2 bg-gray-200 rounded-full">
+                <div className="h-full bg-green-500 rounded-full" style={{ width: '85%' }}></div>
+              </div>
+            </div>
+
+            {/* Midjourney */}
+            <div className="bg-gradient-to-br from-purple-50 to-purple-100 p-4 rounded-lg text-center">
+              <div className="flex items-center justify-center mb-2">
+                <div className="w-12 h-12 bg-purple-500 rounded-lg flex items-center justify-center">
+                  <img
+                    src="/ai-logos/midjourney-logo.png"
+                    alt="Midjourney Logo"
+                    className="w-8 h-8 object-contain"
+                  />
+                </div>
+              </div>
+              <h4 className="font-semibold text-gray-800">Midjourney</h4>
+              <div className="mt-2 h-2 bg-gray-200 rounded-full">
+                <div className="h-full bg-purple-500 rounded-full" style={{ width: '90%' }}></div>
+              </div>
+            </div>
+
+            {/* Leonardo */}
+            <div className="bg-gradient-to-br from-pink-50 to-pink-100 p-4 rounded-lg text-center">
+              <div className="flex items-center justify-center mb-2">
+                <div className="w-12 h-12 bg-pink-500 rounded-lg flex items-center justify-center">
+                  <img
+                    src="/ai-logos/leonardo-logo.png"
+                    alt="Leonardo Logo"
+                    className="w-8 h-8 object-contain"
+                  />
+                </div>
+              </div>
+              <h4 className="font-semibold text-gray-800">Leonardo</h4>
+              <div className="mt-2 h-2 bg-gray-200 rounded-full">
+                <div className="h-full bg-pink-500 rounded-full" style={{ width: '85%' }}></div>
+              </div>
+            </div>
+          </div>
+
+          {/* Graphique d'apprentissage */}
+          <div className="relative h-32 bg-gray-50 rounded-lg p-4 overflow-hidden">
+            <div className="absolute bottom-0 left-0 w-full h-full flex items-end">
+              <div className="w-1/4 h-40% bg-green-400 rounded-t-lg mx-1 transform hover:scale-y-110 transition-transform" style={{ height: '40%' }}></div>
+              <div className="w-1/4 h-60% bg-blue-400 rounded-t-lg mx-1 transform hover:scale-y-110 transition-transform" style={{ height: '60%' }}></div>
+              <div className="w-1/4 h-80% bg-purple-400 rounded-t-lg mx-1 transform hover:scale-y-110 transition-transform" style={{ height: '80%' }}></div>
+              <div className="w-1/4 h-95% bg-pink-400 rounded-t-lg mx-1 transform hover:scale-y-110 transition-transform" style={{ height: '95%' }}></div>
+            </div>
+            <div className="absolute top-2 left-0 w-full text-center text-sm font-semibold text-gray-700">
+              Progression d&apos;apprentissage
+            </div>
+          </div>
+
+          <div className="mt-6 text-center text-gray-600 text-sm">
+            Passionné par l&apos;apprentissage continu et l&apos;innovation technologique
           </div>
         </div>
       </main>

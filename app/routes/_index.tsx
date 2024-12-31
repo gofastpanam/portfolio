@@ -21,14 +21,14 @@ export default function Index() {
     {
       title: "Memory Game",
       description: "Jeu de mémoire en Python avec Tkinter",
-      icon: "🎮",
+      icon: "",
       image: "/images/memory-game.jpg",
       tags: ["Python", "Tkinter", "UI Design"]
     },
     {
       title: "SafeMessage",
       description: "Application de chiffrement en C",
-      icon: "🔐",
+      icon: "",
       image: "/images/safemessage.jpg",
       tags: ["C", "Cryptographie", "Sécurité"]
     }
@@ -52,6 +52,14 @@ export default function Index() {
             Développeur web en formation à Holberton School, passionné par l&apos;apprentissage
             et la création d&apos;applications
           </p>
+          <div className="relative w-48 h-48 mx-auto mb-12 transform hover:scale-110 transition-transform duration-300 ease-in-out">
+            <div className="absolute inset-0 bg-blue-500 rounded-full opacity-10 animate-pulse"></div>
+            <img
+              src="/holberton.png"
+              alt="Holberton Logo"
+              className="relative w-full h-full object-contain"
+            />
+          </div>
           <div className="flex justify-center space-x-4">
             <Link
               to="/projects"
