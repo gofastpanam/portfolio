@@ -55,7 +55,7 @@ export default function Index() {
           <div className="relative w-48 h-48 mx-auto mb-12 transform hover:scale-110 transition-transform duration-300 ease-in-out">
             <div className="absolute inset-0 bg-blue-500 rounded-full opacity-10 animate-pulse"></div>
             <img
-              src="/holberton.png"
+              src="/images/holberton.png"
               alt="Holberton Logo"
               className="relative w-full h-full object-contain"
             />
