@@ -5,16 +5,16 @@ import ProgressBar from "~/components/ProgressBar";
 export default function Index() {
   const mainSkills = [
     { name: "WordPress", percentage: 90, color: "green" },
-    { name: "Front-end", percentage: 60, color: "blue" },
+    { name: "Front-end", percentage: 65, color: "blue" },
     { name: "Back-end", percentage: 70, color: "indigo" },
-    { name: "Photoshop", percentage: 55, color: "purple" }
+    { name: "Photoshop", percentage: 65, color: "purple" }
   ];
 
   const technicalSkills = [
     { name: "HTML/CSS", percentage: 65 },
     { name: "JavaScript", percentage: 50 },
     { name: "Python", percentage: 75 },
-    { name: "C", percentage: 60 }
+    { name: "C", percentage: 65 }
   ];
 
   const recentProjects = [
@@ -49,7 +49,7 @@ export default function Index() {
           </div>
           <h1 className="text-5xl font-bold text-gray-900 mb-4">Benjamin Jacob</h1>
           <p className="text-xl text-gray-600 mb-8">
-            Étudiant développeur à Holberton School, passionné par l&apos;apprentissage
+            Développeur web en formation à Holberton School, passionné par l&apos;apprentissage
             et la création d&apos;applications
           </p>
           <div className="flex justify-center space-x-4">
