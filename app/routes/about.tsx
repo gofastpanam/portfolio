@@ -47,7 +47,7 @@ export default function About() {
               </p>
               <p className="text-gray-600">
                 Développeur en formation, passionné par les nouvelles technologies et
-                motivé par l&apos;envie de créer des solutions logicielles efficaces et innovantes.
+                motivé par l'envie de créer des solutions logicielles efficaces et innovantes.
               </p>
             </div>
           </div>
@@ -58,7 +58,7 @@ export default function About() {
           <h2 className="text-2xl font-bold text-gray-800 mb-6">Parcours Professionnel Numérique</h2>
           <div className="border-l-4 border-blue-500 pl-6 mb-8">
             <div className="flex justify-between items-start mb-2">
-              <h3 className="text-xl font-bold text-gray-800">Gérant d&apos;une activité E-commerce</h3>
+              <h3 className="text-xl font-bold text-gray-800">Gérant d'une activité E-commerce</h3>
               <span className="text-gray-600">Février 2017 - Janvier 2022</span>
             </div>
             <p className="text-gray-600 mb-4">
@@ -138,7 +138,7 @@ export default function About() {
                 <span className="text-gray-600">Février 2024 - Actuellement</span>
               </div>
               <ul className="list-disc list-inside text-gray-600 mt-2">
-                <li>Formation intensive de developpement web</li>
+                <li>Formation intensive de développement web</li>
                 <li>Projets collaboratifs et individuels</li>
                 <li>Gestion de projets logiciels</li>
               </ul>
