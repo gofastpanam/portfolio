@@ -35,21 +35,23 @@ export default function Index() {
   return (
     <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white dark:from-gray-900 dark:to-gray-800">
       {/* Header avec animation */}
-      <div className="relative h-[50vh] flex items-center justify-center overflow-hidden">
+      <div className="relative h-[45vh] flex flex-col items-center justify-center overflow-hidden">
         {/* Conteneur des images avec animation */}
-        <div className="relative flex items-center gap-8 animate-float">
+        <div className="relative flex items-center gap-12 mb-8">
           {/* Image de profil */}
-          <div className="relative w-32 h-32 rounded-full overflow-hidden shadow-xl hover:scale-105 transition-transform duration-300">
+          <div className="relative w-40 h-40 rounded-full overflow-hidden shadow-2xl transform hover:scale-105 transition-all duration-300">
+            <div className="absolute inset-0 bg-gradient-to-br from-blue-500/20 to-purple-500/20 animate-gradient-xy"></div>
+            <div className="absolute -inset-1 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full blur opacity-30 group-hover:opacity-40 animate-pulse"></div>
             <img
               src="/images/benjamin-picture.png"
               alt="Benjamin Jacob"
-              className="w-full h-full object-cover"
+              className="relative w-full h-full object-cover z-10"
             />
-            <div className="absolute inset-0 bg-blue-500 mix-blend-overlay opacity-20"></div>
+            <div className="absolute inset-0 bg-gradient-to-br from-blue-500/10 to-purple-500/10 mix-blend-overlay"></div>
           </div>
 
-          {/* Logo Holberton avec effet de brillance */}
-          <div className="relative w-32 h-32 rounded-full overflow-hidden shadow-xl hover:scale-105 transition-transform duration-300">
+          {/* Logo Holberton */}
+          <div className="relative w-28 h-28 rounded-full overflow-hidden shadow-xl hover:scale-105 transition-transform duration-300">
             <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white to-transparent animate-shine"></div>
             <img
               src="/images/holberton.png"
@@ -59,22 +61,24 @@ export default function Index() {
           </div>
         </div>
 
+        {/* Nom avec animation de gradient */}
+        <h1 className="text-6xl font-bold mb-4 bg-gradient-to-r from-blue-600 via-purple-600 to-blue-600 bg-clip-text text-transparent bg-300% animate-gradient">
+          Benjamin Jacob
+        </h1>
+        <p className="text-xl text-gray-600 dark:text-gray-300">
+          Développeur web en formation à Holberton School, passionné par l&apos;apprentissage et la création d&apos;applications
+        </p>
+
         {/* Particules d'arrière-plan */}
         <div className="absolute inset-0 pointer-events-none">
           <div className="absolute w-2 h-2 bg-blue-500 rounded-full animate-particle1"></div>
-          <div className="absolute w-2 h-2 bg-red-500 rounded-full animate-particle2"></div>
-          <div className="absolute w-2 h-2 bg-green-500 rounded-full animate-particle3"></div>
+          <div className="absolute w-2 h-2 bg-purple-500 rounded-full animate-particle2"></div>
+          <div className="absolute w-2 h-2 bg-indigo-500 rounded-full animate-particle3"></div>
         </div>
       </div>
 
       {/* Contenu principal */}
       <div className="container mx-auto px-4 py-12 text-center">
-        <h1 className="text-5xl font-bold mb-4 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-          Benjamin Jacob
-        </h1>
-        <p className="text-xl text-gray-600 dark:text-gray-300 mb-8">
-          Développeur web en formation à Holberton School, passionné par l&apos;apprentissage et la création d&apos;applications
-        </p>
         <div className="flex justify-center gap-4">
           <Link
             to="/projects"

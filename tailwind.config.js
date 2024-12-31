@@ -12,6 +12,8 @@ export default {
         'particle1': 'particle 8s ease-in-out infinite',
         'particle2': 'particle 12s ease-in-out infinite',
         'particle3': 'particle 10s ease-in-out infinite',
+        'gradient': 'gradient 8s linear infinite',
+        'gradient-xy': 'gradient-xy 15s ease infinite',
       },
       keyframes: {
         float: {
@@ -32,6 +34,23 @@ export default {
             opacity: '0.8',
           },
         },
+        gradient: {
+          '0%, 100%': { backgroundPosition: '0% 50%' },
+          '50%': { backgroundPosition: '100% 50%' },
+        },
+        'gradient-xy': {
+          '0%, 100%': {
+            'background-size': '400% 400%',
+            'background-position': 'left center'
+          },
+          '50%': {
+            'background-size': '200% 200%',
+            'background-position': 'right center'
+          }
+        }
+      },
+      backgroundSize: {
+        '300%': '300%',
       },
     },
   },
