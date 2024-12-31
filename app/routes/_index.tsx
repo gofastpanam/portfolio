@@ -4,17 +4,17 @@ import ProgressBar from "~/components/ProgressBar";
 
 export default function Index() {
   const mainSkills = [
+    { name: "WordPress", percentage: 90, color: "green" },
     { name: "Front-end", percentage: 60, color: "blue" },
-    { name: "Back-end", percentage: 60, color: "indigo" },
-    { name: "Photoshop", percentage: 60, color: "purple" },
-    { name: "WordPress", percentage: 100, color: "green" }
+    { name: "Back-end", percentage: 70, color: "indigo" },
+    { name: "Photoshop", percentage: 55, color: "purple" }
   ];
 
   const technicalSkills = [
     { name: "HTML/CSS", percentage: 65 },
-    { name: "JavaScript", percentage: 55 },
+    { name: "JavaScript", percentage: 50 },
     { name: "Python", percentage: 75 },
-    { name: "C", percentage: 65 }
+    { name: "C", percentage: 60 }
   ];
 
   const recentProjects = [
@@ -22,14 +22,14 @@ export default function Index() {
       title: "Memory Game",
       description: "Jeu de mémoire en Python avec Tkinter",
       icon: "🎮",
-      image: "/images/memory-game.png",
+      image: "/images/memory-game.jpg",
       tags: ["Python", "Tkinter", "UI Design"]
     },
     {
       title: "SafeMessage",
       description: "Application de chiffrement en C",
       icon: "🔐",
-      image: "/images/safe-message.png",
+      image: "/images/safemessage.jpg",
       tags: ["C", "Cryptographie", "Sécurité"]
     }
   ];
