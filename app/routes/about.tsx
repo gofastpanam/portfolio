@@ -23,11 +23,6 @@ export default function About() {
     { name: "Gestion Client", percentage: 80, color: "sky" }
   ];
 
-  const languages = [
-    { name: "Français", level: "Langue maternelle" },
-    { name: "Anglais", level: "Intermédiaire" }
-  ];
-
   return (
     <>
       <Header />
