@@ -1,37 +1,35 @@
 import { Link } from "@remix-run/react";
-import Header from "~/components/Header";
 import ProgressBar from "~/components/ProgressBar";
 
 export default function Index() {
   const mainSkills = [
-    { name: "Front-end", percentage: 70, color: "blue" },
-    { name: "Back-end", percentage: 70, color: "indigo" },
-    { name: "WordPress", percentage: 90, color: "green" },
-    { name: "Photoshop", percentage: 60, color: "purple" }
+    { name: "Frontend Development", percentage: 85, color: "blue" },
+    { name: "Backend Development", percentage: 80, color: "green" },
+    { name: "UI/UX Design", percentage: 75, color: "purple" },
   ];
 
   const technicalSkills = [
-    { name: "HTML/CSS", percentage: 70 },
-    { name: "JavaScript", percentage: 50 },
-    { name: "Python", percentage: 70 },
-    { name: "C", percentage: 60 }
+    { name: "React", percentage: 90 },
+    { name: "Node.js", percentage: 85 },
+    { name: "TypeScript", percentage: 80 },
+    { name: "Python", percentage: 75 },
   ];
 
   const recentProjects = [
     {
-      title: "Memory Game",
-      description: "Jeu de mémoire en Python avec Tkinter",
+      title: "Portfolio Personnel",
+      description: "Un portfolio moderne construit avec React et Tailwind CSS.",
+      image: "/projects/portfolio.png",
       icon: "",
-      image: "/images/memory-game.jpg",
-      tags: ["Python", "Tkinter", "UI Design"]
+      tags: ["React", "Tailwind CSS", "TypeScript"],
     },
     {
-      title: "SafeMessage",
-      description: "Application de chiffrement en C",
+      title: "Application Web",
+      description: "Une application web complète avec authentification.",
+      image: "/projects/webapp.png",
       icon: "",
-      image: "/images/safemessage.jpg",
-      tags: ["C", "Cryptographie", "Sécurité"]
-    }
+      tags: ["Node.js", "Express", "MongoDB"],
+    },
   ];
 
   return (
@@ -44,7 +42,7 @@ export default function Index() {
           <div className="relative w-32 h-32 rounded-full overflow-hidden shadow-xl hover:scale-105 transition-transform duration-300">
             <img
               src="/images/benjamin-picture.png"
-              alt="Photo de profil"
+              alt="Benjamin Jacob"
               className="w-full h-full object-cover"
             />
             <div className="absolute inset-0 bg-blue-500 mix-blend-overlay opacity-20"></div>
@@ -55,7 +53,7 @@ export default function Index() {
             <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white to-transparent animate-shine"></div>
             <img
               src="/images/holberton.png"
-              alt="Holberton Logo"
+              alt="École Holberton"
               className="w-full h-full object-contain"
             />
           </div>
