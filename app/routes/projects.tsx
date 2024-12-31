@@ -9,7 +9,7 @@ export default function Projects() {
       title: "Memory Game - Mini Doges NFT",
       description: "Un jeu de mémoire unique mettant en vedette la collection Mini Doge Art, la première collection de 10 000 NFTs inscrite sur la blockchain Dogecoin.",
       shortDescription: "Testez votre mémoire en associant les paires de Mini Doges!",
-      technologies: ["Python", "Tkinter", "PIL", "Git"],
+      technologies: ["Python", "Tkinter", "PIL"],
       image: "/images/memory-game.jpg",
       github: "https://github.com/gofastpanam/memory_game",
       technicalDetails: {
@@ -17,8 +17,7 @@ export default function Projects() {
           "Interface graphique intuitive avec Tkinter",
           "Gestion optimisée de la mémoire (limite 100MB)",
           "Validation des images (format, taille, intégrité)",
-          "Gestion des erreurs robuste",
-          "Messages d'erreur explicites"
+          "Gestion des erreurs"
         ],
         structure: [
           "memory_game.py - Code principal du jeu",
@@ -30,8 +29,7 @@ export default function Projects() {
           "Manipulation d'images avec PIL",
           "Interface utilisateur avec Tkinter",
           "Gestion de la mémoire en Python",
-          "Bonnes pratiques de sécurité",
-          "Versionnage avec Git"
+          "Bonnes pratiques de sécurité"
         ]
       }
     },
@@ -39,7 +37,7 @@ export default function Projects() {
       title: "SafeMessage - Chiffrement César",
       description: "Une application en C qui implémente le chiffrement de César avec des fonctionnalités avancées d'analyse et de cryptanalyse. Développée avec une attention particulière à la sécurité et aux performances.",
       shortDescription: "Application de chiffrement avec analyse de fréquence et mode bruteforce.",
-      technologies: ["C", "GCC", "Make", "Git"],
+      technologies: ["C", "Make"],
       image: "/images/safemessage.jpg",
       github: "https://github.com/gofastpanam/SafeMessage",
       technicalDetails: {
@@ -47,8 +45,7 @@ export default function Projects() {
           "Chiffrement/déchiffrement avec décalages -25 à +25",
           "Analyse de fréquence des lettres",
           "Mode bruteforce complet",
-          "Préservation de la casse et caractères spéciaux",
-          "Protection contre les buffer overflow"
+          "Préservation de la casse et caractères spéciaux"
         ],
         security: [
           "Protection contre les buffer overflow",
@@ -59,8 +56,7 @@ export default function Projects() {
         concepts: [
           "Arithmétique modulaire",
           "Analyse de fréquence",
-          "Cryptanalyse basique",
-          "Optimisation des performances"
+          "Cryptanalyse basique"
         ],
         structure: [
           "SafeMessage.c - Code source principal",
@@ -79,7 +75,7 @@ export default function Projects() {
     },
     {
       title: "StoryNest - (En cours de développement)",
-      description: "Parce que chaque histoire mérite un prénom, StoryNest est une application mobile alimentée par IA, conçue pour générer des contes pour enfants personnalisés captivants.",
+      shortDescription: "Parce que chaque histoire mérite un prénom, StoryNest est une application mobile alimentée par IA, conçue pour générer des contes pour enfants personnalisés captivants.",
       technologies: ["Typescript", "React Native", "Expo", "Firebase"],
       image: "/images/storynest.jpg",
     }
