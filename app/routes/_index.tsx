@@ -40,8 +40,8 @@ export default function Index() {
         <div className="max-w-4xl mx-auto text-center mb-16">
           <h1 className="text-5xl font-bold text-gray-900 mb-4">Benjamin Jacob</h1>
           <p className="text-xl text-gray-600 mb-8">
-            Étudiant développeur à Holberton School, passionné par l'apprentissage
-            et la création d'applications
+            Étudiant développeur à Holberton School, passionné par l&apos;apprentissage
+            et la création d&apos;applications
           </p>
           <div className="flex justify-center space-x-4">
             <Link
@@ -66,7 +66,7 @@ export default function Index() {
           <div className="grid md:grid-cols-2 gap-12">
             {/* Main Skills */}
             <div className="bg-white rounded-xl shadow-lg p-8 transform hover:scale-105 transition-transform duration-300">
-              <h3 className="text-2xl font-bold text-gray-800 mb-6">Domaines d'expertise</h3>
+              <h3 className="text-2xl font-bold text-gray-800 mb-6">Domaines d&apos;expertise</h3>
               {mainSkills.map((skill, index) => (
                 <ProgressBar
                   key={index}
