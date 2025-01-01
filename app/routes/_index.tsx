@@ -18,6 +18,14 @@ export default function Index() {
 
   const recentProjects = [
     {
+      title: "SEO TITAN - Conquer Rankings with Precision",
+      description: "Un outil d'analyse SEO avancé qui examine une page web et génère un rapport détaillé sur différents aspects SEO importants. Cet outil est conçu pour aider les webmasters et les spécialistes SEO à identifier rapidement les problèmes et opportunités d'optimisation.",
+      image: "/images/seotitan.jpg",
+      icon: "🔍",
+      tags: ["Python", "BeautifulSoup4", "Requests", "Async/Await"],
+      github: "https://github.com/gofastpanam/SEO-TITAN",
+    },
+    {
       title: "Memory Game - Match the Mini Doges, Unlock the Fun!",
       description: "Un jeu de mémoire unique mettant en vedette la collection Mini Doge Art, la première collection de 10 000 NFTs inscrite sur la blockchain Dogecoin.",
       image: "/images/memory-game.jpg",

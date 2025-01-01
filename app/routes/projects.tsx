@@ -6,6 +6,53 @@ export default function Projects() {
 
   const projects = [
     {
+      title: "SEO TITAN - Conquer Rankings with Precision",
+      description: "Un outil d'analyse SEO avancé qui examine une page web et génère un rapport détaillé sur différents aspects SEO importants. Cet outil est conçu pour aider les webmasters et les spécialistes SEO à identifier rapidement les problèmes et opportunités d'optimisation.",
+      shortDescription: "Analyseur SEO avancé avec rapports détaillés et recommandations d'optimisation basées sur les meilleures pratiques.",
+      technologies: ["Python", "BeautifulSoup4", "Requests", "Async/Await"],
+      image: "/images/seotitan.jpg",
+      github: "https://github.com/gofastpanam/SEO-TITAN",
+      technicalDetails: {
+        features: [
+          "Architecture modulaire avec design patterns (Singleton, Strategy, Facade)",
+          "Analyse technique complète (SSL, temps de chargement, mobile, HTTP headers)",
+          "Parsing HTML avancé avec BeautifulSoup4",
+          "Traitement asynchrone des requêtes avec aiohttp",
+          "Système de cache avec LRU pour optimisation des performances",
+          "Génération de rapports détaillés et priorisés"
+        ],
+        security: [
+          "Validation stricte des URLs et entrées utilisateur",
+          "Gestion sécurisée des sessions HTTP",
+          "Protection contre les attaques courantes",
+          "Timeouts et limites de requêtes configurables",
+          "Nettoyage automatique des données sensibles"
+        ],
+        concepts: [
+          "SOLID Principles et Clean Architecture",
+          "Design Patterns (Singleton, Strategy, Facade)",
+          "Programmation asynchrone et concurrence",
+          "Optimisation des performances et mise en cache",
+          "Tests unitaires et intégration continue"
+        ],
+        structure: [
+          "main.py - Point d'entrée de l'application",
+          "seoanalyzer/ - Package principal",
+          "├── analyzer.py - Analyse SEO core",
+          "├── suggestions.py - Moteur de recommandations",
+          "└── report.py - Générateur de rapports",
+          "tests/ - Tests unitaires et d'intégration"
+        ],
+        learnings: [
+          "Architecture logicielle et design patterns",
+          "Manipulation efficace des données web et HTML",
+          "Optimisation des performances avec async/await",
+          "Bonnes pratiques SEO techniques",
+          "Tests et documentation professionnelle"
+        ]
+      }
+    },
+    {
       title: "ImageCypher - Hide in Plain Sight",
       description: "Une application de stéganographie qui permet de cacher des messages secrets dans des images. L'application combine la technique LSB (Least Significant Bit) avec un chiffrement AES robuste pour garantir la confidentialité des messages.",
       shortDescription: "Cachez vos messages secrets dans des images avec un chiffrement AES robuste.",
