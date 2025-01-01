@@ -6,7 +6,7 @@ export default function Projects() {
 
   const projects = [
     {
-      title: "ImageCypher - Cachez et Protégez Vos Secrets avec Chiffrement dans des Images",
+      title: "ImageCypher - Hide in Plain Sight",
       description: "Une application de stéganographie qui permet de cacher des messages secrets dans des images. L'application combine la technique LSB (Least Significant Bit) avec un chiffrement AES robuste pour garantir la confidentialité des messages.",
       shortDescription: "Cachez vos messages secrets dans des images avec un chiffrement AES robuste.",
       technologies: ["Python", "Pillow", "Cryptography", "AES"],
@@ -45,7 +45,7 @@ export default function Projects() {
       }
     },
     {
-      title: "Memory Game - Mini Doges NFT",
+      title: "Memory Game - Match the Mini Doges, Unlock the Fun!",
       description: "Un jeu de mémoire unique mettant en vedette la collection Mini Doge Art, la première collection de 10 000 NFTs inscrite sur la blockchain Dogecoin.",
       shortDescription: "Testez votre mémoire en associant les paires de Mini Doges!",
       technologies: ["Python", "Tkinter", "PIL"],
@@ -73,7 +73,7 @@ export default function Projects() {
       }
     },
     {
-      title: "SafeMessage - Chiffrement César",
+      title: "SafeMessage - Encrypt. Decrypt. Secure.",
       description: "Une application en C qui implémente le chiffrement de César avec des fonctionnalités avancées d'analyse et de cryptanalyse. Développée avec une attention particulière à la sécurité et aux performances.",
       shortDescription: "Application de chiffrement avec analyse de fréquence et mode bruteforce.",
       technologies: ["C", "Make"],
@@ -113,7 +113,7 @@ export default function Projects() {
       }
     },
     {
-      title: "StoryNest - (En cours de développement)",
+      title: "StoryNest - Because Every Story Deserves a Name",
       shortDescription: "Parce que chaque histoire mérite un prénom, StoryNest est une application mobile alimentée par IA, conçue pour générer des contes pour enfants personnalisés captivants.",
       technologies: ["Typescript", "React Native", "Expo", "Firebase"],
       image: "/images/storynest.jpg",

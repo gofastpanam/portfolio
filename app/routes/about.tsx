@@ -152,7 +152,7 @@ export default function About() {
 
         {/* Section IA */}
         <div className="bg-white rounded-xl shadow-lg p-8">
-          <h3 className="text-2xl font-bold text-gray-800 mb-8">Maitrise Des outils d&apos;Intelligence Artificielle</h3>
+          <h3 className="text-2xl font-bold text-gray-800 mb-8">Maitrise Des Outils d&apos;Intelligence Artificielle</h3>
           <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
             <div className="bg-gradient-to-br from-white to-blue-50 p-6 rounded-xl">
               <img 
