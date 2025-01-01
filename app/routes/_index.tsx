@@ -172,7 +172,7 @@ export default function Index() {
       </div>
 
       {/* Social Links */}
-      <div className="flex justify-center gap-8 mb-8">
+      <div className="flex justify-center gap-8 mb-16 py-8">
         <a
           href="https://github.com/gofastpanam"
           target="_blank"
