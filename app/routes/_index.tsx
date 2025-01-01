@@ -1,40 +1,45 @@
 import { Link } from "@remix-run/react";
 import ProgressBar from "~/components/ProgressBar";
+import Header from "~/components/Header";
 
 export default function Index() {
   const mainSkills = [
-    { name: "Frontend Development", percentage: 85, color: "blue" },
-    { name: "Backend Development", percentage: 80, color: "green" },
-    { name: "UI/UX Design", percentage: 75, color: "purple" },
+    { name: "Frontend Development", percentage: 70, color: "blue" },
+    { name: "Backend Development", percentage: 70, color: "green" },
+    { name: "UI/UX Design", percentage: 50, color: "purple" },
   ];
 
   const technicalSkills = [
-    { name: "React", percentage: 90 },
-    { name: "Node.js", percentage: 85 },
-    { name: "TypeScript", percentage: 80 },
-    { name: "Python", percentage: 75 },
+    { name: "HTML/CSS", percentage: 70 },
+    { name: "JavaScript", percentage: 50 },
+    { name: "Python", percentage: 70 },
+    { name: "C", percentage: 60 }
   ];
 
   const recentProjects = [
     {
-      title: "Portfolio Personnel",
-      description: "Un portfolio moderne construit avec React et Tailwind CSS.",
-      image: "/projects/portfolio.png",
-      icon: "",
-      tags: ["React", "Tailwind CSS", "TypeScript"],
+      title: "Memory Game - Mini Doges NFT",
+      description: "Un jeu de mémoire unique mettant en vedette la collection Mini Doge Art, la première collection de 10 000 NFTs inscrite sur la blockchain Dogecoin.",
+      image: "/images/memory-game.jpg",
+      icon: "🎮",
+      tags: ["Python", "Tkinter", "PIL"],
+      github: "https://github.com/gofastpanam/memory_game",
     },
     {
-      title: "Application Web",
-      description: "Une application web complète avec authentification.",
-      image: "/projects/webapp.png",
-      icon: "",
-      tags: ["Node.js", "Express", "MongoDB"],
+      title: "SafeMessage - Chiffrement César",
+      description: "Une application en C qui implémente le chiffrement de César avec des fonctionnalités avancées d'analyse et de cryptanalyse. Développée avec une attention particulière à la sécurité et aux performances.",
+      icon: "🔐",
+      tags: ["C", "Make"],
+      image: "/images/safemessage.jpg",
+      github: "https://github.com/gofastpanam/SafeMessage",
     },
   ];
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white dark:from-gray-900 dark:to-gray-800">
-      {/* Header avec animation */}
+      <Header />
+      
+      {/* Hero Section avec animation */}
       <div className="relative h-[45vh] flex flex-col items-center justify-center overflow-hidden">
         {/* Conteneur des images avec animation */}
         <div className="relative flex items-center gap-12 mb-8">
@@ -62,10 +67,10 @@ export default function Index() {
         </div>
 
         {/* Nom avec animation de gradient */}
-        <h1 className="text-6xl font-bold mb-4 bg-gradient-to-r from-blue-600 via-purple-600 to-blue-600 bg-clip-text text-transparent bg-300% animate-gradient">
+        <h1 className="text-6xl font-bold mb-6 bg-gradient-to-r from-blue-600 via-purple-600 to-blue-600 bg-clip-text text-transparent bg-300% animate-gradient">
           Benjamin Jacob
         </h1>
-        <p className="text-xl text-gray-600 dark:text-gray-300">
+        <p className="text-xl text-gray-600 dark:text-gray-300 mt-2">
           Développeur web en formation à Holberton School, passionné par l&apos;apprentissage et la création d&apos;applications
         </p>
 

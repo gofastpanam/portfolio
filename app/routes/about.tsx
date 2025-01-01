@@ -3,10 +3,9 @@ import ProgressBar from "~/components/ProgressBar";
 
 export default function About() {
   const mainSkills = [
-    { name: "Front-end", percentage: 70, color: "blue" },
-    { name: "Back-end", percentage: 70, color: "indigo" },
-    { name: "WordPress", percentage: 90, color: "green" },
-    { name: "Photoshop", percentage: 60, color: "purple" }
+    { name: "Frontend Development", percentage: 70, color: "blue" },
+    { name: "Backend Development", percentage: 70, color: "green" },
+    { name: "UI/UX Design", percentage: 50, color: "purple" },
   ];
 
   const technicalSkills = [
@@ -153,7 +152,7 @@ export default function About() {
 
         {/* Section IA */}
         <div className="bg-white rounded-xl shadow-lg p-8">
-          <h3 className="text-2xl font-bold text-gray-800 mb-8">Outils d&apos;Intelligence Artificielle</h3>
+          <h3 className="text-2xl font-bold text-gray-800 mb-8">Maitrise Des outils d&apos;Intelligence Artificielle</h3>
           <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
             <div className="bg-gradient-to-br from-white to-blue-50 p-6 rounded-xl">
               <img 
@@ -162,9 +161,10 @@ export default function About() {
                 className="w-24 h-24 mx-auto mb-4 hover:scale-110 transition-transform duration-300"
               />
               <h4 className="text-lg font-semibold text-center mb-3">ChatGPT</h4>
-              <div className="w-full bg-blue-100 rounded-full h-1.5">
+              <div className="w-full bg-blue-100 rounded-full h-1.5 mb-1">
                 <div className="bg-blue-500 h-1.5 rounded-full" style={{ width: '90%' }}></div>
               </div>
+              <p className="text-sm text-center text-blue-600">90%</p>
             </div>
 
             <div className="bg-gradient-to-br from-white to-green-50 p-6 rounded-xl">
@@ -174,9 +174,10 @@ export default function About() {
                 className="w-24 h-24 mx-auto mb-4 hover:scale-110 transition-transform duration-300"
               />
               <h4 className="text-lg font-semibold text-center mb-3">Perplexity</h4>
-              <div className="w-full bg-green-100 rounded-full h-1.5">
+              <div className="w-full bg-green-100 rounded-full h-1.5 mb-1">
                 <div className="bg-green-500 h-1.5 rounded-full" style={{ width: '85%' }}></div>
               </div>
+              <p className="text-sm text-center text-green-600">85%</p>
             </div>
 
             <div className="bg-gradient-to-br from-white to-purple-50 p-6 rounded-xl">
@@ -186,9 +187,10 @@ export default function About() {
                 className="w-24 h-24 mx-auto mb-4 hover:scale-110 transition-transform duration-300"
               />
               <h4 className="text-lg font-semibold text-center mb-3">Midjourney</h4>
-              <div className="w-full bg-purple-100 rounded-full h-1.5">
+              <div className="w-full bg-purple-100 rounded-full h-1.5 mb-1">
                 <div className="bg-purple-500 h-1.5 rounded-full" style={{ width: '90%' }}></div>
               </div>
+              <p className="text-sm text-center text-purple-600">90%</p>
             </div>
 
             <div className="bg-gradient-to-br from-white to-pink-50 p-6 rounded-xl">
@@ -198,9 +200,10 @@ export default function About() {
                 className="w-24 h-24 mx-auto mb-4 hover:scale-110 transition-transform duration-300"
               />
               <h4 className="text-lg font-semibold text-center mb-3">Leonardo</h4>
-              <div className="w-full bg-pink-100 rounded-full h-1.5">
+              <div className="w-full bg-pink-100 rounded-full h-1.5 mb-1">
                 <div className="bg-pink-500 h-1.5 rounded-full" style={{ width: '85%' }}></div>
               </div>
+              <p className="text-sm text-center text-pink-600">85%</p>
             </div>
           </div>
         </div>
