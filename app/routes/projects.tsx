@@ -6,6 +6,45 @@ export default function Projects() {
 
   const projects = [
     {
+      title: "ImageCypher - Cachez et Protégez Vos Secrets avec Chiffrement dans des Images",
+      description: "Une application de stéganographie qui permet de cacher des messages secrets dans des images. L'application combine la technique LSB (Least Significant Bit) avec un chiffrement AES robuste pour garantir la confidentialité des messages.",
+      shortDescription: "Cachez vos messages secrets dans des images avec un chiffrement AES robuste.",
+      technologies: ["Python", "Pillow", "Cryptography", "AES"],
+      image: "/images/imagecypher.jpg",
+      github: "https://github.com/gofastpanam/ImageCypher",
+      technicalDetails: {
+        features: [
+          "Stéganographie LSB pour cacher des messages dans les images",
+          "Chiffrement AES des messages avant l'encodage",
+          "Support des messages jusqu'à 1 MB",
+          "Compatibilité avec PNG, JPG, JPEG et BMP",
+          "Dérivation sécurisée des clés avec PBKDF2"
+        ],
+        security: [
+          "Chiffrement AES via Fernet",
+          "Dérivation des clés avec PBKDF2-HMAC-SHA256",
+          "Validation stricte des entrées",
+          "Protection contre les attaques courantes",
+          "Nettoyage automatique des données sensibles"
+        ],
+        concepts: [
+          "Stéganographie LSB",
+          "Cryptographie AES",
+          "Manipulation d'images",
+          "Sécurité des données"
+        ],
+        structure: [
+          "imagecipher.py - Code source principal",
+          "requirements.txt - Dépendances Python",
+        ],
+        learnings: [
+          "Programmation Python avancée",
+          "Cryptographie et sécurité",
+          "Manipulation d'images avec Pillow",
+        ]
+      }
+    },
+    {
       title: "Memory Game - Mini Doges NFT",
       description: "Un jeu de mémoire unique mettant en vedette la collection Mini Doge Art, la première collection de 10 000 NFTs inscrite sur la blockchain Dogecoin.",
       shortDescription: "Testez votre mémoire en associant les paires de Mini Doges!",
