@@ -158,33 +158,33 @@ export default function About() {
               <img 
                 src="/ai-logos/chatgpt-logo.png" 
                 alt="ChatGPT" 
-                className="w-24 h-24 mx-auto mb-4 hover:scale-110 transition-transform duration-300"
+                className="w-24 h-24 mx-auto mb-4 hover:scale-110 transition-transform duration-300 object-contain"
               />
               <h4 className="text-lg font-semibold text-center mb-3">ChatGPT</h4>
               <div className="w-full bg-blue-100 rounded-full h-1.5 mb-1">
-                <div className="bg-blue-500 h-1.5 rounded-full" style={{ width: '90%' }}></div>
+                <div className="bg-blue-500 h-1.5 rounded-full" style={{ width: '100%' }}></div>
               </div>
-              <p className="text-sm text-center text-blue-600">90%</p>
+              <p className="text-sm text-center text-blue-600">100%</p>
             </div>
 
             <div className="bg-gradient-to-br from-white to-green-50 p-6 rounded-xl">
               <img 
                 src="/ai-logos/perplexity-logo.png" 
                 alt="Perplexity" 
-                className="w-24 h-24 mx-auto mb-4 hover:scale-110 transition-transform duration-300"
+                className="w-24 h-24 mx-auto mb-4 hover:scale-110 transition-transform duration-300 object-contain"
               />
               <h4 className="text-lg font-semibold text-center mb-3">Perplexity</h4>
               <div className="w-full bg-green-100 rounded-full h-1.5 mb-1">
-                <div className="bg-green-500 h-1.5 rounded-full" style={{ width: '85%' }}></div>
+                <div className="bg-green-500 h-1.5 rounded-full" style={{ width: '100%' }}></div>
               </div>
-              <p className="text-sm text-center text-green-600">85%</p>
+              <p className="text-sm text-center text-green-600">100%</p>
             </div>
 
             <div className="bg-gradient-to-br from-white to-purple-50 p-6 rounded-xl">
               <img 
                 src="/ai-logos/midjourney-logo.png" 
                 alt="Midjourney" 
-                className="w-24 h-24 mx-auto mb-4 hover:scale-110 transition-transform duration-300"
+                className="w-24 h-24 mx-auto mb-4 hover:scale-110 transition-transform duration-300 object-contain"
               />
               <h4 className="text-lg font-semibold text-center mb-3">Midjourney</h4>
               <div className="w-full bg-purple-100 rounded-full h-1.5 mb-1">
@@ -197,13 +197,13 @@ export default function About() {
               <img 
                 src="/ai-logos/leonardo-logo.png" 
                 alt="Leonardo" 
-                className="w-24 h-24 mx-auto mb-4 hover:scale-110 transition-transform duration-300"
+                className="w-24 h-24 mx-auto mb-4 hover:scale-110 transition-transform duration-300 object-contain"
               />
               <h4 className="text-lg font-semibold text-center mb-3">Leonardo</h4>
               <div className="w-full bg-pink-100 rounded-full h-1.5 mb-1">
-                <div className="bg-pink-500 h-1.5 rounded-full" style={{ width: '85%' }}></div>
+                <div className="bg-pink-500 h-1.5 rounded-full" style={{ width: '90%' }}></div>
               </div>
-              <p className="text-sm text-center text-pink-600">85%</p>
+              <p className="text-sm text-center text-pink-600">90%</p>
             </div>
           </div>
         </div>

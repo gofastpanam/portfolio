@@ -18,7 +18,7 @@ export default function Index() {
 
   const recentProjects = [
     {
-      title: "Memory Game - Mini Doges NFT",
+      title: "Memory Game - Match the Mini Doges, Unlock the Fun!",
       description: "Un jeu de mémoire unique mettant en vedette la collection Mini Doge Art, la première collection de 10 000 NFTs inscrite sur la blockchain Dogecoin.",
       image: "/images/memory-game.jpg",
       icon: "🎮",
@@ -26,7 +26,7 @@ export default function Index() {
       github: "https://github.com/gofastpanam/memory_game",
     },
     {
-      title: "SafeMessage - Chiffrement César",
+      title: "SafeMessage - Encrypt. Decrypt. Secure.",
       description: "Une application en C qui implémente le chiffrement de César avec des fonctionnalités avancées d'analyse et de cryptanalyse. Développée avec une attention particulière à la sécurité et aux performances.",
       icon: "🔐",
       tags: ["C", "Make"],
