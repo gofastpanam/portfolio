@@ -36,15 +36,15 @@ export default function Index() {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white dark:from-gray-900 dark:to-gray-800">
+    <div className="min-h-screen bg-gray-100">
       <Header />
       
       {/* Hero Section avec animation */}
-      <div className="relative h-[45vh] flex flex-col items-center justify-center overflow-hidden mt-8">
+      <div className="relative min-h-[45vh] flex flex-col items-center justify-center overflow-hidden mt-8 px-4 md:px-6">
         {/* Conteneur des images avec animation */}
-        <div className="relative flex items-center gap-12 mb-8">
+        <div className="relative flex items-center gap-8 md:gap-12 mb-8">
           {/* Image de profil */}
-          <div className="relative w-40 h-40 rounded-full overflow-hidden shadow-2xl transform hover:scale-105 transition-all duration-300">
+          <div className="relative w-32 md:w-40 h-32 md:h-40 rounded-full overflow-hidden shadow-2xl transform hover:scale-105 transition-all duration-300">
             <div className="absolute inset-0 bg-gradient-to-br from-blue-500/20 to-purple-500/20 animate-gradient-xy"></div>
             <div className="absolute -inset-1 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full blur opacity-30 group-hover:opacity-40 animate-pulse"></div>
             <img
@@ -56,7 +56,7 @@ export default function Index() {
           </div>
 
           {/* Logo Holberton */}
-          <div className="relative w-28 h-28 rounded-full overflow-hidden shadow-xl hover:scale-105 transition-transform duration-300">
+          <div className="relative w-24 md:w-28 h-24 md:h-28 rounded-full overflow-hidden shadow-xl hover:scale-105 transition-transform duration-300">
             <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white to-transparent animate-shine"></div>
             <img
               src="/images/holberton.png"
@@ -67,33 +67,24 @@ export default function Index() {
         </div>
 
         {/* Nom avec animation de gradient */}
-        <h1 className="text-6xl font-bold mb-6 bg-gradient-to-r from-blue-600 via-purple-600 to-blue-600 bg-clip-text text-transparent bg-300% animate-gradient">
+        <h1 className="text-4xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-blue-600 via-purple-600 to-blue-600 bg-clip-text text-transparent bg-300% animate-gradient text-center">
           Benjamin Jacob
         </h1>
-        <p className="text-xl text-gray-600 dark:text-gray-300 mt-2">
+        <p className="text-lg md:text-xl text-gray-600 dark:text-gray-300 mt-2 mb-8 text-center max-w-2xl px-4">
           Développeur web en formation à Holberton School, passionné par l&apos;apprentissage et la création d&apos;applications
         </p>
 
-        {/* Particules d'arrière-plan */}
-        <div className="absolute inset-0 pointer-events-none">
-          <div className="absolute w-2 h-2 bg-blue-500 rounded-full animate-particle1"></div>
-          <div className="absolute w-2 h-2 bg-purple-500 rounded-full animate-particle2"></div>
-          <div className="absolute w-2 h-2 bg-indigo-500 rounded-full animate-particle3"></div>
-        </div>
-      </div>
-
-      {/* Contenu principal */}
-      <div className="container mx-auto px-4 py-12 text-center">
-        <div className="flex justify-center gap-4">
+        {/* Boutons */}
+        <div className="flex gap-4 mb-12">
           <Link
             to="/projects"
-            className="px-8 py-3 bg-blue-600 text-white rounded-full hover:bg-blue-700 transition-colors duration-300"
+            className="bg-blue-600 text-white px-6 py-2 rounded-full hover:bg-blue-700 transition-colors"
           >
             Voir mes projets
           </Link>
           <Link
             to="/about"
-            className="px-8 py-3 bg-gray-800 text-white rounded-full hover:bg-gray-900 transition-colors duration-300"
+            className="bg-gray-800 text-white px-6 py-2 rounded-full hover:bg-gray-900 transition-colors"
           >
             En savoir plus
           </Link>
@@ -101,13 +92,13 @@ export default function Index() {
       </div>
 
       {/* Skills Section */}
-      <div className="max-w-4xl mx-auto mb-16">
+      <div className="max-w-4xl mx-auto px-4 mb-16">
         <h2 className="text-3xl font-bold text-gray-800 mb-8 text-center">Compétences</h2>
         
-        <div className="grid md:grid-cols-2 gap-12">
+        <div className="grid md:grid-cols-2 gap-8">
           {/* Main Skills */}
-          <div className="bg-white rounded-xl shadow-lg p-8 transform hover:scale-105 transition-transform duration-300">
-            <h3 className="text-2xl font-bold text-gray-800 mb-6">Domaines d&apos;expertise</h3>
+          <div className="bg-white rounded-xl shadow-lg p-6 md:p-8">
+            <h3 className="text-xl md:text-2xl font-bold text-gray-800 mb-6">Domaines d&apos;expertise</h3>
             {mainSkills.map((skill, index) => (
               <ProgressBar
                 key={index}
@@ -119,8 +110,8 @@ export default function Index() {
           </div>
 
           {/* Technical Skills */}
-          <div className="bg-white rounded-xl shadow-lg p-8 transform hover:scale-105 transition-transform duration-300">
-            <h3 className="text-2xl font-bold text-gray-800 mb-6">Compétences techniques</h3>
+          <div className="bg-white rounded-xl shadow-lg p-6 md:p-8">
+            <h3 className="text-xl md:text-2xl font-bold text-gray-800 mb-6">Compétences techniques</h3>
             {technicalSkills.map((skill, index) => (
               <ProgressBar
                 key={index}
@@ -134,7 +125,7 @@ export default function Index() {
       </div>
 
       {/* Recent Projects */}
-      <div className="max-w-6xl mx-auto mb-16">
+      <div className="max-w-6xl mx-auto px-4 mb-16">
         <h2 className="text-3xl font-bold text-gray-800 mb-8 text-center">Projets Récents</h2>
         <div className="grid md:grid-cols-2 gap-8">
           {recentProjects.map((project, index) => (
@@ -148,7 +139,7 @@ export default function Index() {
                 <div className="flex items-center justify-between mb-4">
                   <div className="flex items-center">
                     <span className="text-2xl mr-3">{project.icon}</span>
-                    <h3 className="text-xl font-bold text-gray-800">{project.title}</h3>
+                    <h3 className="text-lg md:text-xl font-bold text-gray-800">{project.title}</h3>
                   </div>
                   {project.github && (
                     <a
@@ -181,7 +172,7 @@ export default function Index() {
       </div>
 
       {/* Social Links */}
-      <div className="flex justify-center space-x-6">
+      <div className="flex justify-center space-x-6 mb-8">
         <a
           href="https://github.com/gofastpanam"
           target="_blank"
