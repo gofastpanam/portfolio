@@ -135,7 +135,7 @@ export default function Index() {
       {/* Recent Projects */}
       <div className="max-w-6xl mx-auto px-4 mb-16">
         <h2 className="text-3xl font-bold text-gray-800 mb-8 text-center">Projets Récents</h2>
-        <div className="grid md:grid-cols-2 gap-8">
+        <div className="grid md:grid-cols-3 gap-8">
           {recentProjects.map((project, index) => (
             <div key={index} className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow">
               <img
