@@ -19,15 +19,15 @@ export default function Index() {
   const recentProjects = [
     {
       title: "SEO TITAN - Conquer Rankings with Precision",
-      description: "Un outil d'analyse SEO avancé qui examine une page web et génère un rapport détaillé sur différents aspects SEO importants. Cet outil est conçu pour aider les webmasters et les spécialistes SEO à identifier rapidement les problèmes et opportunités d'optimisation.",
+      description: "Un outil d'analyse SEO avancé qui examine une page web et génère un rapport détaillé sur différents aspects SEO importants.",
       image: "/images/seotitan.jpg",
       icon: "🔍",
       tags: ["Python", "BeautifulSoup4", "Requests", "Async/Await"],
       github: "https://github.com/gofastpanam/SEO-TITAN",
     },
     {
-      title: "Memory Game - Match the Mini Doges, Unlock the Fun!",
-      description: "Un jeu de mémoire unique mettant en vedette la collection Mini Doge Art, la première collection de 10 000 NFTs inscrite sur la blockchain Dogecoin.",
+      title: "Memory Game - Match the Mini Doges",
+      description: "Un jeu de mémoire mettant en vedette la collection Mini Doge Art, la première collection de 10 000 NFTs inscrite sur la blockchain Dogecoin.",
       image: "/images/memory-game.jpg",
       icon: "🎮",
       tags: ["Python", "Tkinter", "PIL"],
@@ -35,7 +35,7 @@ export default function Index() {
     },
     {
       title: "SafeMessage - Encrypt. Decrypt. Secure.",
-      description: "Une application en C qui implémente le chiffrement de César avec des fonctionnalités avancées d'analyse et de cryptanalyse. Développée avec une attention particulière à la sécurité et aux performances.",
+      description: "Une application en C qui implémente le chiffrement de César avec des fonctionnalités avancées d'analyse et de cryptanalyse.",
       icon: "🔐",
       tags: ["C", "Make"],
       image: "/images/safemessage.jpg",
