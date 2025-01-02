@@ -32,18 +32,17 @@ export default function CustomCursor() {
 
   return (
     <div
-      className={`custom-cursor fixed z-[9999] pointer-events-none transition-transform duration-100 ${
-        isPointer ? 'scale-125' : ''
-      }`}
+      className="custom-cursor fixed z-[9999]"
       style={{
         left: `${position.x}px`,
         top: `${position.y}px`,
-        transform: 'translate(-50%, -50%)'
+        transform: 'translate(-50%, -50%)',
+        pointerEvents: 'none'
       }}
     >
-      <div className="relative">
+      <div className={`relative transition-transform duration-100 ${isPointer ? 'scale-125' : ''}`}>
         <div className="absolute -inset-2 bg-blue-500/20 rounded-full blur-sm" />
-        <div className="relative bg-white w-4 h-4 rounded-full border-2 border-blue-500" />
+        <div className="relative bg-white w-3 h-3 rounded-full border border-blue-500" />
       </div>
     </div>
   );

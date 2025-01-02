@@ -4,7 +4,6 @@
 
 .custom-cursor {
   mix-blend-mode: difference;
-  pointer-events: none;
 }
 
 a, button, [role="button"] {

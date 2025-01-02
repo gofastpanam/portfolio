@@ -35,8 +35,8 @@ export default function BackgroundAnimation() {
         baseX: x,
         baseY: y,
         size: Math.random() * 2 + 1,
-        speedX: (Math.random() - 0.5) * 0.5,
-        speedY: (Math.random() - 0.5) * 0.5,
+        speedX: (Math.random() - 0.5) * 0.05,
+        speedY: (Math.random() - 0.5) * 0.05,
         opacity: Math.random() * 0.5 + 0.2
       });
     }
@@ -52,7 +52,7 @@ export default function BackgroundAnimation() {
       const dx = mouse.x - particle.x;
       const dy = mouse.y - particle.y;
       const distance = Math.sqrt(dx * dx + dy * dy);
-      const maxDistance = 200; // Distance maximale d'influence de la souris
+      const maxDistance = 100; // Distance maximale d'influence de la souris
 
       if (distance < maxDistance) {
         // Force d'attraction vers la souris
@@ -135,7 +135,7 @@ export default function BackgroundAnimation() {
   }, [animate, createParticles]);
 
   return (
-    <div className="fixed inset-0 -z-6">
+    <div className="fixed inset-0 -z-10">
       <canvas
         ref={canvasRef}
         className="w-full h-full pointer-events-none"
