@@ -1,14 +1,16 @@
-import { useEffect, useRef, useCallback, useState } from 'react';
+import { useEffect, useRef, useCallback, useState, useMemo } from 'react';
 
 interface Particle {
   x: number;
   y: number;
   size: number;
-  speedX: number;
-  speedY: number;
-  opacity: number;
+  color: string;
+  alpha: number;
   baseX: number;
   baseY: number;
+  vx: number;
+  vy: number;
+  distance: number;
 }
 
 interface MousePosition {
@@ -19,11 +21,18 @@ interface MousePosition {
 export default function BackgroundAnimation() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const particles = useRef<Particle[]>([]);
-  const animationFrameId = useRef<number>();
   const [mouse, setMouse] = useState<MousePosition>({ x: 0, y: 0 });
+  const animationFrameId = useRef<number>();
+
+  const colors = useMemo(() => [
+    'rgba(96, 165, 250, 0.7)',   // Bleu clair
+    'rgba(59, 130, 246, 0.6)',   // Bleu moyen
+    'rgba(37, 99, 235, 0.5)',    // Bleu foncé
+    'rgba(147, 197, 253, 0.4)',  // Bleu très clair
+  ], []);
 
   const createParticles = useCallback((width: number, height: number) => {
-    const particleCount = Math.floor((width * height) / 15000);
+    const particleCount = Math.floor((width * height) / 6000); 
     const newParticles: Particle[] = [];
 
     for (let i = 0; i < particleCount; i++) {
@@ -34,49 +43,68 @@ export default function BackgroundAnimation() {
         y,
         baseX: x,
         baseY: y,
-        size: Math.random() * 2 + 1,
-        speedX: (Math.random() - 0.5) * 0.05,
-        speedY: (Math.random() - 0.5) * 0.05,
-        opacity: Math.random() * 0.5 + 0.2
+        size: Math.random() * 1.5 + 0.5,
+        color: colors[Math.floor(Math.random() * colors.length)],
+        alpha: Math.random() * 0.3 + 0.1,
+        vx: (Math.random() - 0.5) * 0.2,
+        vy: (Math.random() - 0.5) * 0.2,
+        distance: Math.random() * 100 + 50
       });
     }
 
     particles.current = newParticles;
-  }, []);
+  }, [colors]);
 
   const drawParticles = useCallback((ctx: CanvasRenderingContext2D, width: number, height: number) => {
     ctx.clearRect(0, 0, width, height);
 
     particles.current.forEach((particle, i) => {
-      // Calcul de la distance avec la souris
       const dx = mouse.x - particle.x;
       const dy = mouse.y - particle.y;
       const distance = Math.sqrt(dx * dx + dy * dy);
-      const maxDistance = 100; // Distance maximale d'influence de la souris
 
-      if (distance < maxDistance) {
-        // Force d'attraction vers la souris
-        const force = (maxDistance - distance) / maxDistance;
-        const directionX = dx / distance;
-        const directionY = dy / distance;
+      if (distance < particle.distance) {
+        const force = (particle.distance - distance) / particle.distance;
+        const angle = Math.atan2(dy, dx);
+        const targetX = particle.x + Math.cos(angle) * force * 0.03;
+        const targetY = particle.y + Math.sin(angle) * force * 0.03;
         
-        particle.x += directionX * force * 0.05;
-        particle.y += directionY * force * 0.05;
+        particle.x += (targetX - particle.x) * 0.05;
+        particle.y += (targetY - particle.y) * 0.05;
       } else {
-        // Retour progressif à la position de base
+        particle.vx += (Math.random() - 0.5) * 0.01;
+        particle.vy += (Math.random() - 0.5) * 0.01;
+        particle.vx *= 0.95;
+        particle.vy *= 0.95;
+        
         const dx = particle.baseX - particle.x;
         const dy = particle.baseY - particle.y;
-        particle.x += dx * 0.02;
-        particle.y += dy * 0.02;
+        particle.x += dx * 0.01;
+        particle.y += dy * 0.01;
+        
+        particle.x += particle.vx;
+        particle.y += particle.vy;
       }
 
-      // Dessin des particules
+      const glow = ctx.createRadialGradient(
+        particle.x,
+        particle.y,
+        0,
+        particle.x,
+        particle.y,
+        particle.size * 3 // Augmenté de 2 à 3
+      );
+      
+      const color = particle.color.replace(')', '');
+      glow.addColorStop(0, `${color}, ${particle.alpha})`);
+      glow.addColorStop(0.5, `${color}, ${particle.alpha * 0.5})`);
+      glow.addColorStop(1, `${color}, 0)`);
+
       ctx.beginPath();
-      ctx.arc(particle.x, particle.y, particle.size, 0, Math.PI * 2);
-      ctx.fillStyle = `rgba(59, 130, 246, ${particle.opacity})`;
+      ctx.fillStyle = glow;
+      ctx.arc(particle.x, particle.y, particle.size * 2, 0, Math.PI * 2);
       ctx.fill();
 
-      // Dessin des connexions
       particles.current.forEach((particle2, j) => {
         if (i === j) return;
         const dx = particle.x - particle2.x;
@@ -84,12 +112,13 @@ export default function BackgroundAnimation() {
         const distance = Math.sqrt(dx * dx + dy * dy);
 
         if (distance < 100) {
-          ctx.beginPath();
-          ctx.strokeStyle = `rgba(59, 130, 246, ${0.2 * (1 - distance / 100)})`;
-          ctx.lineWidth = 0.5;
-          ctx.moveTo(particle.x, particle.y);
-          ctx.lineTo(particle2.x, particle2.y);
-          ctx.stroke();
+            ctx.beginPath();
+            const opacity = 0.08 * (1 - distance / 100);
+            ctx.strokeStyle = `rgba(147, 197, 253, ${opacity})`;
+            ctx.lineWidth = 0.3;
+            ctx.moveTo(particle.x, particle.y);
+            ctx.lineTo(particle2.x, particle2.y);
+            ctx.stroke();
         }
       });
     });
