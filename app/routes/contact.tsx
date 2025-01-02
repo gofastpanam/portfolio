@@ -3,9 +3,10 @@ import BackgroundAnimation from "~/components/BackgroundAnimation";
 
 export default function Contact() {
   return (
-    <>
+    <div className="min-h-screen bg-transparent relative z-10">
       <Header />
       <BackgroundAnimation />
+
       <main className="container mx-auto px-6 py-12 bg-transparent">
         <div className="max-w-3xl mx-auto">
           <div className="text-center mb-12">
@@ -66,6 +67,6 @@ export default function Contact() {
           </div>
         </div>
       </main>
-    </>
+    </div>
   );
 }

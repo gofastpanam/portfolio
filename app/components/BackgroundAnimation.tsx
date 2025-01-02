@@ -56,7 +56,33 @@ export default function BackgroundAnimation() {
   }, [colors]);
 
   const drawParticles = useCallback((ctx: CanvasRenderingContext2D, width: number, height: number) => {
-    ctx.clearRect(0, 0, width, height);
+    // Créer le dégradé de fond
+    const gradient = ctx.createRadialGradient(
+      width / 2,
+      height / 2,
+      0,
+      width / 2,
+      height / 2,
+      Math.max(width, height)
+    );
+    gradient.addColorStop(0, '#0f172a');    // Bleu slate très foncé
+    gradient.addColorStop(0.5, '#1e293b');  // Bleu slate foncé
+    gradient.addColorStop(1, '#020617');     // Presque noir avec une teinte bleue
+
+    // Dessiner le fond
+    ctx.fillStyle = gradient;
+    ctx.fillRect(0, 0, width, height);
+
+    // Ajouter un effet de "poussière d'étoiles"
+    for (let i = 0; i < 50; i++) {
+      const x = Math.random() * width;
+      const y = Math.random() * height;
+      const radius = Math.random() * 1;
+      ctx.beginPath();
+      ctx.arc(x, y, radius, 0, Math.PI * 2);
+      ctx.fillStyle = `rgba(255, 255, 255, ${Math.random() * 0.2})`;
+      ctx.fill();
+    }
 
     particles.current.forEach((particle, i) => {
       const dx = mouse.x - particle.x;
@@ -163,11 +189,10 @@ export default function BackgroundAnimation() {
   }, [animate, createParticles]);
 
   return (
-    <div className="fixed inset-0 -z-10 bg-black">
+    <div className="fixed inset-0 -z-10">
       <canvas
         ref={canvasRef}
-        className="w-full h-full pointer-events-none opacity-100"
-        style={{ background: 'transparent' }}
+        className="w-full h-full pointer-events-none"
       />
     </div>
   );

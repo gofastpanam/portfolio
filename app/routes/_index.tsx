@@ -67,7 +67,7 @@ export default function Index() {
 
           {/* Logo Holberton */}
           <div className="relative w-24 md:w-28 h-24 md:h-28 rounded-full overflow-hidden shadow-xl hover:scale-105 transition-transform duration-300">
-            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white to-transparent animate-shine"></div>
+            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-red to-transparent animate-shine"></div>
             <img
               src="/images/holberton.png"
               alt="École Holberton"

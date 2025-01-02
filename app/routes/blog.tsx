@@ -128,7 +128,7 @@ export default function Blog() {
   ];
 
   return (
-    <div className="min-h-screen bg-transparent">
+    <div className="min-h-screen bg-transparent relative z-10">
       <Header />
       <BackgroundAnimation />
       <main className="container mx-auto px-4 py-12">

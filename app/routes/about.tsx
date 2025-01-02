@@ -24,10 +24,10 @@ export default function About() {
   ];
 
   return (
-    <>
+    <div className="min-h-screen bg-transparent relative z-10">
+      <Header />
       <BackgroundAnimation />
       <div className="min-h-screen bg-transparent relative z-10">
-        <Header />
         <main className="container mx-auto px-6 py-12">
           {/* Section Présentation */}
           <div className="bg-white rounded-lg shadow-md p-8 mb-8">
@@ -212,6 +212,6 @@ export default function About() {
           </div>
         </main>
       </div>
-    </>
+    </div>
   );
 }

@@ -167,18 +167,17 @@ export default function Projects() {
       image: "/images/storynest.jpg",
     }
   ];
-
+  
   return (
-    <>
+    <div className="min-h-screen bg-transparent relative z-10">
+      <Header />
       <BackgroundAnimation />
-      <div className="min-h-screen bg-transparent relative z-10">
-        <Header />
-        <main className="container mx-auto px-6 py-12 bg-transparent">
-          <h1 className="text-4xl font-bold text-gray-900 mb-8">Mes Projets</h1>
-          
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {projects.map((project, index) => (
-              <div key={index} className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300">
+      
+      <main className="container mx-auto px-6 py-12 bg-transparent">
+        <h1 className="text-4xl font-bold text-gray-900 mb-8">Mes Projets</h1>
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {projects.map((project, index) => (
+            <div key={index} className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300">
                 <div className="aspect-w-16 aspect-h-9 bg-gray-200">
                   {project.image && (
                     <img 
@@ -283,11 +282,10 @@ export default function Projects() {
                     )}
                   </div>
                 </div>
-              </div>
-            ))}
-          </div>
-        </main>
-      </div>
-    </>
+            </div>
+          ))}
+        </div>
+      </main>
+    </div>
   );
 }
