@@ -1,0 +1,12 @@
+* {
+  cursor: none !important;
+}
+
+.custom-cursor {
+  mix-blend-mode: difference;
+  pointer-events: none;
+}
+
+a, button, [role="button"] {
+  cursor: url('/cursors/pointer.png'), pointer;
+}

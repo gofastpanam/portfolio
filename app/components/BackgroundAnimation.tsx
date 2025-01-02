@@ -60,14 +60,14 @@ export default function BackgroundAnimation() {
         const directionX = dx / distance;
         const directionY = dy / distance;
         
-        particle.x += directionX * force * 2;
-        particle.y += directionY * force * 2;
+        particle.x += directionX * force * 0.5;
+        particle.y += directionY * force * 0.5;
       } else {
         // Retour progressif à la position de base
         const dx = particle.baseX - particle.x;
         const dy = particle.baseY - particle.y;
-        particle.x += dx * 0.05;
-        particle.y += dy * 0.05;
+        particle.x += dx * 0.02;
+        particle.y += dy * 0.02;
       }
 
       // Dessin des particules
