@@ -55,7 +55,7 @@ export default function Projects() {
     {
       title: "ImageCypher - Hide in Plain Sight",
       description: "ImageCypher est une application de stéganographie qui permet de cacher des messages secrets dans des images. L'application combine la technique LSB (Least Significant Bit) avec un chiffrement AES robuste pour garantir la confidentialité des messages.",
-      shortDescription: "Avec cette application de stéganographie, encodez vos messages dans les pixels d’une image via la méthode LSB et les sécurise avec un chiffrement AES robuste.",
+      shortDescription: "Cette application de stéganographie encode vos messages secrets dans les pixels d’une image via la méthode LSB et les sécurise avec un chiffrement AES.",
       technologies: ["Python", "Pillow", "Cryptography", "AES"],
       image: "/images/imagecypher.jpg",
       github: "https://github.com/gofastpanam/ImageCypher",

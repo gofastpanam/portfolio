@@ -35,7 +35,7 @@ export default function Index() {
     },
     {
       title: "ImageCypher - Hide in Plain Sight",
-      description: "Avec cette application de stéganographie, encodez vos messages dans les pixels d’une image via la méthode LSB et les sécurise avec un chiffrement AES robuste.",
+      description: "Cette application de stéganographie encode vos messages secrets dans les pixels d’une image via la méthode LSB et les sécurise avec un chiffrement AES.",
       icon: "🔐",
       tags: ["Python", "Pillow", "Cryptography", "AES"],
       image: "/images/imagecypher.jpg",
