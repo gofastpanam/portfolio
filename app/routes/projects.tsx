@@ -120,7 +120,7 @@ export default function Projects() {
       }
     },
     {
-      title: "SafeMessage - Encrypt. Decrypt. Secure.",
+      title: "SafeMessage - Crack Caesar's code. Unlock the secrets of the empire.",
       description: "Une application en C qui implémente le chiffrement de César avec des fonctionnalités avancées d'analyse et de cryptanalyse.",
       shortDescription: "Application de chiffrement avec analyse de fréquence et mode bruteforce.",
       technologies: ["C", "Make"],

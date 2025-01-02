@@ -122,66 +122,6 @@ export default function Blog() {
       image: "/images/technical-seo.jpg",
       readTime: "9 min",
       tags: ["SEO", "Technique", "Optimisation"]
-    },
-    {
-      id: 13,
-      title: "Cryptographie en C : Implémentation et Sécurité",
-      excerpt: "Guide approfondi sur l&aposimplémentation sécurisée d&aposalgorithmes de cryptographie en C...",
-      date: "21 Décembre 2024",
-      category: "Sécurité",
-      image: "/images/c-cryptography.jpg",
-      readTime: "10 min",
-      tags: ["C", "Cryptographie", "Sécurité"]
-    },
-    {
-      id: 14,
-      title: "Analyse de Performance SEO avec Python",
-      excerpt: "Comment SEO Titan analyse et améliore les performances de vos pages pour un meilleur référencement...",
-      date: "20 Décembre 2024",
-      category: "SEO",
-      image: "/images/seo-performance.jpg",
-      readTime: "8 min",
-      tags: ["SEO", "Python", "Performance"]
-    },
-    {
-      id: 15,
-      title: "Développement Multiplateforme en C",
-      excerpt: "Retour d&aposexpérience sur le développement de SafeMessage pour différentes plateformes...",
-      date: "19 Décembre 2024",
-      category: "C",
-      image: "/images/c-multiplatform.jpg",
-      readTime: "7 min",
-      tags: ["C", "Multiplateforme", "Développement"]
-    },
-    {
-      id: 16,
-      title: "SEO et Machine Learning : Le Futur",
-      excerpt: "Comment SEO Titan utilise le machine learning pour prédire et améliorer le référencement...",
-      date: "18 Décembre 2024",
-      category: "SEO",
-      image: "/images/seo-ml.jpg",
-      readTime: "12 min",
-      tags: ["SEO", "Machine Learning", "IA"]
-    },
-    {
-      id: 17,
-      title: "Sécurité des Applications CLI en C",
-      excerpt: "Bonnes pratiques de sécurité pour les applications en ligne de commande, illustrées par SafeMessage...",
-      date: "17 Décembre 2024",
-      category: "Sécurité",
-      image: "/images/cli-security.jpg",
-      readTime: "9 min",
-      tags: ["C", "Sécurité", "CLI"]
-    },
-    {
-      id: 18,
-      title: "Optimisation des Rapports SEO",
-      excerpt: "Comment SEO Titan génère des rapports SEO clairs et actionnables. De l&aposanalyse à la présentation...",
-      date: "16 Décembre 2024",
-      category: "SEO",
-      image: "/images/seo-reports.jpg",
-      readTime: "6 min",
-      tags: ["SEO", "Reporting", "UX"]
     }
   ];
 

@@ -34,8 +34,8 @@ export default function Index() {
       github: "https://github.com/gofastpanam/memory_game",
     },
     {
-      title: "SafeMessage - Encrypt. Decrypt. Secure.",
-      description: "Une application en C qui implémente le chiffrement de César avec des fonctionnalités avancées d'analyse et de cryptanalyse.",
+      title: "SafeMessage - Crack Caesar's code. Unlock the secrets of the empire.",
+      description: "Application de chiffrement de César en C avec analyse de fréquence et mode bruteforce.",
       icon: "🔐",
       tags: ["C", "Make"],
       image: "/images/safemessage.jpg",
