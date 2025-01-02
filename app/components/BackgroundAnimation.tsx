@@ -92,17 +92,16 @@ export default function BackgroundAnimation() {
         0,
         particle.x,
         particle.y,
-        particle.size * 3 // Augmenté de 2 à 3
+        particle.size * 3
       );
       
-      const color = particle.color.replace(')', '');
-      glow.addColorStop(0, `${color}, ${particle.alpha})`);
-      glow.addColorStop(0.5, `${color}, ${particle.alpha * 0.5})`);
-      glow.addColorStop(1, `${color}, 0)`);
+      glow.addColorStop(0, particle.color);
+      glow.addColorStop(0.5, particle.color.replace(', 0.', ', ' + (particle.alpha * 0.5).toFixed(2) + ')'));
+      glow.addColorStop(1, particle.color.replace(', 0.', ', 0)'));
 
       ctx.beginPath();
       ctx.fillStyle = glow;
-      ctx.arc(particle.x, particle.y, particle.size * 2, 0, Math.PI * 2);
+      ctx.arc(particle.x, particle.y, particle.size * 3, 0, Math.PI * 2);
       ctx.fill();
 
       particles.current.forEach((particle2, j) => {
@@ -112,13 +111,13 @@ export default function BackgroundAnimation() {
         const distance = Math.sqrt(dx * dx + dy * dy);
 
         if (distance < 100) {
-            ctx.beginPath();
-            const opacity = 0.08 * (1 - distance / 100);
-            ctx.strokeStyle = `rgba(147, 197, 253, ${opacity})`;
-            ctx.lineWidth = 0.3;
-            ctx.moveTo(particle.x, particle.y);
-            ctx.lineTo(particle2.x, particle2.y);
-            ctx.stroke();
+          ctx.beginPath();
+          const opacity = 0.08 * (1 - distance / 100);
+          ctx.strokeStyle = 'rgba(147, 197, 253, ' + opacity + ')';
+          ctx.lineWidth = 0.3;
+          ctx.moveTo(particle.x, particle.y);
+          ctx.lineTo(particle2.x, particle2.y);
+          ctx.stroke();
         }
       });
     });
