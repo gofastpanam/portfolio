@@ -6,7 +6,7 @@ export default function Contact() {
     <>
       <Header />
       <BackgroundAnimation />
-      <main className="container mx-auto px-6 py-12">
+      <main className="container mx-auto px-6 py-12 bg-transparent">
         <div className="max-w-3xl mx-auto">
           <div className="text-center mb-12">
             <h1 className="text-4xl font-bold text-gray-900 mb-4">Contactez-moi</h1>

@@ -172,7 +172,7 @@ export default function Projects() {
     <div className="min-h-screen bg-gray-100">
       <BackgroundAnimation />
       <Header />
-      <main className="container mx-auto px-6 py-12">
+      <main className="container mx-auto px-6 py-12 bg-transparent">
         <h1 className="text-4xl font-bold text-gray-900 mb-8">Mes Projets</h1>
         
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
