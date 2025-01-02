@@ -45,7 +45,7 @@ export default function Index() {
   ];
 
   return (
-    <div className="min-h-screen bg-transparent">
+    <div className="min-h-screen bg-transparent relative z-10">
       <Header />
       <BackgroundAnimation />
       

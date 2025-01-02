@@ -163,10 +163,11 @@ export default function BackgroundAnimation() {
   }, [animate, createParticles]);
 
   return (
-    <div className="fixed inset-0 -z-10">
+    <div className="fixed inset-0 -z-10 bg-black">
       <canvas
         ref={canvasRef}
-        className="w-full h-full pointer-events-none"
+        className="w-full h-full pointer-events-none opacity-100"
+        style={{ background: 'transparent' }}
       />
     </div>
   );

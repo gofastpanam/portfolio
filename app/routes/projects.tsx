@@ -169,123 +169,125 @@ export default function Projects() {
   ];
 
   return (
-    <div className="min-h-screen bg-gray-100">
+    <>
       <BackgroundAnimation />
-      <Header />
-      <main className="container mx-auto px-6 py-12 bg-transparent">
-        <h1 className="text-4xl font-bold text-gray-900 mb-8">Mes Projets</h1>
-        
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {projects.map((project, index) => (
-            <div key={index} className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300">
-              <div className="aspect-w-16 aspect-h-9 bg-gray-200">
-                {project.image && (
-                  <img 
-                    src={project.image} 
-                    alt={project.title}
-                    className="w-full h-48 object-cover"
-                  />
-                )}
-              </div>
-              <div className="p-6">
-                <h2 className="text-xl font-bold text-gray-800 mb-2">{project.title}</h2>
-                <p className="text-gray-600 mb-4">
-                  {expandedProject === index ? project.description : project.shortDescription}
-                </p>
-                
-                <div className="flex flex-wrap gap-2 mb-4">
-                  {project.technologies.map((tech, techIndex) => (
-                    <span
-                      key={techIndex}
-                      className="px-3 py-1 bg-blue-100 text-blue-600 rounded-full text-sm"
-                    >
-                      {tech}
-                    </span>
-                  ))}
+      <div className="min-h-screen bg-transparent relative z-10">
+        <Header />
+        <main className="container mx-auto px-6 py-12 bg-transparent">
+          <h1 className="text-4xl font-bold text-gray-900 mb-8">Mes Projets</h1>
+          
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {projects.map((project, index) => (
+              <div key={index} className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300">
+                <div className="aspect-w-16 aspect-h-9 bg-gray-200">
+                  {project.image && (
+                    <img 
+                      src={project.image} 
+                      alt={project.title}
+                      className="w-full h-48 object-cover"
+                    />
+                  )}
                 </div>
+                <div className="p-6">
+                  <h2 className="text-xl font-bold text-gray-800 mb-2">{project.title}</h2>
+                  <p className="text-gray-600 mb-4">
+                    {expandedProject === index ? project.description : project.shortDescription}
+                  </p>
+                  
+                  <div className="flex flex-wrap gap-2 mb-4">
+                    {project.technologies.map((tech, techIndex) => (
+                      <span
+                        key={techIndex}
+                        className="px-3 py-1 bg-blue-100 text-blue-600 rounded-full text-sm"
+                      >
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
 
-                {expandedProject === index && project.technicalDetails && (
-                  <div className="mt-4 space-y-4">
-                    <div>
-                      <h3 className="font-semibold text-gray-800 mb-2">Fonctionnalités clés</h3>
-                      <ul className="list-disc list-inside space-y-1 text-gray-600">
-                        {project.technicalDetails.features.map((feature, i) => (
-                          <li key={i}>{feature}</li>
-                        ))}
-                      </ul>
-                    </div>
-
-                    {project.technicalDetails.security && (
+                  {expandedProject === index && project.technicalDetails && (
+                    <div className="mt-4 space-y-4">
                       <div>
-                        <h3 className="font-semibold text-gray-800 mb-2">Sécurité</h3>
+                        <h3 className="font-semibold text-gray-800 mb-2">Fonctionnalités clés</h3>
                         <ul className="list-disc list-inside space-y-1 text-gray-600">
-                          {project.technicalDetails.security.map((item, i) => (
+                          {project.technicalDetails.features.map((feature, i) => (
+                            <li key={i}>{feature}</li>
+                          ))}
+                        </ul>
+                      </div>
+
+                      {project.technicalDetails.security && (
+                        <div>
+                          <h3 className="font-semibold text-gray-800 mb-2">Sécurité</h3>
+                          <ul className="list-disc list-inside space-y-1 text-gray-600">
+                            {project.technicalDetails.security.map((item, i) => (
+                              <li key={i}>{item}</li>
+                            ))}
+                          </ul>
+                        </div>
+                      )}
+
+                      {project.technicalDetails.concepts && (
+                        <div>
+                          <h3 className="font-semibold text-gray-800 mb-2">Concepts clés</h3>
+                          <ul className="list-disc list-inside space-y-1 text-gray-600">
+                            {project.technicalDetails.concepts.map((concept, i) => (
+                              <li key={i}>{concept}</li>
+                            ))}
+                          </ul>
+                        </div>
+                      )}
+
+                      <div>
+                        <h3 className="font-semibold text-gray-800 mb-2">Structure du projet</h3>
+                        <ul className="list-disc list-inside space-y-1 text-gray-600">
+                          {project.technicalDetails.structure.map((item, i) => (
                             <li key={i}>{item}</li>
                           ))}
                         </ul>
                       </div>
-                    )}
 
-                    {project.technicalDetails.concepts && (
                       <div>
-                        <h3 className="font-semibold text-gray-800 mb-2">Concepts clés</h3>
+                        <h3 className="font-semibold text-gray-800 mb-2">Apprentissages</h3>
                         <ul className="list-disc list-inside space-y-1 text-gray-600">
-                          {project.technicalDetails.concepts.map((concept, i) => (
-                            <li key={i}>{concept}</li>
+                          {project.technicalDetails.learnings.map((learning, i) => (
+                            <li key={i}>{learning}</li>
                           ))}
                         </ul>
                       </div>
+                    </div>
+                  )}
+
+                  <div className="flex space-x-4 mt-4">
+                    {project.github && (
+                      <a
+                        href={project.github}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center text-gray-600 hover:text-gray-900"
+                      >
+                        <svg className="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 24 24">
+                          <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.92 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z" />
+                        </svg>
+                        Voir sur GitHub
+                      </a>
                     )}
 
-                    <div>
-                      <h3 className="font-semibold text-gray-800 mb-2">Structure du projet</h3>
-                      <ul className="list-disc list-inside space-y-1 text-gray-600">
-                        {project.technicalDetails.structure.map((item, i) => (
-                          <li key={i}>{item}</li>
-                        ))}
-                      </ul>
-                    </div>
-
-                    <div>
-                      <h3 className="font-semibold text-gray-800 mb-2">Apprentissages</h3>
-                      <ul className="list-disc list-inside space-y-1 text-gray-600">
-                        {project.technicalDetails.learnings.map((learning, i) => (
-                          <li key={i}>{learning}</li>
-                        ))}
-                      </ul>
-                    </div>
+                    {project.technicalDetails && (
+                      <button
+                        onClick={() => setExpandedProject(expandedProject === index ? null : index)}
+                        className="text-blue-600 hover:text-blue-800 font-medium"
+                      >
+                        {expandedProject === index ? "Voir moins" : "Voir plus"}
+                      </button>
+                    )}
                   </div>
-                )}
-
-                <div className="flex space-x-4 mt-4">
-                  {project.github && (
-                    <a
-                      href={project.github}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center text-gray-600 hover:text-gray-900"
-                    >
-                      <svg className="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.92 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z" />
-                      </svg>
-                      Voir sur GitHub
-                    </a>
-                  )}
-
-                  {project.technicalDetails && (
-                    <button
-                      onClick={() => setExpandedProject(expandedProject === index ? null : index)}
-                      className="text-blue-600 hover:text-blue-800 font-medium"
-                    >
-                      {expandedProject === index ? "Voir moins" : "Voir plus"}
-                    </button>
-                  )}
                 </div>
               </div>
-            </div>
-          ))}
-        </div>
-      </main>
-    </div>
+            ))}
+          </div>
+        </main>
+      </div>
+    </>
   );
 }
