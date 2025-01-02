@@ -1,6 +1,7 @@
 import { Link } from "@remix-run/react";
 import ProgressBar from "~/components/ProgressBar";
 import Header from "~/components/Header";
+import BackgroundAnimation from "~/components/BackgroundAnimation";
 
 export default function Index() {
   const mainSkills = [
@@ -46,6 +47,7 @@ export default function Index() {
   return (
     <div className="min-h-screen bg-gray-100">
       <Header />
+      <BackgroundAnimation />
       
       {/* Hero Section avec animation */}
       <div className="relative min-h-[45vh] flex flex-col items-center justify-center overflow-hidden mt-8 px-4 md:px-6">

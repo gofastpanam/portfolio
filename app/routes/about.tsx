@@ -1,5 +1,7 @@
 import Header from "~/components/Header";
 import ProgressBar from "~/components/ProgressBar";
+import BackgroundAnimation from "~/components/BackgroundAnimation";
+
 
 export default function About() {
   const mainSkills = [
@@ -24,6 +26,7 @@ export default function About() {
 
   return (
     <>
+      <BackgroundAnimation />
       <Header />
       <main className="container mx-auto px-6 py-12">
         {/* Section Présentation */}

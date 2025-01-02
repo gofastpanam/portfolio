@@ -1,5 +1,6 @@
 import { useState } from "react";
 import Header from "~/components/Header";
+import BackgroundAnimation from "~/components/BackgroundAnimation";
 
 export default function Projects() {
   const [expandedProject, setExpandedProject] = useState<number | null>(null);
@@ -169,6 +170,7 @@ export default function Projects() {
 
   return (
     <div className="min-h-screen bg-gray-100">
+      <BackgroundAnimation />
       <Header />
       <main className="container mx-auto px-6 py-12">
         <h1 className="text-4xl font-bold text-gray-900 mb-8">Mes Projets</h1>
