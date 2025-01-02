@@ -7,7 +7,7 @@ export default function Projects() {
   const projects = [
     {
       title: "SEO TITAN - Conquer Rankings with Precision",
-      description: "Un outil d'analyse SEO avancé qui examine une page web et génère un rapport détaillé sur différents aspects SEO importants.",
+      description: "SEO TITAN est un outil d'analyse SEO avancé qui examine une page web et génère un rapport détaillé sur différents aspects SEO importants.",
       shortDescription: "Analyseur SEO avancé avec rapports détaillés et recommandations d'optimisation basées sur les meilleures pratiques.",
       technologies: ["Python", "BeautifulSoup4", "Requests", "Async/Await"],
       image: "/images/seotitan.jpg",
@@ -54,8 +54,8 @@ export default function Projects() {
     },
     {
       title: "ImageCypher - Hide in Plain Sight",
-      description: "Une application de stéganographie qui permet de cacher des messages secrets dans des images. L'application combine la technique LSB (Least Significant Bit) avec un chiffrement AES robuste pour garantir la confidentialité des messages.",
-      shortDescription: "Cachez vos messages secrets dans des images avec un chiffrement AES robuste.",
+      description: "ImageCypher est une application de stéganographie qui permet de cacher des messages secrets dans des images. L'application combine la technique LSB (Least Significant Bit) avec un chiffrement AES robuste pour garantir la confidentialité des messages.",
+      shortDescription: "Avec cette application de stéganographie, encodez vos messages dans les pixels d’une image via la méthode LSB et les sécurise avec un chiffrement AES robuste.",
       technologies: ["Python", "Pillow", "Cryptography", "AES"],
       image: "/images/imagecypher.jpg",
       github: "https://github.com/gofastpanam/ImageCypher",
@@ -93,7 +93,7 @@ export default function Projects() {
     },
     {
       title: "Memory Game - Match the Mini Doges",
-      description: "Un jeu de mémoire mettant en vedette la collection Mini Doge Art, la première collection de 10 000 NFTs inscrite sur la blockchain Dogecoin.",
+      description: "Memory Game est un jeu de mémoire mettant en vedette la collection Mini Doge Art, la première collection de 10 000 NFTs inscrite sur la blockchain Dogecoin.",
       shortDescription: "Testez votre mémoire en associant les paires de Mini Doges!",
       technologies: ["Python", "Tkinter", "PIL"],
       image: "/images/memory-game.jpg",
@@ -121,7 +121,7 @@ export default function Projects() {
     },
     {
       title: "SafeMessage - Crack Caesar's code.",
-      description: "Une application en C qui implémente le chiffrement de César, une méthode de cryptage historique utilisée par Jules César pour ses communications militaires secrètes.",
+      description: "SafeMessage est une application en C qui implémente le chiffrement de César, méthode de cryptage historique utilisée par Jules César pour ses communications militaires secrètes.",
       shortDescription: "Une application de chiffrement de César en C, incluant une analyse de fréquence et un mode de décryptage par bruteforce.",
       technologies: ["C", "Make"],
       image: "/images/safemessage.jpg",
