@@ -10,8 +10,8 @@ export default function Contact() {
       <main className="container mx-auto px-6 py-12 bg-transparent">
         <div className="max-w-3xl mx-auto">
           <div className="text-center mb-12">
-            <h1 className="text-4xl font-bold text-gray-900 mb-4">Contactez-moi</h1>
-            <p className="text-xl text-gray-600">
+            <h1 className="text-4xl font-bold text-white-900 mb-4">Contactez-moi</h1>
+            <p className="text-xl text-white-600">
               N&apos;hésitez pas à me contacter pour discuter de vos projets
             </p>
           </div>
@@ -28,7 +28,7 @@ export default function Contact() {
                   </div>
                   <div>
                     <h2 className="text-xl font-semibold text-gray-800">Email</h2>
-                    <p className="text-gray-600">Pour toute demande professionnelle</p>
+                    <p className="text-white-600">Pour toute demande professionnelle</p>
                   </div>
                 </div>
                 <a

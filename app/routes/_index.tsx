@@ -80,7 +80,7 @@ export default function Index() {
         <h1 className="text-4xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-blue-600 via-purple-600 to-blue-600 bg-clip-text text-transparent bg-300% animate-gradient text-center">
           Benjamin Jacob
         </h1>
-        <p className="text-lg md:text-xl text-gray-600 dark:text-gray-300 mt-2 mb-8 text-center max-w-2xl px-4">
+        <p className="text-lg md:text-xl text-white-600 dark:text--300white mt-2 mb-8 text-center max-w-2xl px-4">
           Développeur web en formation à Holberton School, passionné par l&apos;apprentissage et la création d&apos;applications
         </p>
 
@@ -103,12 +103,12 @@ export default function Index() {
 
       {/* Skills Section */}
       <div className="max-w-4xl mx-auto px-4 mb-16">
-        <h2 className="text-3xl font-bold text-gray-800 mb-8 text-center">Compétences</h2>
+        <h2 className="text-3xl font-bold text-white-800 mb-8 text-center">Compétences</h2>
         
         <div className="grid md:grid-cols-2 gap-8">
           {/* Main Skills */}
-          <div className="bg-white rounded-xl shadow-lg p-6 md:p-8">
-            <h3 className="text-xl md:text-2xl font-bold text-gray-800 mb-6">Domaines d&apos;expertise</h3>
+          <div className="bg-white/80 backdrop-blur-sm rounded-lg shadow-md p-6 md:p-8 transition-all duration-300 hover:bg-white/90">
+            <h3 className="text-xl md:text-2xl font-bold text-white-800 mb-6">Domaines d&apos;expertise</h3>
             {mainSkills.map((skill, index) => (
               <ProgressBar
                 key={index}
@@ -120,8 +120,8 @@ export default function Index() {
           </div>
 
           {/* Technical Skills */}
-          <div className="bg-white rounded-xl shadow-lg p-6 md:p-8">
-            <h3 className="text-xl md:text-2xl font-bold text-gray-800 mb-6">Compétences techniques</h3>
+          <div className="bg-white/80 backdrop-blur-sm rounded-lg shadow-md p-6 md:p-8 transition-all duration-300 hover:bg-white/90">
+            <h3 className="text-xl md:text-2xl font-bold text-white-800 mb-6">Compétences techniques</h3>
             {technicalSkills.map((skill, index) => (
               <ProgressBar
                 key={index}
@@ -136,7 +136,7 @@ export default function Index() {
 
       {/* Recent Projects */}
       <div className="max-w-6xl mx-auto px-4 mb-16">
-        <h2 className="text-3xl font-bold text-gray-800 mb-8 text-center">Projets Récents</h2>
+        <h2 className="text-3xl font-bold text-white-800 mb-8 text-center">Projets Récents</h2>
         <div className="grid md:grid-cols-3 gap-8">
           {recentProjects.map((project, index) => (
             <div key={index} className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow">
