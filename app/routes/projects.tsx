@@ -120,9 +120,9 @@ export default function Projects() {
       }
     },
     {
-      title: "SafeMessage - Crack Caesar's code. Unlock the secrets of the empire.",
-      description: "Une application en C qui implémente le chiffrement de César avec des fonctionnalités avancées d'analyse et de cryptanalyse.",
-      shortDescription: "Application de chiffrement avec analyse de fréquence et mode bruteforce.",
+      title: "SafeMessage - Crack Caesar's code.",
+      description: "Une application en C qui implémente le chiffrement de César, une méthode de cryptage historique utilisée par Jules César pour ses communications militaires secrètes.",
+      shortDescription: "Une application de chiffrement de César en C, incluant une analyse de fréquence et un mode de décryptage par bruteforce.",
       technologies: ["C", "Make"],
       image: "/images/safemessage.jpg",
       github: "https://github.com/gofastpanam/SafeMessage",
@@ -160,7 +160,7 @@ export default function Projects() {
       }
     },
     {
-      title: "StoryNest - Because Every Story Deserves a Name",
+      title: "StoryNest - Every Story Deserves a Name",
       shortDescription: "StoryNest est une application mobile en cours de développement alimentée par IA, conçue pour générer des contes pour enfants personnalisés captivants.",
       technologies: ["Typescript", "React Native", "Expo", "Firebase"],
       image: "/images/storynest.jpg",
@@ -173,7 +173,7 @@ export default function Projects() {
       <main className="container mx-auto px-6 py-12">
         <h1 className="text-4xl font-bold text-gray-900 mb-8">Mes Projets</h1>
         
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-16">
           {projects.map((project, index) => (
             <div key={index} className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300">
               <div className="aspect-w-16 aspect-h-9 bg-gray-200">
