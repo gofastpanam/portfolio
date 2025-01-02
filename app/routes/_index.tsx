@@ -34,12 +34,12 @@ export default function Index() {
       github: "https://github.com/gofastpanam/memory_game",
     },
     {
-      title: "SafeMessage - Crack Caesar's code.",
-      description: "Une application de chiffrement de César en C, incluant une analyse de fréquence et un mode de décryptage par bruteforce.",
+      title: "ImageCypher - Hide in Plain Sight",
+      description: "Une application de stéganographie qui permet de cacher des messages secrets dans des images. L'application combine la technique LSB (Least Significant Bit) avec un chiffrement AES robuste pour garantir la confidentialité des messages.",
       icon: "🔐",
-      tags: ["C", "Make"],
-      image: "/images/safemessage.jpg",
-      github: "https://github.com/gofastpanam/SafeMessage",
+      tags: ["Python", "Pillow", "Cryptography", "AES"],
+      image: "/images/imagecypher.jpg",
+      github: "https://github.com/gofastpanam/ImageCypher",
     },
   ];
 

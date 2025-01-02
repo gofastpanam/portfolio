@@ -173,7 +173,7 @@ export default function Projects() {
       <main className="container mx-auto px-6 py-12">
         <h1 className="text-4xl font-bold text-gray-900 mb-8">Mes Projets</h1>
         
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-16">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {projects.map((project, index) => (
             <div key={index} className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300">
               <div className="aspect-w-16 aspect-h-9 bg-gray-200">
