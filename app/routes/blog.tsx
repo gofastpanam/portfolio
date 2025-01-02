@@ -1,5 +1,7 @@
 import { Link } from "@remix-run/react";
 import Header from "~/components/Header";
+import BackgroundAnimation from "~/components/BackgroundAnimation";
+
 
 export default function Blog() {
   const blogPosts = [
@@ -128,6 +130,7 @@ export default function Blog() {
   return (
     <div className="min-h-screen bg-gray-100">
       <Header />
+      <BackgroundAnimation />
       <main className="container mx-auto px-4 py-12">
         {/* En-tête du Blog */}
         <div className="text-center mb-16">

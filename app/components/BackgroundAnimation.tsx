@@ -1,4 +1,4 @@
-import { useEffect, useRef, useCallback } from 'react';
+import { useEffect, useRef, useCallback, useState } from 'react';
 
 interface Particle {
   x: number;
@@ -7,21 +7,33 @@ interface Particle {
   speedX: number;
   speedY: number;
   opacity: number;
+  baseX: number;
+  baseY: number;
+}
+
+interface MousePosition {
+  x: number;
+  y: number;
 }
 
 export default function BackgroundAnimation() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const particles = useRef<Particle[]>([]);
   const animationFrameId = useRef<number>();
+  const [mouse, setMouse] = useState<MousePosition>({ x: 0, y: 0 });
 
   const createParticles = useCallback((width: number, height: number) => {
     const particleCount = Math.floor((width * height) / 15000);
     const newParticles: Particle[] = [];
 
     for (let i = 0; i < particleCount; i++) {
+      const x = Math.random() * width;
+      const y = Math.random() * height;
       newParticles.push({
-        x: Math.random() * width,
-        y: Math.random() * height,
+        x,
+        y,
+        baseX: x,
+        baseY: y,
         size: Math.random() * 2 + 1,
         speedX: (Math.random() - 0.5) * 0.5,
         speedY: (Math.random() - 0.5) * 0.5,
@@ -36,13 +48,27 @@ export default function BackgroundAnimation() {
     ctx.clearRect(0, 0, width, height);
 
     particles.current.forEach((particle, i) => {
-      // Mise à jour de la position
-      particle.x += particle.speedX;
-      particle.y += particle.speedY;
+      // Calcul de la distance avec la souris
+      const dx = mouse.x - particle.x;
+      const dy = mouse.y - particle.y;
+      const distance = Math.sqrt(dx * dx + dy * dy);
+      const maxDistance = 200; // Distance maximale d'influence de la souris
 
-      // Rebond sur les bords
-      if (particle.x < 0 || particle.x > width) particle.speedX *= -1;
-      if (particle.y < 0 || particle.y > height) particle.speedY *= -1;
+      if (distance < maxDistance) {
+        // Force d'attraction vers la souris
+        const force = (maxDistance - distance) / maxDistance;
+        const directionX = dx / distance;
+        const directionY = dy / distance;
+        
+        particle.x += directionX * force * 2;
+        particle.y += directionY * force * 2;
+      } else {
+        // Retour progressif à la position de base
+        const dx = particle.baseX - particle.x;
+        const dy = particle.baseY - particle.y;
+        particle.x += dx * 0.05;
+        particle.y += dy * 0.05;
+      }
 
       // Dessin des particules
       ctx.beginPath();
@@ -67,7 +93,7 @@ export default function BackgroundAnimation() {
         }
       });
     });
-  }, []);
+  }, [mouse]);
 
   const animate = useCallback(() => {
     const canvas = canvasRef.current;
@@ -90,12 +116,18 @@ export default function BackgroundAnimation() {
       createParticles(canvas.width, canvas.height);
     };
 
+    const handleMouseMove = (event: MouseEvent) => {
+      setMouse({ x: event.clientX, y: event.clientY });
+    };
+
     handleResize();
     window.addEventListener('resize', handleResize);
+    window.addEventListener('mousemove', handleMouseMove);
     animate();
 
     return () => {
       window.removeEventListener('resize', handleResize);
+      window.removeEventListener('mousemove', handleMouseMove);
       if (animationFrameId.current) {
         cancelAnimationFrame(animationFrameId.current);
       }
@@ -103,9 +135,11 @@ export default function BackgroundAnimation() {
   }, [animate, createParticles]);
 
   return (
-    <canvas
-      ref={canvasRef}
-      className="fixed top-0 left-0 w-full h-full pointer-events-none z-0"
-    />
+    <div className="fixed inset-0 -z-10">
+      <canvas
+        ref={canvasRef}
+        className="w-full h-full pointer-events-none"
+      />
+    </div>
   );
 }

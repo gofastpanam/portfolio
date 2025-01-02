@@ -1,9 +1,11 @@
 import Header from "~/components/Header";
+import BackgroundAnimation from "~/components/BackgroundAnimation";
 
 export default function Contact() {
   return (
     <>
       <Header />
+      <BackgroundAnimation />
       <main className="container mx-auto px-6 py-12">
         <div className="max-w-3xl mx-auto">
           <div className="text-center mb-12">
