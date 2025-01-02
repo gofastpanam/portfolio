@@ -36,7 +36,7 @@ export default function Blog() {
     {
       id: 4,
       title: "SEO Titan : Analyse Technique et Architecture",
-      excerpt: "Plongée dans les coulisses de SEO Titan : découvrez comment j&aposai développé un outil d&aposanalyse SEO puissant en Python...",
+      excerpt: "Plongée dans les coulisses de SEO Titan : découvrez comment j'ai développé un outil d'analyse SEO puissant en Python...",
       date: "30 Décembre 2024",
       category: "SEO",
       image: "/images/seotitan-architecture.jpg",
@@ -56,7 +56,7 @@ export default function Blog() {
     {
       id: 6,
       title: "SafeMessage : Cryptographie Moderne en C",
-      excerpt: "Exploration détaillée de l&aposimplémentation du chiffrement de César dans SafeMessage et des principes de cryptographie...",
+      excerpt: "Exploration détaillée de l'implémentation du chiffrement de César dans SafeMessage et des principes de cryptographie...",
       date: "28 Décembre 2024",
       category: "Sécurité",
       image: "/images/safemessage-crypto.jpg",
@@ -66,7 +66,7 @@ export default function Blog() {
     {
       id: 7,
       title: "Optimisation des Performances avec SEO Titan",
-      excerpt: "Comment j&aposai optimisé SEO Titan pour analyser rapidement des milliers de pages web. Techniques et astuces...",
+      excerpt: "Comment j'ai optimisé SEO Titan pour analyser rapidement des milliers de pages web. Techniques et astuces...",
       date: "27 Décembre 2024",
       category: "Performance",
       image: "/images/seotitan-performance.jpg",
@@ -76,7 +76,7 @@ export default function Blog() {
     {
       id: 8,
       title: "Interface en Ligne de Commande : Le Cas de SafeMessage",
-      excerpt: "Création d&aposune CLI intuitive et ergonomique en C. Retour d&aposexpérience sur SafeMessage...",
+      excerpt: "Création d'une CLI intuitive et ergonomique en C. Retour d'expérience sur SafeMessage...",
       date: "26 Décembre 2024",
       category: "CLI",
       image: "/images/safemessage-cli.jpg",
@@ -86,7 +86,7 @@ export default function Blog() {
     {
       id: 9,
       title: "Analyse SEO Automatisée avec Python",
-      excerpt: "Comment automatiser l&aposanalyse SEO de vos sites web avec Python. Techniques utilisées dans SEO Titan...",
+      excerpt: "Comment automatiser l'analyse SEO de vos sites web avec Python. Techniques utilisées dans SEO Titan...",
       date: "25 Décembre 2024",
       category: "Automatisation",
       image: "/images/seo-automation.jpg",
@@ -95,8 +95,8 @@ export default function Blog() {
     },
     {
       id: 10,
-      title: "Tests Unitaires en C : L&aposExemple de SafeMessage",
-      excerpt: "Mise en place de tests unitaires robustes pour des applications C. Retour d&aposexpérience sur SafeMessage...",
+      title: "Tests Unitaires en C : L'Exemple de SafeMessage",
+      excerpt: "Mise en place de tests unitaires robustes pour des applications C. Retour d'expérience sur SafeMessage...",
       date: "24 Décembre 2024",
       category: "Testing",
       image: "/images/safemessage-testing.jpg",
@@ -116,7 +116,7 @@ export default function Blog() {
     {
       id: 12,
       title: "SEO Technique : Au-delà des Bases",
-      excerpt: "Techniques avancées de SEO technique implémentées dans SEO Titan. De l&aposanalyse à l&aposoptimisation...",
+      excerpt: "Techniques avancées de SEO technique implémentées dans SEO Titan. De l'analyse à l'optimisation...",
       date: "22 Décembre 2024",
       category: "SEO",
       image: "/images/technical-seo.jpg",
@@ -135,7 +135,7 @@ export default function Blog() {
             Blog Tech
           </h1>
           <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-            Découvrez mes articles sur le développement, les nouvelles technologies et mes retours d&aposexpérience.
+            Découvrez mes articles sur le développement et les nouvelles technologies.
           </p>
         </div>
 
@@ -233,7 +233,7 @@ export default function Blog() {
                   type="submit"
                   className="bg-blue-600 text-white px-6 py-2 rounded-full hover:bg-blue-700 transition-colors"
                 >
-                  S&aposinscrire
+                  S&apos;inscrire
                 </button>
               </form>
             </div>
