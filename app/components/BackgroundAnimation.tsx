@@ -60,8 +60,8 @@ export default function BackgroundAnimation() {
         const directionX = dx / distance;
         const directionY = dy / distance;
         
-        particle.x += directionX * force * 0.5;
-        particle.y += directionY * force * 0.5;
+        particle.x += directionX * force * 0.05;
+        particle.y += directionY * force * 0.05;
       } else {
         // Retour progressif à la position de base
         const dx = particle.baseX - particle.x;
@@ -135,7 +135,7 @@ export default function BackgroundAnimation() {
   }, [animate, createParticles]);
 
   return (
-    <div className="fixed inset-0 -z-3">
+    <div className="fixed inset-0 -z-6">
       <canvas
         ref={canvasRef}
         className="w-full h-full pointer-events-none"
