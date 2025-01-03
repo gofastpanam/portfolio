@@ -30,7 +30,7 @@ export default function About() {
       <div className="min-h-screen bg-transparent relative z-10">
         <main className="container mx-auto px-6 py-12">
           {/* Section Présentation */}
-          <div className="bg-white/80 backdrop-blur-sm rounded-lg shadow-md p-8 mb-8 transition-all duration-300 hover:bg-white/90">
+          <div className="bg-white/60 backdrop-blur-sm rounded-lg shadow-md p-8 mb-8 transition-all duration-300 hover:bg-white/90">
             <div className="flex items-center mb-8">
               <img
                 src="/images/benjamin-picture.png"
@@ -51,7 +51,7 @@ export default function About() {
           </div>
 
           {/* Section Expérience */}
-          <div className="bg-white/80 backdrop-blur-sm rounded-lg shadow-md p-8 mb-8 transition-all duration-300 hover:bg-white/90">
+          <div className="bg-white/60 backdrop-blur-sm rounded-lg shadow-md p-8 mb-8 transition-all duration-300 hover:bg-white/90">
             <h2 className="text-2xl font-bold text-gray-800 mb-6">Parcours Professionnel Numérique</h2>
             <div className="border-l-4 border-blue-500 pl-6 mb-8">
               <div className="flex justify-between items-start mb-2">
@@ -85,7 +85,7 @@ export default function About() {
 
           {/* Section Compétences */}
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-8">
-            <div className="bg-white/80 backdrop-blur-sm rounded-lg shadow-md p-8 transition-all duration-300 hover:bg-white/90">
+            <div className="bg-white/60 backdrop-blur-sm rounded-lg shadow-md p-8 transition-all duration-300 hover:bg-white/90">
               <h2 className="text-2xl font-bold text-gray-800 mb-6">Développement</h2>
               {mainSkills.map((skill, index) => (
                 <ProgressBar
@@ -97,7 +97,7 @@ export default function About() {
               ))}
             </div>
 
-            <div className="bg-white/80 backdrop-blur-sm rounded-lg shadow-md p-8 transition-all duration-300 hover:bg-white/90">
+            <div className="bg-white/60 backdrop-blur-sm rounded-lg shadow-md p-8 transition-all duration-300 hover:bg-white/90">
               <h2 className="text-2xl font-bold text-gray-800 mb-6">E-commerce</h2>
               {ecommerceSkills.map((skill, index) => (
                 <ProgressBar
@@ -109,7 +109,7 @@ export default function About() {
               ))}
             </div>
 
-            <div className="bg-white/80 backdrop-blur-sm rounded-lg shadow-md p-8 transition-all duration-300 hover:bg-white/90">
+            <div className="bg-white/60 backdrop-blur-sm rounded-lg shadow-md p-8 transition-all duration-300 hover:bg-white/90">
               <h2 className="text-2xl font-bold text-gray-800 mb-6">Technologies</h2>
               {technicalSkills.map((skill, index) => (
                 <ProgressBar
@@ -123,7 +123,7 @@ export default function About() {
           </div>
 
           {/* Section Formation */}
-          <div className="bg-white/80 backdrop-blur-sm rounded-lg shadow-md p-8 mb-8 transition-all duration-300 hover:bg-white/90">
+          <div className="bg-white/60 backdrop-blur-sm rounded-lg shadow-md p-8 mb-8 transition-all duration-300 hover:bg-white/90">
             <h2 className="text-2xl font-bold text-gray-800 mb-6">Formation</h2>
             <div className="space-y-6">
               <div className="border-l-4 border-green-500 pl-6">
@@ -154,7 +154,7 @@ export default function About() {
           </div>
 
           {/* Section IA */}
-          <div className="bg-white/80 backdrop-blur-sm rounded-lg shadow-md p-8 transition-all duration-300 hover:bg-white/90">
+          <div className="bg-white/60 backdrop-blur-sm rounded-lg shadow-md p-8 transition-all duration-300 hover:bg-white/90">
             <h3 className="text-2xl font-bold text-gray-800 mb-8">Maitrise Des Outils d&apos;Intelligence Artificielle</h3>
             <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
               <div className="bg-gradient-to-br from-white/90 to-blue-50/90 backdrop-blur-sm p-6 rounded-xl transition-all duration-300 hover:from-white hover:to-blue-50">

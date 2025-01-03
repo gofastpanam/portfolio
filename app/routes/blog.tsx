@@ -137,7 +137,7 @@ export default function Blog() {
           <h1 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-blue-600 via-purple-600 to-blue-600 bg-clip-text text-transparent bg-300% animate-gradient mb-4">
             Blog Tech
           </h1>
-          <p className="text-xl text-white-600 max-w-2xl mx-auto">
+          <p className="text-xl text-white max-w-2xl mx-auto">
             Découvrez mes articles sur le développement et les nouvelles technologies.
           </p>
         </div>
