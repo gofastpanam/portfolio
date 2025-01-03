@@ -14,6 +14,9 @@ export default {
         'particle3': 'particle 10s ease-in-out infinite',
         'gradient': 'gradient 8s linear infinite',
         'gradient-xy': 'gradient-xy 15s ease infinite',
+        'gradient-x': 'gradient-x 15s ease infinite',
+        'gradient-y': 'gradient-y 15s ease infinite',
+        'gradient-slow': 'gradient-slow 8s linear infinite',
       },
       keyframes: {
         float: {
@@ -47,7 +50,37 @@ export default {
             'background-size': '200% 200%',
             'background-position': 'right center'
           }
-        }
+        },
+        'gradient-slow': {
+          '0%, 100%': {
+            'background-size': '400% 400%',
+            'background-position': '0% 50%'
+          },
+          '50%': {
+            'background-size': '400% 400%',
+            'background-position': '100% 50%'
+          },
+        },
+        'gradient-y': {
+          '0%, 100%': {
+            'background-size': '400% 400%',
+            'background-position': 'center top'
+          },
+          '50%': {
+            'background-size': '200% 200%',
+            'background-position': 'center center'
+          }
+        },
+        'gradient-x': {
+          '0%, 100%': {
+            'background-size': '200% 200%',
+            'background-position': 'left center'
+          },
+          '50%': {
+            'background-size': '200% 200%',
+            'background-position': 'right center'
+          }
+        },
       },
       backgroundSize: {
         '300%': '300%',
