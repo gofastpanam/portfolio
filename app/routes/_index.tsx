@@ -107,7 +107,7 @@ export default function Index() {
         
         <div className="grid md:grid-cols-2 gap-8">
           {/* Main Skills */}
-          <div className="bg-white/70 backdrop-blur-md rounded-lg shadow-lg p-6 md:p-8 transition-all duration-300 hover:bg-white/80">
+          <div className="bg-white/70 backdrop-blur-md rounded-lg shadow-lg p-6 md:p-8 transition-all duration-300 hover:bg-white/90">
             <h3 className="text-xl md:text-2xl font-bold text-gray-800 mb-6">Domaines d&apos;expertise</h3>
             {mainSkills.map((skill, index) => (
               <ProgressBar
@@ -120,7 +120,7 @@ export default function Index() {
           </div>
 
           {/* Technical Skills */}
-          <div className="bg-white/70 backdrop-blur-md rounded-lg shadow-lg p-6 md:p-8 transition-all duration-300 hover:bg-white/80">
+          <div className="bg-white/70 backdrop-blur-md rounded-lg shadow-lg p-6 md:p-8 transition-all duration-300 hover:bg-white/90">
             <h3 className="text-xl md:text-2xl font-bold text-gray-800 mb-6">Compétences techniques</h3>
             {technicalSkills.map((skill, index) => (
               <ProgressBar

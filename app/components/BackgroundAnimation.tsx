@@ -43,12 +43,12 @@ export default function BackgroundAnimation() {
         y,
         baseX: x,
         baseY: y,
-        size: Math.random() * 1.5 + 0.5,
+        size: Math.random() * 1.2 + 0.3,
         color: colors[Math.floor(Math.random() * colors.length)],
-        alpha: Math.random() * 0.2 + 0.1,
-        vx: (Math.random() - 0.5) * 0.1,
-        vy: (Math.random() - 0.5) * 0.1,
-        distance: Math.random() * 80 + 30
+        alpha: Math.random() * 0.15 + 0.1,
+        vx: (Math.random() - 0.5) * 0.05,
+        vy: (Math.random() - 0.5) * 0.05,
+        distance: 120
       });
     }
 
@@ -76,23 +76,28 @@ export default function BackgroundAnimation() {
       const distance = Math.sqrt(dx * dx + dy * dy);
 
       if (distance < particle.distance) {
+        // Force de répulsion inversée
         const force = (particle.distance - distance) / particle.distance;
         const angle = Math.atan2(dy, dx);
-        const targetX = particle.x + Math.cos(angle) * force * 0.3;
-        const targetY = particle.y + Math.sin(angle) * force * 0.3;
+        // Direction opposée à la souris (d'où le signe négatif)
+        const targetX = particle.x - Math.cos(angle) * force * 0.8;
+        const targetY = particle.y - Math.sin(angle) * force * 0.8;
         
-        particle.x += (targetX - particle.x) * 0.02;
-        particle.y += (targetY - particle.y) * 0.02;
+        // Mouvement plus doux
+        particle.x += (targetX - particle.x) * 0.03;
+        particle.y += (targetY - particle.y) * 0.03;
       } else {
-        particle.vx += (Math.random() - 0.5) * 0.01;
-        particle.vy += (Math.random() - 0.5) * 0.01;
-        particle.vx *= 0.98;
-        particle.vy *= 0.98;
+        // Ajout d'un léger mouvement aléatoire
+        particle.vx += (Math.random() - 0.5) * 0.002;
+        particle.vy += (Math.random() - 0.5) * 0.002;
+        particle.vx *= 0.95; // Plus d'amortissement
+        particle.vy *= 0.95;
         
+        // Retour plus lent vers la position de base
         const dx = particle.baseX - particle.x;
         const dy = particle.baseY - particle.y;
-        particle.x += dx * 0.1;
-        particle.y += dy * 0.1;
+        particle.x += dx * 0.01;
+        particle.y += dy * 0.01;
         
         particle.x += particle.vx;
         particle.y += particle.vy;
