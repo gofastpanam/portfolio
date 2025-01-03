@@ -31,7 +31,7 @@ const BackgroundAnimation = () => {
     'rgba(199, 210, 254, 0.15)',  // Indigo très clair
   ], []);
 
-  const createParticles = useCallback((width: number, height: number) => {
+  const createParticles = useCallback(() => {
     const particleCount = 50; // Nombre fixe de particules
     const newParticles: Particle[] = [];
 
@@ -55,7 +55,7 @@ const BackgroundAnimation = () => {
     return newParticles;
   }, [colors, mousePosition]);
 
-  const updateParticles = useCallback((particles: Particle[], width: number, height: number) => {
+  const updateParticles = useCallback((particles: Particle[]) => {
     const ctx = canvasRef.current?.getContext('2d');
     if (!ctx) return;
 
@@ -90,7 +90,7 @@ const BackgroundAnimation = () => {
   const drawParticles = useCallback((ctx: CanvasRenderingContext2D, width: number, height: number) => {
     ctx.clearRect(0, 0, width, height);
     if (particlesRef.current) {
-      updateParticles(particlesRef.current, width, height);
+      updateParticles(particlesRef.current);
     }
   }, [updateParticles]);
 
@@ -112,7 +112,7 @@ const BackgroundAnimation = () => {
     const handleResize = () => {
       canvas.width = window.innerWidth;
       canvas.height = window.innerHeight;
-      particlesRef.current = createParticles(canvas.width, canvas.height);
+      particlesRef.current = createParticles();
     };
 
     const handleMouseMove = (event: MouseEvent) => {
