@@ -1,4 +1,4 @@
-import { useEffect, useRef, useCallback, useState, useMemo } from 'react';
+import { useEffect, useRef, useCallback, useMemo } from 'react';
 
 interface Particle {
   x: number;
@@ -8,91 +8,94 @@ interface Particle {
   alpha: number;
   vx: number;
   vy: number;
-  angle: number;
-  speed: number;
-  radius: number;
+  life: number;
 }
 
 interface MousePosition {
   x: number;
   y: number;
+  prevX: number;
+  prevY: number;
 }
 
 const BackgroundAnimation = () => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
-  const [mousePosition, setMousePosition] = useState<MousePosition>({ x: 0, y: 0 });
   const particlesRef = useRef<Particle[]>([]);
+  const mousePosition = useRef<MousePosition>({ x: 0, y: 0, prevX: 0, prevY: 0 });
   const animationFrameId = useRef<number>();
 
   const colors = useMemo(() => [
-    'rgba(147, 197, 253, 0.25)',  // Bleu clair
-    'rgba(139, 92, 246, 0.2)',    // Violet
-    'rgba(59, 130, 246, 0.2)',    // Bleu
-    'rgba(199, 210, 254, 0.15)',  // Indigo très clair
+    'rgba(147, 197, 253, 0.8)',  // Bleu clair
+    'rgba(139, 92, 246, 0.8)',   // Violet
+    'rgba(59, 130, 246, 0.8)',   // Bleu
+    'rgba(199, 210, 254, 0.8)',  // Indigo clair
   ], []);
 
-  const createParticles = useCallback(() => {
-    const particleCount = 50; // Nombre fixe de particules
-    const newParticles: Particle[] = [];
+  const createParticle = useCallback((x: number, y: number) => {
+    const angle = Math.random() * Math.PI * 2;
+    const speed = Math.random() * 2 + 1;
+    return {
+      x,
+      y,
+      size: Math.random() * 3 + 1,
+      color: colors[Math.floor(Math.random() * colors.length)],
+      alpha: 1,
+      vx: Math.cos(angle) * speed,
+      vy: Math.sin(angle) * speed,
+      life: 1
+    };
+  }, [colors]);
 
-    for (let i = 0; i < particleCount; i++) {
-      const angle = Math.random() * Math.PI * 2;
-      const radius = Math.random() * 150 + 50; // Distance du curseur entre 50 et 200 pixels
-      
-      newParticles.push({
-        x: mousePosition.x + Math.cos(angle) * radius,
-        y: mousePosition.y + Math.sin(angle) * radius,
-        size: Math.random() * 1 + 0.2,
-        color: colors[Math.floor(Math.random() * colors.length)],
-        alpha: Math.random() * 0.15 + 0.05,
-        vx: 0,
-        vy: 0,
-        angle: angle,
-        speed: Math.random() * 0.0005 + 0.0002, // Vitesse très lente
-        radius: radius
-      });
+  const updateParticles = useCallback((ctx: CanvasRenderingContext2D) => {
+    // Ajouter de nouvelles particules si la souris bouge
+    const dx = mousePosition.current.x - mousePosition.current.prevX;
+    const dy = mousePosition.current.y - mousePosition.current.prevY;
+    const distance = Math.sqrt(dx * dx + dy * dy);
+
+    if (distance > 0) {
+      const steps = Math.floor(distance / 5); // Une particule tous les 5 pixels
+
+      for (let i = 0; i < steps; i++) {
+        const x = mousePosition.current.prevX + (dx * i) / steps;
+        const y = mousePosition.current.prevY + (dy * i) / steps;
+        particlesRef.current.push(createParticle(x, y));
+      }
     }
-    return newParticles;
-  }, [colors, mousePosition]);
 
-  const updateParticles = useCallback((particles: Particle[]) => {
-    const ctx = canvasRef.current?.getContext('2d');
-    if (!ctx) return;
+    mousePosition.current.prevX = mousePosition.current.x;
+    mousePosition.current.prevY = mousePosition.current.y;
 
-    particles.forEach(particle => {
-      // Mise à jour de l'angle pour un mouvement circulaire très lent
-      particle.angle += particle.speed;
-      
-      // Calcul de la nouvelle position
-      particle.x = mousePosition.x + Math.cos(particle.angle) * particle.radius;
-      particle.y = mousePosition.y + Math.sin(particle.angle) * particle.radius;
+    // Mettre à jour et dessiner les particules
+    particlesRef.current = particlesRef.current.filter(particle => {
+      particle.x += particle.vx;
+      particle.y += particle.vy;
+      particle.vx *= 0.98;
+      particle.vy *= 0.98;
+      particle.life -= 0.02;
+      particle.alpha = particle.life;
 
-      // Effet de lueur
-      const glow = ctx.createRadialGradient(
-        particle.x,
-        particle.y,
-        0,
-        particle.x,
-        particle.y,
-        particle.size * 2
-      );
-      
-      glow.addColorStop(0, particle.color);
-      glow.addColorStop(1, 'rgba(0, 0, 0, 0)');
-      
-      ctx.fillStyle = glow;
-      ctx.beginPath();
-      ctx.arc(particle.x, particle.y, particle.size * 2, 0, Math.PI * 2);
-      ctx.fill();
+      if (particle.life > 0) {
+        const glow = ctx.createRadialGradient(
+          particle.x,
+          particle.y,
+          0,
+          particle.x,
+          particle.y,
+          particle.size * 2
+        );
+        
+        glow.addColorStop(0, particle.color.replace('0.8)', particle.alpha + ')'));
+        glow.addColorStop(1, 'rgba(0, 0, 0, 0)');
+        
+        ctx.fillStyle = glow;
+        ctx.beginPath();
+        ctx.arc(particle.x, particle.y, particle.size, 0, Math.PI * 2);
+        ctx.fill();
+        return true;
+      }
+      return false;
     });
-  }, [mousePosition]);
-
-  const drawParticles = useCallback((ctx: CanvasRenderingContext2D, width: number, height: number) => {
-    ctx.clearRect(0, 0, width, height);
-    if (particlesRef.current) {
-      updateParticles(particlesRef.current);
-    }
-  }, [updateParticles]);
+  }, [createParticle]);
 
   const animate = useCallback(() => {
     const canvas = canvasRef.current;
@@ -101,9 +104,10 @@ const BackgroundAnimation = () => {
     const ctx = canvas.getContext('2d');
     if (!ctx) return;
 
-    drawParticles(ctx, canvas.width, canvas.height);
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    updateParticles(ctx);
     animationFrameId.current = requestAnimationFrame(animate);
-  }, [drawParticles]);
+  }, [updateParticles]);
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -112,17 +116,16 @@ const BackgroundAnimation = () => {
     const handleResize = () => {
       canvas.width = window.innerWidth;
       canvas.height = window.innerHeight;
-      particlesRef.current = createParticles();
     };
 
     const handleMouseMove = (event: MouseEvent) => {
-      setMousePosition({ x: event.clientX, y: event.clientY });
+      mousePosition.current.x = event.clientX;
+      mousePosition.current.y = event.clientY;
     };
 
     window.addEventListener('resize', handleResize);
     window.addEventListener('mousemove', handleMouseMove);
     handleResize();
-
     animate();
 
     return () => {
@@ -132,7 +135,7 @@ const BackgroundAnimation = () => {
         cancelAnimationFrame(animationFrameId.current);
       }
     };
-  }, [animate, createParticles]);
+  }, [animate]);
 
   return (
     <div className="fixed inset-0 -z-10">
