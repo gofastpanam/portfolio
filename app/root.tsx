@@ -7,6 +7,7 @@ import {
 } from "@remix-run/react";
 import type { LinksFunction } from "@remix-run/node";
 import CustomCursor from "~/components/CustomCursor";
+import BackgroundAnimation from "~/components/BackgroundAnimation";
 
 import "./tailwind.css";
 import "./styles/cursor.css";
@@ -51,7 +52,8 @@ export default function App() {
         <Meta />
         <Links />
       </head>
-      <body>
+      <body className="bg-slate-900">
+        <BackgroundAnimation />
         <CustomCursor />
         <Outlet />
         <ScrollRestoration />
