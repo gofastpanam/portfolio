@@ -54,6 +54,51 @@ export default function Projects() {
       }
     },
     {
+      title: "Port Scanner Trap - Monitor. Detect. Defend.",
+      description: "Un outil de détection de scans de ports qui identifie et répond aux tentatives de reconnaissance réseau. Il détecte une large gamme de techniques de scan (SYN, FIN, XMAS, NULL, ACK, UDP, ICMP) et répond de manière appropriée pour tromper les scanners.",
+      shortDescription: "Système de détection et de réponse aux scans de ports réseau avec support multi-protocoles et logging détaillé.",
+      technologies: ["Python", "Npcap", "TCP/IP", "Network Security"],
+      image: "/images/PortScannerTrap.jpg",
+      github: "https://github.com/gofastpanam/PortScannerTrap",
+      technicalDetails: {
+        features: [
+          "Détection des scans TCP (SYN, FIN, XMAS, NULL, ACK, Window, Maimon)",
+          "Support des scans UDP et ICMP",
+          "Réponses automatiques adaptées à chaque type de scan",
+          "Rate limiting par IP source",
+          "Logging détaillé avec horodatage et informations réseau",
+          "Modes d'exécution console et arrière-plan"
+        ],
+        security: [
+          "Gestion sécurisée des privilèges administrateur",
+          "Protection contre la saturation des logs",
+          "Réponses actives pour tromper les scanners",
+          "Sélection automatique de l'interface réseau",
+          "Gestion robuste des erreurs"
+        ],
+        concepts: [
+          "Protocoles réseau (TCP/IP, UDP, ICMP)",
+          "Sécurité réseau et détection d'intrusion",
+          "Manipulation de paquets bas niveau",
+          "Multi-threading et performance"
+        ],
+        structure: [
+          "main.py - Point d'entrée du programme",
+          "scanner/ - Package principal",
+          "├── detector.py - Détection des scans",
+          "├── responder.py - Réponses aux scans",
+          "└── logger.py - Système de logging",
+          "requirements.txt - Dépendances Python"
+        ],
+        learnings: [
+          "Protocoles réseau et sécurité",
+          "Programmation système bas niveau",
+          "Gestion des performances réseau",
+          "Détection et réponse aux menaces"
+        ]
+      }
+    },
+    {
       title: "ImageCypher - Hide in Plain Sight",
       description: "ImageCypher est une application de stéganographie qui permet de cacher des messages secrets dans des images. L'application combine la technique LSB (Least Significant Bit) avec un chiffrement AES robuste pour garantir la confidentialité des messages.",
       shortDescription: "Cette application de stéganographie encode vos messages secrets dans les pixels d’une image via la méthode LSB et les sécurise avec un chiffrement AES.",
