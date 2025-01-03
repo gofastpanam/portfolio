@@ -32,7 +32,7 @@ export default function BackgroundAnimation() {
   ], []);
 
   const createParticles = useCallback((width: number, height: number) => {
-    const particleCount = Math.floor((width * height) / 8000); 
+    const particleCount = Math.floor((width * height) / 4000); 
     const newParticles: Particle[] = [];
 
     for (let i = 0; i < particleCount; i++) {
@@ -43,7 +43,7 @@ export default function BackgroundAnimation() {
         y,
         baseX: x,
         baseY: y,
-        size: Math.random() * 1.2 + 0.3,
+        size: Math.random() * 1.5 + 0.5,
         color: colors[Math.floor(Math.random() * colors.length)],
         alpha: Math.random() * 0.2 + 0.1,
         vx: (Math.random() - 0.5) * 0.1,
@@ -78,21 +78,21 @@ export default function BackgroundAnimation() {
       if (distance < particle.distance) {
         const force = (particle.distance - distance) / particle.distance;
         const angle = Math.atan2(dy, dx);
-        const targetX = particle.x + Math.cos(angle) * force * 0.015;
-        const targetY = particle.y + Math.sin(angle) * force * 0.015;
+        const targetX = particle.x + Math.cos(angle) * force * 0.3;
+        const targetY = particle.y + Math.sin(angle) * force * 0.3;
         
         particle.x += (targetX - particle.x) * 0.02;
         particle.y += (targetY - particle.y) * 0.02;
       } else {
-        particle.vx += (Math.random() - 0.5) * 0.005;
-        particle.vy += (Math.random() - 0.5) * 0.005;
+        particle.vx += (Math.random() - 0.5) * 0.01;
+        particle.vy += (Math.random() - 0.5) * 0.01;
         particle.vx *= 0.98;
         particle.vy *= 0.98;
         
         const dx = particle.baseX - particle.x;
         const dy = particle.baseY - particle.y;
-        particle.x += dx * 0.005;
-        particle.y += dy * 0.005;
+        particle.x += dx * 0.1;
+        particle.y += dy * 0.1;
         
         particle.x += particle.vx;
         particle.y += particle.vy;
@@ -104,7 +104,7 @@ export default function BackgroundAnimation() {
         0,
         particle.x,
         particle.y,
-        particle.size * 2
+        particle.size * 4
       );
       
       glow.addColorStop(0, particle.color);
