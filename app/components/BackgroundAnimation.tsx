@@ -6,11 +6,11 @@ interface Particle {
   size: number;
   color: string;
   alpha: number;
-  baseX: number;
-  baseY: number;
   vx: number;
   vy: number;
-  distance: number;
+  angle: number;
+  speed: number;
+  radius: number;
 }
 
 interface MousePosition {
@@ -18,127 +18,81 @@ interface MousePosition {
   y: number;
 }
 
-export default function BackgroundAnimation() {
+const BackgroundAnimation = () => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
-  const particles = useRef<Particle[]>([]);
-  const [mouse, setMouse] = useState<MousePosition>({ x: 0, y: 0 });
+  const [mousePosition, setMousePosition] = useState<MousePosition>({ x: 0, y: 0 });
+  const particlesRef = useRef<Particle[]>([]);
   const animationFrameId = useRef<number>();
 
   const colors = useMemo(() => [
-    'rgba(147, 197, 253, 0.4)',   // Bleu clair
-    'rgba(139, 92, 246, 0.3)',    // Violet
-    'rgba(59, 130, 246, 0.3)',    // Bleu
-    'rgba(199, 210, 254, 0.3)',   // Indigo très clair
+    'rgba(147, 197, 253, 0.25)',  // Bleu clair
+    'rgba(139, 92, 246, 0.2)',    // Violet
+    'rgba(59, 130, 246, 0.2)',    // Bleu
+    'rgba(199, 210, 254, 0.15)',  // Indigo très clair
   ], []);
 
   const createParticles = useCallback((width: number, height: number) => {
-    const particleCount = Math.floor((width * height) / 4000); 
+    const particleCount = 50; // Nombre fixe de particules
     const newParticles: Particle[] = [];
 
     for (let i = 0; i < particleCount; i++) {
-      const x = Math.random() * width;
-      const y = Math.random() * height;
+      const angle = Math.random() * Math.PI * 2;
+      const radius = Math.random() * 150 + 50; // Distance du curseur entre 50 et 200 pixels
+      
       newParticles.push({
-        x,
-        y,
-        baseX: x,
-        baseY: y,
-        size: Math.random() * 1.2 + 0.3,
+        x: mousePosition.x + Math.cos(angle) * radius,
+        y: mousePosition.y + Math.sin(angle) * radius,
+        size: Math.random() * 1 + 0.2,
         color: colors[Math.floor(Math.random() * colors.length)],
-        alpha: Math.random() * 0.15 + 0.1,
-        vx: (Math.random() - 0.5) * 0.05,
-        vy: (Math.random() - 0.5) * 0.05,
-        distance: 120
+        alpha: Math.random() * 0.15 + 0.05,
+        vx: 0,
+        vy: 0,
+        angle: angle,
+        speed: Math.random() * 0.0005 + 0.0002, // Vitesse très lente
+        radius: radius
       });
     }
+    return newParticles;
+  }, [colors, mousePosition]);
 
-    particles.current = newParticles;
-  }, [colors]);
+  const updateParticles = useCallback((particles: Particle[], width: number, height: number) => {
+    const ctx = canvasRef.current?.getContext('2d');
+    if (!ctx) return;
 
-  const drawParticles = useCallback((ctx: CanvasRenderingContext2D, width: number, height: number) => {
-    // Fond transparent pour laisser voir le dégradé
-    ctx.clearRect(0, 0, width, height);
+    particles.forEach(particle => {
+      // Mise à jour de l'angle pour un mouvement circulaire très lent
+      particle.angle += particle.speed;
+      
+      // Calcul de la nouvelle position
+      particle.x = mousePosition.x + Math.cos(particle.angle) * particle.radius;
+      particle.y = mousePosition.y + Math.sin(particle.angle) * particle.radius;
 
-    // Effet de "poussière d'étoiles" plus subtil
-    for (let i = 0; i < 20; i++) {
-      const x = Math.random() * width;
-      const y = Math.random() * height;
-      const radius = Math.random() * 0.6;
-      ctx.beginPath();
-      ctx.arc(x, y, radius, 0, Math.PI * 2);
-      ctx.fillStyle = `rgba(255, 255, 255, ${Math.random() * 0.1})`;
-      ctx.fill();
-    }
-
-    particles.current.forEach((particle, i) => {
-      const dx = mouse.x - particle.x;
-      const dy = mouse.y - particle.y;
-      const distance = Math.sqrt(dx * dx + dy * dy);
-
-      if (distance < particle.distance) {
-        // Force de répulsion inversée
-        const force = (particle.distance - distance) / particle.distance;
-        const angle = Math.atan2(dy, dx);
-        // Direction opposée à la souris (d'où le signe négatif)
-        const targetX = particle.x - Math.cos(angle) * force * 0.8;
-        const targetY = particle.y - Math.sin(angle) * force * 0.8;
-        
-        // Mouvement plus doux
-        particle.x += (targetX - particle.x) * 0.03;
-        particle.y += (targetY - particle.y) * 0.03;
-      } else {
-        // Ajout d'un léger mouvement aléatoire
-        particle.vx += (Math.random() - 0.5) * 0.002;
-        particle.vy += (Math.random() - 0.5) * 0.002;
-        particle.vx *= 0.95; // Plus d'amortissement
-        particle.vy *= 0.95;
-        
-        // Retour plus lent vers la position de base
-        const dx = particle.baseX - particle.x;
-        const dy = particle.baseY - particle.y;
-        particle.x += dx * 0.01;
-        particle.y += dy * 0.01;
-        
-        particle.x += particle.vx;
-        particle.y += particle.vy;
-      }
-
+      // Effet de lueur
       const glow = ctx.createRadialGradient(
         particle.x,
         particle.y,
         0,
         particle.x,
         particle.y,
-        particle.size * 4
+        particle.size * 2
       );
       
       glow.addColorStop(0, particle.color);
-      glow.addColorStop(0.5, particle.color.replace(', 0.', ', ' + (particle.alpha * 0.3).toFixed(2) + ')'));
-      glow.addColorStop(1, particle.color.replace(', 0.', ', 0)'));
-
-      ctx.beginPath();
+      glow.addColorStop(1, 'rgba(0, 0, 0, 0)');
+      
       ctx.fillStyle = glow;
+      ctx.beginPath();
       ctx.arc(particle.x, particle.y, particle.size * 2, 0, Math.PI * 2);
       ctx.fill();
-
-      particles.current.forEach((particle2, j) => {
-        if (i === j) return;
-        const dx = particle.x - particle2.x;
-        const dy = particle.y - particle2.y;
-        const distance = Math.sqrt(dx * dx + dy * dy);
-
-        if (distance < 80) {
-          ctx.beginPath();
-          const opacity = 0.05 * (1 - distance / 80);
-          ctx.strokeStyle = 'rgba(147, 197, 253, ' + opacity + ')';
-          ctx.lineWidth = 0.2;
-          ctx.moveTo(particle.x, particle.y);
-          ctx.lineTo(particle2.x, particle2.y);
-          ctx.stroke();
-        }
-      });
     });
-  }, [mouse]);
+  }, [mousePosition]);
+
+  const drawParticles = useCallback((ctx: CanvasRenderingContext2D, width: number, height: number) => {
+    ctx.clearRect(0, 0, width, height);
+    if (particlesRef.current) {
+      updateParticles(particlesRef.current, width, height);
+    }
+  }, [updateParticles]);
 
   const animate = useCallback(() => {
     const canvas = canvasRef.current;
@@ -158,16 +112,17 @@ export default function BackgroundAnimation() {
     const handleResize = () => {
       canvas.width = window.innerWidth;
       canvas.height = window.innerHeight;
-      createParticles(canvas.width, canvas.height);
+      particlesRef.current = createParticles(canvas.width, canvas.height);
     };
 
     const handleMouseMove = (event: MouseEvent) => {
-      setMouse({ x: event.clientX, y: event.clientY });
+      setMousePosition({ x: event.clientX, y: event.clientY });
     };
 
-    handleResize();
     window.addEventListener('resize', handleResize);
     window.addEventListener('mousemove', handleMouseMove);
+    handleResize();
+
     animate();
 
     return () => {
@@ -188,4 +143,6 @@ export default function BackgroundAnimation() {
       />
     </div>
   );
-}
+};
+
+export default BackgroundAnimation;
