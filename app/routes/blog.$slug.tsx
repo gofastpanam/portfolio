@@ -14,37 +14,40 @@ export const meta: MetaFunction = () => {
 };
 
 export async function loader({ params }: LoaderFunctionArgs) {
+  console.log("Loader appelé avec les paramètres:", params);
   const { slug } = params;
   
   if (!slug) {
+    console.error("Pas de slug trouvé dans les paramètres");
     throw new Response("Slug manquant", { status: 400 });
   }
 
   try {
     // Chemin absolu vers le dossier posts
     const postsDir = path.join(process.cwd(), 'app', 'posts');
+    console.log("Dossier posts:", postsDir);
     const filePath = path.join(postsDir, `${slug}.md`);
-    
-    console.log('Tentative de lecture du fichier:', filePath);
+    console.log("Chemin du fichier:", filePath);
     
     // Vérifier si le fichier existe
     try {
       await fs.access(filePath);
-    } catch {
-      console.error('Fichier non trouvé:', filePath);
+      console.log("Le fichier existe");
+    } catch (error) {
+      console.error("Erreur lors de la vérification du fichier:", error);
       throw new Response("Article non trouvé", { status: 404 });
     }
     
     // Lire et convertir le contenu
     const content = await fs.readFile(filePath, 'utf-8');
-    console.log('Contenu lu avec succès');
+    console.log("Contenu du fichier lu:", content.substring(0, 100) + "...");
     
     const htmlContent = marked(content);
-    console.log('Markdown converti en HTML');
+    console.log("HTML généré:", htmlContent.substring(0, 100) + "...");
     
     return json({ content: htmlContent });
   } catch (error) {
-    console.error('Erreur lors du chargement de l\'article:', error);
+    console.error("Erreur dans le loader:", error);
     if (error instanceof Response) {
       throw error;
     }
@@ -54,6 +57,7 @@ export async function loader({ params }: LoaderFunctionArgs) {
 
 export default function BlogPost() {
   const { content } = useLoaderData<typeof loader>();
+  console.log("Composant BlogPost rendu avec le contenu:", content.substring(0, 100) + "...");
   
   return (
     <div className="min-h-screen bg-transparent relative z-10">
