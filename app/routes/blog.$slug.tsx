@@ -13,6 +13,11 @@ export const meta: MetaFunction = () => {
   ];
 };
 
+interface LoaderData {
+  content: string;
+  slug: string;
+}
+
 export async function loader({ params, request }: LoaderFunctionArgs) {
   console.log("Loader appelé avec les paramètres:", params);
   console.log("URL de la requête:", request.url);
@@ -42,12 +47,15 @@ export async function loader({ params, request }: LoaderFunctionArgs) {
     
     // Lire et convertir le contenu
     const content = await fs.readFile(filePath, 'utf-8');
-    console.log("Contenu du fichier lu:", content.substring(0, 100) + "...");
+    console.log("Contenu du fichier lu (début):", content.slice(0, 100));
     
     const htmlContent = marked(content);
-    console.log("HTML généré:", htmlContent.substring(0, 100) + "...");
+    console.log("HTML généré (début):", htmlContent.slice(0, 100));
     
-    return json({ content: htmlContent, slug });
+    return json<LoaderData>({ 
+      content: htmlContent, 
+      slug 
+    });
   } catch (error) {
     console.error("Erreur dans le loader:", error);
     if (error instanceof Response) {
@@ -63,7 +71,7 @@ export default function BlogPost() {
   
   console.log("Matches:", matches);
   console.log("Slug actuel:", slug);
-  console.log("Composant BlogPost rendu avec le contenu:", content.substring(0, 100) + "...");
+  console.log("Contenu chargé (début):", typeof content === 'string' ? content.slice(0, 100) : 'Contenu non disponible');
   
   return (
     <div className="min-h-screen bg-transparent relative z-10">
