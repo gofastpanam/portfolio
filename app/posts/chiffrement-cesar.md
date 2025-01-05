@@ -47,7 +47,9 @@ C → F   (décalage de 3 positions)
 
 Pour illustrer le fonctionnement du chiffrement de César, j'ai développé **SafeMessage**, un programme en C qui non seulement implémente le chiffrement de base mais ajoute aussi des fonctionnalités d'analyse cryptographique.
 
-- [Découvrez le projet SafeMessage sur Github ici](https://github.com/gofastpanam/safemessage)
+</br>
+
+- [Accédez à SafeMessage sur Github](https://github.com/gofastpanam/safemessage)
 
 ### Structure du Programme
 

@@ -166,6 +166,15 @@ export default function BlogPost() {
               border-radius: 0.5rem !important;
               box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04) !important;
             }
+            .prose a {
+              color: rgb(96, 165, 250) !important;
+              text-decoration: none !important;
+              transition: color 0.2s ease !important;
+            }
+            .prose a:hover {
+              color: rgb(147, 197, 253) !important;
+              text-decoration: underline !important;
+            }
           `}} />
         </article>
       </main>
