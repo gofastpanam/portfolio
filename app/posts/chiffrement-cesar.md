@@ -43,7 +43,11 @@ C → F   (décalage de 3 positions)
   <img src="/images/safemessage.jpg" alt="SafeMessage">
 </div>
 
+</br> 
+
 Pour illustrer le fonctionnement du chiffrement de César, j'ai développé **SafeMessage**, un programme en C qui non seulement implémente le chiffrement de base mais ajoute aussi des fonctionnalités d'analyse cryptographique.
+
+- [Découvrez le projet SafeMessage sur Github ici](https://github.com/gofastpanam/safemessage)
 
 ### Structure du Programme
 
@@ -119,8 +123,6 @@ Cette fonction d'analyse :
 - Compte l'occurrence de chaque lettre
 - Calcule les pourcentages
 - Aide à la cryptanalyse en révélant les patterns
-
-![Exemple d'analyse de fréquence](https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/English_letter_frequency_%28alphabetic%29.svg/510px-English_letter_frequency_%28alphabetic%29.svg.png)
 
 <br>
 
@@ -250,7 +252,7 @@ Bien que simple, le chiffrement de César trouve encore des applications :
 
 ## Pour Aller Plus Loin
 
-- [Documentation complète de SafeMessage](https://github.com/votre-repo/safe-message)
+- [Documentation complète de SafeMessage](https://github.com/gofastpanam/safemessage)
 - [Histoire de la Cryptographie](https://fr.wikipedia.org/wiki/Histoire_de_la_cryptologie)
 - [Cryptographie Moderne](https://fr.wikipedia.org/wiki/Cryptographie_symétrique)
 
