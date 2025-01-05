@@ -83,7 +83,7 @@ export async function loader({ params }: LoaderFunctionArgs) {
 }
 
 export default function BlogPost() {
-  const { content, frontMatter, slug } = useLoaderData<typeof loader>();
+  const { content, frontMatter } = useLoaderData<typeof loader>();
   
   return (
     <div className="min-h-screen bg-transparent relative z-10">
