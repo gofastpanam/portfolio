@@ -46,15 +46,16 @@ export async function loader({ params, request }: LoaderFunctionArgs) {
     }
     
     // Lire et convertir le contenu
-    const fileContent = await fs.readFile(filePath, 'utf-8');
-    console.log("Contenu du fichier lu (début):", fileContent.slice(0, 100));
+    const rawContent: string = await fs.readFile(filePath, 'utf-8');
+    console.log("Contenu du fichier lu (début):", rawContent.substring(0, 100));
     
-    const htmlContent = marked(fileContent);
-    console.log("HTML généré (début):", htmlContent.slice(0, 100));
+    // Convertir le markdown en HTML de manière synchrone
+    const htmlContent: string = marked.parse(rawContent, { async: false }) as string;
+    console.log("HTML généré (début):", htmlContent.substring(0, 100));
     
-    return json<LoaderData>({ 
+    return json<LoaderData>({
       content: htmlContent,
-      slug 
+      slug
     });
   } catch (error) {
     console.error("Erreur dans le loader:", error);
@@ -71,7 +72,7 @@ export default function BlogPost() {
   
   console.log("Matches:", matches);
   console.log("Slug actuel:", slug);
-  console.log("Contenu chargé (début):", content.slice(0, 100));
+  console.log("Contenu chargé (début):", content.substring(0, 100));
   
   return (
     <div className="min-h-screen bg-transparent relative z-10">
