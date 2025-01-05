@@ -202,7 +202,7 @@ export default function Blog() {
 
                 {/* Bouton Lire la suite */}
                 <Link
-                  to={`/blog/${post.id}`}
+                  to={`/blog/${post.slug}`}
                   className="inline-flex items-center text-blue-600 hover:text-blue-700 transition-colors"
                 >
                   Lire la suite
