@@ -2,11 +2,21 @@ import { Link } from "@remix-run/react";
 import Header from "~/components/Header";
 import BackgroundAnimation from "~/components/BackgroundAnimation";
 
-
 export default function Blog() {
   const blogPosts = [
     {
       id: 1,
+      title: "Le Chiffrement de César : Une Introduction à la Cryptographie Antique",
+      excerpt: "Découvrez le chiffrement de César, une méthode historique de cryptographie, son fonctionnement et une implémentation moderne en C avec le programme SafeMessage.",
+      date: "5 Janvier 2025",
+      category: "Sécurité",
+      image: "/images/caesar-cipher.jpg",
+      readTime: "8 min",
+      tags: ["Cryptographie", "C", "Sécurité", "Algorithmes"],
+      slug: "chiffrement-cesar"
+    },
+    {
+      id: 2,
       title: "Les Design Patterns en Python",
       excerpt: "Découvrez comment utiliser efficacement les design patterns pour améliorer la qualité de votre code Python...",
       date: "3 Janvier 2025",
@@ -16,7 +26,7 @@ export default function Blog() {
       tags: ["Python", "Design Patterns", "Clean Code"]
     },
     {
-      id: 2,
+      id: 3,
       title: "Améliorez votre SEO avec SEO Titan : Guide complet",
       excerpt: "Découvrez comment SEO Titan vous aide à analyser vos pages web et optimiser votre SEO grâce à des rapports détaillés et des suggestions concrètes.",
       date: "2 Janvier 2025",
@@ -26,7 +36,7 @@ export default function Blog() {
       tags: ["SEO", "Analyse web", "Optimisation"]
     },
     {
-      id: 3,
+      id: 4,
       title: "Créer une UI moderne avec Tailwind",
       excerpt: "Les meilleures pratiques pour créer des interfaces utilisateur modernes et réactives avec Tailwind CSS...",
       date: "31 Décembre 2024",
@@ -36,7 +46,7 @@ export default function Blog() {
       tags: ["Tailwind", "CSS", "UI/UX"]
     },
     {
-      id: 4,
+      id: 5,
       title: "SEO Titan : Analyse Technique et Architecture",
       excerpt: "Plongée dans les coulisses de SEO Titan : découvrez comment j'ai développé un outil d'analyse SEO puissant en Python...",
       date: "30 Décembre 2024",
@@ -46,7 +56,7 @@ export default function Blog() {
       tags: ["Python", "SEO", "Architecture"]
     },
     {
-      id: 5,
+      id: 6,
       title: "Techniques Avancées de Web Scraping avec SEO Titan",
       excerpt: "Comment SEO Titan utilise le web scraping éthique pour analyser et améliorer le référencement de vos pages...",
       date: "29 Décembre 2024",
@@ -56,7 +66,7 @@ export default function Blog() {
       tags: ["Web Scraping", "Python", "SEO"]
     },
     {
-      id: 6,
+      id: 7,
       title: "SafeMessage : Cryptographie Moderne en C",
       excerpt: "Exploration détaillée de l'implémentation du chiffrement de César dans SafeMessage et des principes de cryptographie...",
       date: "28 Décembre 2024",
@@ -66,7 +76,7 @@ export default function Blog() {
       tags: ["C", "Cryptographie", "Sécurité"]
     },
     {
-      id: 7,
+      id: 8,
       title: "Optimisation des Performances avec SEO Titan",
       excerpt: "Comment j'ai optimisé SEO Titan pour analyser rapidement des milliers de pages web. Techniques et astuces...",
       date: "27 Décembre 2024",
@@ -76,7 +86,7 @@ export default function Blog() {
       tags: ["Python", "Performance", "SEO"]
     },
     {
-      id: 8,
+      id: 9,
       title: "Interface en Ligne de Commande : Le Cas de SafeMessage",
       excerpt: "Création d'une CLI intuitive et ergonomique en C. Retour d'expérience sur SafeMessage...",
       date: "26 Décembre 2024",
@@ -86,7 +96,7 @@ export default function Blog() {
       tags: ["C", "CLI", "UX"]
     },
     {
-      id: 9,
+      id: 10,
       title: "Analyse SEO Automatisée avec Python",
       excerpt: "Comment automatiser l'analyse SEO de vos sites web avec Python. Techniques utilisées dans SEO Titan...",
       date: "25 Décembre 2024",
@@ -96,7 +106,7 @@ export default function Blog() {
       tags: ["Python", "SEO", "Automatisation"]
     },
     {
-      id: 10,
+      id: 11,
       title: "Tests Unitaires en C : L'Exemple de SafeMessage",
       excerpt: "Mise en place de tests unitaires robustes pour des applications C. Retour d'expérience sur SafeMessage...",
       date: "24 Décembre 2024",
@@ -106,7 +116,7 @@ export default function Blog() {
       tags: ["C", "Testing", "Qualité"]
     },
     {
-      id: 11,
+      id: 12,
       title: "Gestion de la Mémoire en C : Cas Pratiques",
       excerpt: "Techniques avancées de gestion de la mémoire en C, illustrées par des exemples concrets de SafeMessage...",
       date: "23 Décembre 2024",
@@ -116,7 +126,7 @@ export default function Blog() {
       tags: ["C", "Mémoire", "Optimisation"]
     },
     {
-      id: 12,
+      id: 13,
       title: "SEO Technique : Au-delà des Bases",
       excerpt: "Techniques avancées de SEO technique implémentées dans SEO Titan. De l'analyse à l'optimisation...",
       date: "22 Décembre 2024",
