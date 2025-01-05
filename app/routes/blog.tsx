@@ -27,9 +27,8 @@ export default function Blog() {
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {blogPosts.map((post) => (
-            <Link
+            <div
               key={post.id}
-              to={post.slug}
               className="bg-gray-800 rounded-lg overflow-hidden hover:bg-gray-700 transition duration-300"
             >
               <div className="aspect-w-16 aspect-h-9">
@@ -47,7 +46,7 @@ export default function Blog() {
                 </div>
                 <h2 className="text-xl font-semibold text-white mb-2">{post.title}</h2>
                 <p className="text-gray-400 mb-4">{post.excerpt}</p>
-                <div className="flex flex-wrap gap-2">
+                <div className="flex flex-wrap gap-2 mb-4">
                   {post.tags.map((tag, index) => (
                     <span
                       key={index}
@@ -57,9 +56,15 @@ export default function Blog() {
                     </span>
                   ))}
                 </div>
-                <div className="mt-4 text-sm text-gray-400">{post.date}</div>
+                <div className="mt-4 text-sm text-gray-400 mb-4">{post.date}</div>
+                <Link
+                  to={`/blog/${post.slug}`}
+                  className="inline-block bg-blue-600 hover:bg-blue-700 text-white font-semibold px-4 py-2 rounded transition duration-300"
+                >
+                  Lire la suite
+                </Link>
               </div>
-            </Link>
+            </div>
           ))}
         </div>
       </main>

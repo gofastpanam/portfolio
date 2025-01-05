@@ -1,5 +1,5 @@
 import { LoaderFunctionArgs, json, MetaFunction } from "@remix-run/node";
-import { useLoaderData } from "@remix-run/react";
+import { useLoaderData, Link } from "@remix-run/react";
 import Header from "~/components/Header";
 import BackgroundAnimation from "~/components/BackgroundAnimation";
 import { promises as fs } from 'fs';
@@ -60,6 +60,14 @@ export default function BlogPost() {
       <Header />
       <BackgroundAnimation />
       <main className="container mx-auto px-4 py-12">
+        <div className="mb-8">
+          <Link
+            to="/blog"
+            className="inline-block bg-gray-700 hover:bg-gray-600 text-white font-semibold px-4 py-2 rounded transition duration-300"
+          >
+            ← Retour aux articles
+          </Link>
+        </div>
         <article 
           className="prose prose-invert lg:prose-xl mx-auto"
           dangerouslySetInnerHTML={{ __html: content }}
