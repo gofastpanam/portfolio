@@ -9,7 +9,7 @@ tags: ["cryptographie", "sécurité", "histoire", "algorithmes", "C", "programma
 # Le Chiffrement de César : Une Introduction à la Cryptographie Antique
 
 <div>
-  <img src="caesar-cipher.jpg" alt="Jules César et la cryptographie">
+  <img src="/images/caesar-cipher.jpg" alt="Jules César et la cryptographie">
 </div>
 
 <br>
@@ -40,7 +40,7 @@ C → F   (décalage de 3 positions)
 ## Implémentation Moderne : Le Projet SafeMessage
 
 <div>
-  <img src="safemessage.jpg" alt="SafeMessage">
+  <img src="/images/safemessage.jpg" alt="SafeMessage">
 </div>
 
 Pour illustrer le fonctionnement du chiffrement de César, j'ai développé **SafeMessage**, un programme en C qui non seulement implémente le chiffrement de base mais ajoute aussi des fonctionnalités d'analyse cryptographique.
@@ -120,7 +120,7 @@ Cette fonction d'analyse :
 - Calcule les pourcentages
 - Aide à la cryptanalyse en révélant les patterns
 
-![Exemple d'analyse de fréquence](https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/Cryptography_frequency_analysis_french.png/640px-Cryptography_frequency_analysis_french.png)
+![Exemple d'analyse de fréquence](https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/English_letter_frequency_%28alphabetic%29.svg/510px-English_letter_frequency_%28alphabetic%29.svg.png)
 
 <br>
 
