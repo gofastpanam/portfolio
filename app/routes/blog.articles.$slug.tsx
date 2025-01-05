@@ -127,13 +127,16 @@ export default function BlogPost() {
           </header>
 
           <div 
-            className="prose prose-invert prose-lg max-w-none
-                       prose-headings:text-blue-300
-                       prose-a:text-blue-400 prose-a:no-underline hover:prose-a:text-blue-300
-                       prose-strong:text-blue-200
-                       prose-code:text-blue-300 prose-code:bg-blue-950/30 prose-code:px-1 prose-code:rounded
-                       prose-blockquote:border-blue-500 prose-blockquote:bg-blue-950/30 prose-blockquote:rounded-r
-                       prose-img:rounded-lg prose-img:shadow-xl"
+            className="prose prose-invert prose-lg max-w-none text-gray-100
+                       prose-headings:text-white
+                       prose-p:text-gray-100
+                       prose-a:text-blue-300 prose-a:no-underline hover:prose-a:text-blue-200
+                       prose-strong:text-white
+                       prose-code:text-blue-200 prose-code:bg-blue-950/30 prose-code:px-1 prose-code:rounded
+                       prose-blockquote:border-blue-400 prose-blockquote:bg-blue-950/30 prose-blockquote:rounded-r prose-blockquote:text-gray-100
+                       prose-img:rounded-lg prose-img:shadow-xl
+                       prose-li:text-gray-100
+                       prose-table:text-gray-100"
             dangerouslySetInnerHTML={{ __html: content }}
           />
         </article>
