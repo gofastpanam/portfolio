@@ -46,6 +46,7 @@ COPY --from=builder --chown=appuser:appgroup /app/build ./build
 COPY --from=builder --chown=appuser:appgroup /app/public ./public
 COPY --from=builder --chown=appuser:appgroup /app/package*.json ./
 COPY --from=builder --chown=appuser:appgroup /app/start.sh ./start.sh
+COPY --from=builder --chown=appuser:appgroup /app/app/posts ./app/posts
 
 # Installation des dépendances de production uniquement
 ENV NODE_ENV=production
