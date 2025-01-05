@@ -21,13 +21,17 @@ export async function loader({ params }: LoaderFunctionArgs) {
   try {
     // Lire le fichier markdown
     const filePath = path.join(postsDir, `${slug}.md`);
+    console.log('Tentative de lecture du fichier:', filePath);
     const content = await fs.readFile(filePath, 'utf-8');
+    console.log('Contenu lu avec succès');
     
     // Convertir le markdown en HTML
     const htmlContent = marked(content);
+    console.log('Markdown converti en HTML');
     
     return json({ content: htmlContent });
   } catch (error) {
+    console.error('Erreur lors du chargement de l\'article:', error);
     throw new Response("Article non trouvé", { status: 404 });
   }
 }
