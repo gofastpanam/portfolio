@@ -54,7 +54,7 @@ export default function Projects() {
       }
     },
     {
-      title: "Port Scanner Trap - Monitor. Detect. Defend.",
+      title: "PortScannerTrap - Monitor. Detect. Defend.",
       description: "Un outil de détection de scans de ports qui identifie et répond aux tentatives de reconnaissance réseau. Il détecte une large gamme de techniques de scan (SYN, FIN, XMAS, NULL, ACK, UDP, ICMP) et répond de manière appropriée pour tromper les scanners.",
       shortDescription: "Système de détection et de réponse aux scans de ports réseau avec support multi-protocoles et logging détaillé.",
       technologies: ["Python", "Npcap", "TCP/IP", "Network Security"],

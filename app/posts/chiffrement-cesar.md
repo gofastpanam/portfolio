@@ -8,7 +8,11 @@ tags: ["cryptographie", "sécurité", "histoire", "algorithmes", "C", "programma
 
 # Le Chiffrement de César : Une Introduction à la Cryptographie Antique
 
-![Jules César et la cryptographie](https://upload.wikimedia.org/wikipedia/commons/thumb/6/62/Julius_Caesar_Coustou_Louvre_MR1798.jpg/640px-Julius_Caesar_Coustou_Louvre_MR1798.jpg)
+<div>
+  <img src="caesar-cipher.jpg" alt="Jules César et la cryptographie">
+</div>
+
+<br>
 
 ## Introduction à la Cryptographie Antique
 
@@ -17,6 +21,8 @@ Dans l'histoire fascinante de la cryptographie, le chiffrement de César représ
 ## Le Principe du Chiffrement de César
 
 ![Illustration du chiffrement de César](https://upload.wikimedia.org/wikipedia/commons/4/4a/Caesar_cipher_left_shift_of_3.svg)
+
+<br>
 
 Le chiffrement de César est une technique de substitution mono-alphabétique où chaque lettre du message original est décalée d'un nombre fixe de positions dans l'alphabet. Ce nombre, appelé "clé" ou "décalage", est le secret qui permet de chiffrer et déchiffrer les messages.
 
@@ -32,6 +38,10 @@ C → F   (décalage de 3 positions)
 ```
 
 ## Implémentation Moderne : Le Projet SafeMessage
+
+<div>
+  <img src="safemessage.jpg" alt="SafeMessage">
+</div>
 
 Pour illustrer le fonctionnement du chiffrement de César, j'ai développé **SafeMessage**, un programme en C qui non seulement implémente le chiffrement de base mais ajoute aussi des fonctionnalités d'analyse cryptographique.
 
@@ -51,6 +61,8 @@ Ces constantes définissent les limites du programme :
 - `MIN_SHIFT` et `MAX_SHIFT` : Définissent la plage de décalage valide
 
 ### Les Fonctions Principales
+
+<br>
 
 #### 1. Fonction de Chiffrement
 
@@ -73,6 +85,8 @@ Cette fonction est le cœur du programme. Elle :
 2. Parcourt chaque caractère du texte
 3. Ne modifie que les lettres, préservant la ponctuation
 4. Maintient la casse (majuscules/minuscules)
+
+<br>
 
 #### 2. Analyse de Fréquence
 
@@ -108,6 +122,8 @@ Cette fonction d'analyse :
 
 ![Exemple d'analyse de fréquence](https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/Cryptography_frequency_analysis_french.png/640px-Cryptography_frequency_analysis_french.png)
 
+<br>
+
 #### 3. Attaque par Force Brute
 
 ```c
@@ -126,6 +142,8 @@ Cette fonction :
 - Teste tous les décalages possibles
 - Permet de retrouver le message original sans connaître la clé
 - Démontre la vulnérabilité principale du chiffrement
+
+<br>
 
 ### Interface Utilisateur
 
