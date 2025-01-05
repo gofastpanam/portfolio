@@ -1,5 +1,5 @@
 import { LoaderFunctionArgs, json } from "@remix-run/node";
-import { useLoaderData } from "@remix-run/react";
+import { useLoaderData, useParams } from "@remix-run/react";
 import { MetaFunction } from "@remix-run/node";
 import Header from "~/components/Header";
 import BackgroundAnimation from "~/components/BackgroundAnimation";
@@ -14,11 +14,15 @@ export const meta: MetaFunction = () => {
   ];
 };
 
-export async function loader({ params }: LoaderFunctionArgs) {
+export async function loader({ request, params }: LoaderFunctionArgs) {
   const { slug } = params;
   
+  if (!slug) {
+    throw new Response("Slug manquant", { status: 400 });
+  }
+
   try {
-    // Construire le chemin absolu vers le fichier markdown
+    // Chemin absolu vers le dossier posts
     const postsDir = path.join(process.cwd(), 'app', 'posts');
     const filePath = path.join(postsDir, `${slug}.md`);
     
@@ -42,15 +46,16 @@ export async function loader({ params }: LoaderFunctionArgs) {
     return json({ content: htmlContent });
   } catch (error) {
     console.error('Erreur lors du chargement de l\'article:', error);
-    throw new Response(
-      error instanceof Response ? error.statusText : "Erreur lors du chargement de l'article",
-      { status: error instanceof Response ? error.status : 500 }
-    );
+    if (error instanceof Response) {
+      throw error;
+    }
+    throw new Response("Erreur lors du chargement de l'article", { status: 500 });
   }
 }
 
 export default function BlogPost() {
   const { content } = useLoaderData<typeof loader>();
+  const params = useParams();
   
   return (
     <div className="min-h-screen bg-transparent relative z-10">
