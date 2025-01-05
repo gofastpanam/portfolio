@@ -1,5 +1,5 @@
 import { LoaderFunctionArgs, json, MetaFunction } from "@remix-run/node";
-import { useLoaderData, Link } from "@remix-run/react";
+import { useLoaderData, Link, useMatches } from "@remix-run/react";
 import Header from "~/components/Header";
 import BackgroundAnimation from "~/components/BackgroundAnimation";
 import { promises as fs } from 'fs';
@@ -13,8 +13,10 @@ export const meta: MetaFunction = () => {
   ];
 };
 
-export async function loader({ params }: LoaderFunctionArgs) {
+export async function loader({ params, request }: LoaderFunctionArgs) {
   console.log("Loader appelé avec les paramètres:", params);
+  console.log("URL de la requête:", request.url);
+  
   const { slug } = params;
   
   if (!slug) {
@@ -45,7 +47,7 @@ export async function loader({ params }: LoaderFunctionArgs) {
     const htmlContent = marked(content);
     console.log("HTML généré:", htmlContent.substring(0, 100) + "...");
     
-    return json({ content: htmlContent });
+    return json({ content: htmlContent, slug });
   } catch (error) {
     console.error("Erreur dans le loader:", error);
     if (error instanceof Response) {
@@ -56,7 +58,11 @@ export async function loader({ params }: LoaderFunctionArgs) {
 }
 
 export default function BlogPost() {
-  const { content } = useLoaderData<typeof loader>();
+  const { content, slug } = useLoaderData<typeof loader>();
+  const matches = useMatches();
+  
+  console.log("Matches:", matches);
+  console.log("Slug actuel:", slug);
   console.log("Composant BlogPost rendu avec le contenu:", content.substring(0, 100) + "...");
   
   return (

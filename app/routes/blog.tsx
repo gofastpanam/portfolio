@@ -1,4 +1,3 @@
-import { Link } from "@remix-run/react";
 import Header from "~/components/Header";
 import BackgroundAnimation from "~/components/BackgroundAnimation";
 
