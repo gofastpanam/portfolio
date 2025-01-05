@@ -16,23 +16,36 @@ export const meta: MetaFunction = () => {
 
 export async function loader({ params }: LoaderFunctionArgs) {
   const { slug } = params;
-  const postsDir = path.join(process.cwd(), 'app', 'posts');
   
   try {
-    // Lire le fichier markdown
+    // Construire le chemin absolu vers le fichier markdown
+    const postsDir = path.join(process.cwd(), 'app', 'posts');
     const filePath = path.join(postsDir, `${slug}.md`);
+    
     console.log('Tentative de lecture du fichier:', filePath);
+    
+    // Vérifier si le fichier existe
+    try {
+      await fs.access(filePath);
+    } catch {
+      console.error('Fichier non trouvé:', filePath);
+      throw new Response("Article non trouvé", { status: 404 });
+    }
+    
+    // Lire et convertir le contenu
     const content = await fs.readFile(filePath, 'utf-8');
     console.log('Contenu lu avec succès');
     
-    // Convertir le markdown en HTML
     const htmlContent = marked(content);
     console.log('Markdown converti en HTML');
     
     return json({ content: htmlContent });
   } catch (error) {
     console.error('Erreur lors du chargement de l\'article:', error);
-    throw new Response("Article non trouvé", { status: 404 });
+    throw new Response(
+      error instanceof Response ? error.statusText : "Erreur lors du chargement de l'article",
+      { status: error instanceof Response ? error.status : 500 }
+    );
   }
 }
 
