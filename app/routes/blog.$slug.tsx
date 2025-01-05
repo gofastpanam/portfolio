@@ -46,14 +46,14 @@ export async function loader({ params, request }: LoaderFunctionArgs) {
     }
     
     // Lire et convertir le contenu
-    const content = await fs.readFile(filePath, 'utf-8');
-    console.log("Contenu du fichier lu (début):", content.slice(0, 100));
+    const fileContent = await fs.readFile(filePath, 'utf-8');
+    console.log("Contenu du fichier lu (début):", fileContent.slice(0, 100));
     
-    const htmlContent = marked(content);
+    const htmlContent = marked(fileContent);
     console.log("HTML généré (début):", htmlContent.slice(0, 100));
     
     return json<LoaderData>({ 
-      content: htmlContent, 
+      content: htmlContent,
       slug 
     });
   } catch (error) {
@@ -71,7 +71,7 @@ export default function BlogPost() {
   
   console.log("Matches:", matches);
   console.log("Slug actuel:", slug);
-  console.log("Contenu chargé (début):", typeof content === 'string' ? content.slice(0, 100) : 'Contenu non disponible');
+  console.log("Contenu chargé (début):", content.slice(0, 100));
   
   return (
     <div className="min-h-screen bg-transparent relative z-10">
