@@ -127,21 +127,46 @@ export default function BlogPost() {
           </header>
 
           <div 
-            className="prose prose-invert prose-lg max-w-none text-gray-100
-                       prose-h1:text-4xl prose-h1:font-bold prose-h1:mb-8 prose-h1:text-white prose-h1:border-b prose-h1:border-blue-500/30 prose-h1:pb-4
-                       prose-h2:text-3xl prose-h2:font-semibold prose-h2:text-blue-200 prose-h2:mt-12 prose-h2:mb-6
-                       prose-h3:text-2xl prose-h3:font-medium prose-h3:text-blue-300 prose-h3:mt-8 prose-h3:mb-4
-                       prose-p:text-gray-100 prose-p:leading-relaxed
-                       prose-a:text-blue-300 prose-a:no-underline hover:prose-a:text-blue-200
-                       prose-strong:text-white
-                       prose-code:text-blue-200 prose-code:bg-blue-950/30 prose-code:px-1 prose-code:rounded
-                       prose-pre:bg-gray-900/50 prose-pre:border prose-pre:border-blue-500/20
-                       prose-blockquote:border-blue-400 prose-blockquote:bg-blue-950/30 prose-blockquote:rounded-r prose-blockquote:text-gray-100
-                       prose-img:rounded-lg prose-img:shadow-xl
-                       prose-li:text-gray-100
-                       prose-table:text-gray-100"
+            className="prose prose-invert max-w-none text-gray-100"
             dangerouslySetInnerHTML={{ __html: content }}
           />
+          <style dangerouslySetInnerHTML={{ __html: `
+            .prose h1 {
+              font-size: 2.5rem !important;
+              font-weight: 700 !important;
+              margin-bottom: 2rem !important;
+              padding-bottom: 1rem !important;
+              border-bottom: 1px solid rgba(59, 130, 246, 0.3) !important;
+              color: white !important;
+            }
+            .prose h2 {
+              font-size: 2rem !important;
+              font-weight: 600 !important;
+              margin-top: 3rem !important;
+              margin-bottom: 1.5rem !important;
+              color: rgb(191, 219, 254) !important;
+            }
+            .prose h3 {
+              font-size: 1.5rem !important;
+              font-weight: 500 !important;
+              margin-top: 2rem !important;
+              margin-bottom: 1rem !important;
+              color: rgb(147, 197, 253) !important;
+            }
+            .prose p {
+              color: rgb(243, 244, 246) !important;
+              line-height: 1.75 !important;
+            }
+            .prose pre {
+              background-color: rgba(17, 24, 39, 0.5) !important;
+              border: 1px solid rgba(59, 130, 246, 0.2) !important;
+              padding: 1rem !important;
+            }
+            .prose img {
+              border-radius: 0.5rem !important;
+              box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04) !important;
+            }
+          `}} />
         </article>
       </main>
     </div>
