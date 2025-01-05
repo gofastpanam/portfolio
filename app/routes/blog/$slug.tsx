@@ -1,6 +1,5 @@
-import { LoaderFunctionArgs, json } from "@remix-run/node";
-import { useLoaderData, useParams } from "@remix-run/react";
-import { MetaFunction } from "@remix-run/node";
+import { LoaderFunctionArgs, json, MetaFunction } from "@remix-run/node";
+import { useLoaderData } from "@remix-run/react";
 import Header from "~/components/Header";
 import BackgroundAnimation from "~/components/BackgroundAnimation";
 import { promises as fs } from 'fs';
@@ -14,7 +13,7 @@ export const meta: MetaFunction = () => {
   ];
 };
 
-export async function loader({ request, params }: LoaderFunctionArgs) {
+export async function loader({ params }: LoaderFunctionArgs) {
   const { slug } = params;
   
   if (!slug) {
@@ -55,7 +54,6 @@ export async function loader({ request, params }: LoaderFunctionArgs) {
 
 export default function BlogPost() {
   const { content } = useLoaderData<typeof loader>();
-  const params = useParams();
   
   return (
     <div className="min-h-screen bg-transparent relative z-10">
