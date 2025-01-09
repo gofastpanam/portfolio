@@ -6,8 +6,6 @@ author: "Benjamin Jacob"
 tags: ["linux", "sécurité", "virtualisation", "kali", "vmware", "tutoriel"]
 ---
 
-# Comment installer Kali Linux sur VMware : Guide complet
-
 <div>
   <img src="/images/kali-linux-banner.jpg" alt="Kali Linux Banner">
 </div>
@@ -26,9 +24,13 @@ Avant de commencer l'installation, assurez-vous d'avoir :
    - VMware Workstation Player (version gratuite pour usage personnel)
    - Téléchargeable sur [le site officiel de VMWare](https://www.vmware.com/products/desktop-hypervisor/workstation-and-fusion)
 
+<br>
+
 <div>
   <img src="/images/vmware.jpg" alt="Page de téléchargement VMWare">
 </div>
+
+<br>
 
 2. **Configuration matérielle minimale** :
    - Processeur 64 bits avec virtualisation (Intel VT-x/AMD-V)
@@ -38,6 +40,8 @@ Avant de commencer l'installation, assurez-vous d'avoir :
 3. **Image ISO Kali Linux** :
    - Téléchargeable sur [le site officiel de Kali Linux](https://www.kali.org/get-kali/#kali-virtual-machines)
    - Choisir la version "Installer" pour une installation complète
+
+<br>
 
 <div>
   <img src="/images/kali-download.jpg" alt="Page de téléchargement Kali Linux">
@@ -78,6 +82,7 @@ Processeurs : 2 cœurs minimum
 Disque dur : 80 GB (dynamiquement alloué)
 Carte réseau : Mode Bridge (recommandé)
 ```
+<br>
 
 <div>
   <img src="/images/kali-on-vmware.jpg" alt="Création nouvelle VM VMware Kali Linux">
@@ -94,11 +99,15 @@ Carte réseau : Mode Bridge (recommandé)
    - Sélectionnez "Graphical Install"
    - Choisissez votre langue et disposition clavier
 
+<br>
+
 2. **Configuration Réseau** :
    ```bash
    Hostname: kali-pentest
    Domain: local
    ```
+
+<br>
 
 3. **Partitionnement** :
    - Utilisez le partitionnement guidé pour la simplicité
@@ -108,6 +117,8 @@ Carte réseau : Mode Bridge (recommandé)
    swap      : 4 GB
    /         : Reste de l'espace
    ```
+
+<br>
 
 4. **Création Utilisateur** :
    ```plaintext
@@ -121,17 +132,21 @@ Carte réseau : Mode Bridge (recommandé)
 
 Une fois le système installé, effectuez ces étapes essentielles :
 
+<br>
+
 1. **Mise à jour du système** :
    ```bash
    sudo apt update
    sudo apt full-upgrade -y
    sudo apt autoremove -y
    ```
+<br>
 
 2. **Installation des VMware Tools** :
    ```bash
    sudo apt install -y open-vm-tools-desktop
    ```
+<br>
 
 3. **Configuration du pare-feu** :
    ```bash
@@ -163,6 +178,7 @@ Une fois le système installé, effectuez ces étapes essentielles :
    passwd  # Pour l'utilisateur actuel
    sudo passwd root  # Pour le compte root
    ```
+<br>
 
 2. **Configuration SSH sécurisée** :
    ```bash
@@ -181,6 +197,8 @@ Une fois le système installé, effectuez ces étapes essentielles :
    - Activez la virtualisation dans le BIOS
    - Désactivez les effets visuels
 
+<br>
+
 2. **Problèmes réseau** :
    ```bash
    # Réinitialisation de la configuration réseau
@@ -192,6 +210,8 @@ Une fois le système installé, effectuez ces étapes essentielles :
 1. **Écran noir au démarrage** :
    - Ajoutez `nomodeset` aux options de démarrage
    - Mettez à jour les VMware Tools
+
+<br>
 
 2. **Pas d'accès Internet** :
    ```bash

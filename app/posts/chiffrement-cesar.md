@@ -6,8 +6,6 @@ author: "Benjamin Jacob"
 tags: ["cryptographie", "sécurité", "histoire", "algorithmes", "C", "programmation"]
 ---
 
-# Le Chiffrement de César : Une Introduction à la Cryptographie Antique
-
 <div>
   <img src="/images/caesar-cipher.jpg" alt="Jules César et la cryptographie">
 </div>
