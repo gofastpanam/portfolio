@@ -24,7 +24,7 @@ export default function Blog() {
       image: "/images/kali-linux-banner.jpg",
       readTime: "9 min",
       tags: ["Sécurité", "Pentest"],
-      slug: "kali Linux on VMWare"
+      slug: "installation-kali-linux-vmware"
     }
   ];
 
