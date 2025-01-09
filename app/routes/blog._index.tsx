@@ -14,6 +14,17 @@ export default function Blog() {
       readTime: "8 min",
       tags: ["Cryptographie", "C", "Sécurité", "Algorithmes"],
       slug: "chiffrement-cesar"
+    },
+    {
+      id: 2,
+      title: "Comment installer Kali Linux sur VMware : Guide complet",
+      excerpt: "Guide détaillé pour installer et configurer Kali Linux sur VMware, incluant les prérequis, la configuration optimale et les étapes post-installation pour une utilisation en sécurité informatique.",
+      date: "9 Janvier 2025",
+      category: "Sécurité",
+      image: "/images/kali-linux-banner.jpg",
+      readTime: "9 min",
+      tags: ["Sécurité", "Pentest"],
+      slug: "kali Linux on VMWare"
     }
   ];
 
